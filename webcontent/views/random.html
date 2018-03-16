@@ -1,0 +1,236 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<link href='/images/logo_icon.jpg' rel='icon' type='image/jpg'/>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<title>ne-svt.org</title><link href="/style/style1.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript">
+// Copyright 2006-2007 javascript-array.com
+
+var timeout	= 500;
+var closetimer	= 0;
+var ddmenuitem	= 0;
+
+// open hidden layer
+function mopen(id)
+{	
+	// cancel close timer
+	mcancelclosetime();
+
+	// close old layer
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+
+	// get new layer and show it
+	ddmenuitem = document.getElementById(id);
+	ddmenuitem.style.visibility = 'visible';
+
+}
+// close showed layer
+function mclose()
+{
+	if(ddmenuitem) ddmenuitem.style.visibility = 'hidden';
+}
+
+// go close timer
+function mclosetime()
+{
+	closetimer = window.setTimeout(mclose, timeout);
+}
+
+// cancel close timer
+function mcancelclosetime()
+{
+	if(closetimer)
+	{
+		window.clearTimeout(closetimer);
+		closetimer = null;
+	}
+}
+
+// close layer when click-out
+document.onclick = mclose; 
+</script>
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="header_column">
+	<table border="0" cellpadding="0" cellspacing="10" width="100%">
+      <tbody><tr>
+        <td class="logo_area"><img src="/images/logo2.png" />ne-svt </td>
+        
+      </tr>
+    </tbody></table></td>
+    <td class="shadow_right">&nbsp;</td>
+  </tr>
+ 
+  
+  <tr>
+    <td class="horizontal_column">&nbsp;</td>
+    <td class="horizontal_center"><table style="width: 100%;" class="linkcontainer" border="0" cellpadding="0" cellspacing="0">
+      <tbody><tr>
+<ul id="sddm">
+    <li><a href="/"> Home</a>
+        
+ </li>
+    <li><a href="/events/events.html"
+        onmouseover="mopen('m1')" 
+        onmouseout="mclosetime()">Events</a>
+        <div id="m1" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="/events/autocross.html">Autocross</a>
+        <a href="/events/track.html">Track Events</a>
+        <a href="/events/other.html">Other</a>
+        </div>
+    </li>
+    <li><a href="/faq/index.html"
+	        onmouseover="mopen('m2')" 
+        onmouseout="mclosetime()">FAQ</a>
+	
+	<div id="m2" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="/faq/what.html">What is Autocross?</a>
+        <a href="/faq/tech.html">Will I pass tech?</a>
+        <a href="/faq/devens.html">Where do you race?</a>
+		<a href="/faq/membership.html">How do I join?</a>
+		<a href="/faq/events.html">How do I sign up?</a>
+		
+        </div>
+	</li>
+         <li><a href="/gallery/index.html"
+	        onmouseover="mopen('m3')" 
+        onmouseout="mclosetime()">Gallery</a>
+	
+	<div id="m3" 
+            onmouseover="mcancelclosetime()" 
+            onmouseout="mclosetime()">
+        <a href="/gallery/last.html">Last Event</a>
+        <a href="/gallery/allevents.html">Previous Events</a>
+        <a href="/gallery/videos.html">Videos</a>
+
+        </div>
+    <li><a href="/contact.html">Contact</a></li>
+</ul>
+<div style="clear:both"></div>
+
+	  
+	  
+      </tr>
+    </tbody></table></td>
+    <td class="horizontal_column">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="below_header">
+	
+	Got your ass kicked?  Need an excuse?<br />Choose one from our list of finely constructed pre-approved excuses.
+	</td>
+    <td class="shadow_right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="main_content_box"><table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tbody><tr>
+	
+      <td class="left_content">Excuse Generator</td>
+        <td class="body_content"><strong></strong> <br />
+          <br /><h2>
+		  <script language="JavaScript">
+var excuse = new Array ();
+excuse[0] = "My tires were heat cycled out.";
+excuse[1] = "My shock settings were way off.";
+excuse[2] = "I couldn't get any heat in the tires.";
+excuse[3] = "Diarrhea.";
+excuse[4] = "My car keeps going into limp mode.";
+excuse[5] = "My car keeps going into ice mode. ";
+excuse[6] = "I worked every night this week leading up to the event.";
+excuse[7] = "I would have won if it were a PAXED event.";
+excuse[8] = "My car only makes 98 horsepower.";
+excuse[9] = "My car only makes 97 horsepower.";
+excuse[10] = "My car only makes 96 horsepower.";
+excuse[11] = "I need a better seat.";
+excuse[12] = "I was out til 3:30am last night.";
+excuse[13] = "It was a Miata course.";
+excuse[14] = "It was a Corvette course.";
+excuse[15] = "There was a two second cone out there.";
+excuse[16] = "The pizza gave me indigestion.";
+excuse[17] = "I had wicked allergies.";
+excuse[18] = "I didn't get to actually walk the course.";
+excuse[19] = "I wasn't cheating like everyone else.";
+excuse[20] = "The long course was too long for my tires.";
+excuse[21] = "I was hyperventilating.";
+excuse[22] = "I was tired from shagging cones.";
+excuse[23] = "Stimpy hasn't set my pressures and shown me the lines yet.";
+excuse[24] = "My car was down on power.";
+excuse[25] = "My clutch was slipping.";
+excuse[26] = "My kid had a hockey game I needed to leave for.";
+excuse[27] = "My car was in the wrong class.";
+excuse[28] = "The instructor screwed me up.";
+excuse[29] = "My opponent put sugar in my gas tank.";
+excuse[30] = "My car was on fire.";
+excuse[31] = "My car needs an alignment.";
+excuse[32] = "My seat had fart juice in it.";
+excuse[33] = "I didn't have my Pilotis.";
+excuse[34] = "I forgot to turn off the traction control.";
+excuse[35] = "I corded a tire.";
+excuse[36] = "My diff needs a rebuild.";
+excuse[37] = "I was trying left foot braking.";
+excuse[38] = "My ABS wasn't working.";
+excuse[39] = "The zip tie holding my car together let go.";
+excuse[40] = "My pony tail hair got in my eyes.";
+excuse[41] = "I was hypermiling.";
+excuse[42] = "I am saving my good tires for an SCCA / COM event.";
+excuse[43] = "We are dual driving so its overheating the tires.";
+excuse[44] = "There was a cone out of place, but now its back.";
+excuse[45] = "One of the novices called me off course when I wasn't.";
+excuse[46] = "my car is stock, everyone else has mods.";
+excuse[47] = "I'm not actually competing, I'm just shaking down for a road course event.";
+excuse[48] = "My torque tube is messed.";
+excuse[49] = "I was nauseous.";
+excuse[50] = "I'm just here to have fun, I don't care about winning.";
+excuse[51] = "My car is a momentum car, this is a power course."
+excuse[52] = "They changed the street tire treadwear cutoff to 140.";
+excuse[53] = "I was on a cool down lap.";
+var i = Math.floor(54*Math.random())
+
+document.write(excuse[i]);
+
+//-->
+</script>
+</h2>
+<form><input type=button value="Generate Excuse" onClick="window.location.reload()"></form>
+		  
+		  <br /><br /><br />
+ </td>
+      </tr>
+	  
+	
+	  
+	  
+	  
+	  
+    </tbody></table></td>
+    <td class="shadow_right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="middle_spacer"><div class="bottom_content">
+ne-svt.org	
+	</div></td>
+    <td class="shadow_right">&nbsp;</td>
+  </tr>
+  <tr>
+    <td class="shadow_left">&nbsp;</td>
+    <td class="bottom_link_container">
+	<p>
+		<!-- <a href="#" class="bottom_link">Link</a> | <a href="#" class="bottom_link">Link</a> | <a href="#" class="bottom_link">Link</a> | <a href="#" class="bottom_link">Link</a> | <a href="#" class="bottom_link">Link</a> !-->
+	</p>
+    <p>All Right Reserved � 2011<br />
+    </p></td>
+    <td class="shadow_right">&nbsp;</td>
+  </tr>
+</tbody></table>
+</body></html>

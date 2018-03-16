@@ -1,0 +1,28 @@
+{
+    "event_name": "ne-svt",
+    "drivers": [{
+            "name": "cory",
+            "car": "mazda",
+            "runs": [{
+                "dnf": true,
+                "time": "65.000",
+                "cones": 3
+            }]
+        },
+        {
+            "name": "john",
+            "car": "mazda",
+            "runs": [{
+                    "dnf": true,
+                    "time": "65.000",
+                    "cones": 1
+                },
+                {
+                    "dnf": false,
+                    "time": "65.000",
+                    "cones": 0
+                }
+            ]
+        }
+    ]
+}
