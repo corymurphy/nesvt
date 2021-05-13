@@ -5,11 +5,23 @@ on:
     branches: [ master ]
 
 jobs:
-  test_pull_request:
+  pull_request:
     runs-on: ubuntu-latest
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Perform a Pester test from the command-line
+      - name: build website
         shell: pwsh
         run: ./Build-Website
+      - name: echo env
+        shell: pwsh
+        run: write-host ${{ secrets.CORYS_SECRET }}
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /dev/
+          local-dir: ./webcontent/
+          protocol: ftp
