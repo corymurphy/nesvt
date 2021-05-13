@@ -10,10 +10,10 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: Perform a Pester test from the command-line
+      - name: build website
         shell: pwsh
         run: ./Build-Website
       - name: echo env
         shell: pwsh
-        run: write-host $env:CORYS_SECRET
+        run: write-host ${{ secrets.CORYS_SECRET }}
 
