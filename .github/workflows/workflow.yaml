@@ -1,0 +1,15 @@
+name: nesvt.vnext cicd pipeline
+
+on:
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  test_pull_request:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: Perform a Pester test from the command-line
+        shell: pwsh
+        run: ./Build-Website
