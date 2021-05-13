@@ -13,3 +13,6 @@ jobs:
       - name: Perform a Pester test from the command-line
         shell: pwsh
         run: ./Build-Website
+      - name: echo env
+        shell: pwsh
+        run: write-host $env:CORYS_SECRET
