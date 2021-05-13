@@ -23,5 +23,5 @@ jobs:
           username: ${{ secrets.ftp_username }}
           password: ${{ secrets.ftp_password }}
           server-dir: /dev/
-          local-dir: ./webwebcontent/
+          local-dir: ./webcontent/
           protocol: ftp
