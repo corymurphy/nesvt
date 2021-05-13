@@ -16,3 +16,4 @@ jobs:
       - name: echo env
         shell: pwsh
         run: write-host $env:CORYS_SECRET
+
