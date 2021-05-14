@@ -13,9 +13,11 @@ jobs:
       - name: build website
         shell: pwsh
         run: ./Build-Website
-      - name: echo env
-        shell: pwsh
-        run: write-host ${{ secrets.CORYS_SECRET }}
+      - name: inject secrets
+        run: envsubst < ./webcontent/contact.php.tpl > ./webcontent/contact.php
+        env:
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:

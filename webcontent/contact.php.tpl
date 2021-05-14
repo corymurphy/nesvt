@@ -48,7 +48,7 @@ function validateForm()
   function sendEmail() 
   {
     
-    $email_to = "<TODO>";
+    $email_to = "$CONTACT_EMAIL";
 
     $email_subject = "NESVT Contact Request";
 
@@ -103,7 +103,7 @@ function validateForm()
     die(); 
   }
 
-  $privatekey = "";
+  $privatekey = "$CAPTCHA_PRIVATE_KEY";
 
 
   $captchaResponse = $_POST['g-recaptcha-response'];
