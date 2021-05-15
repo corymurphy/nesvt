@@ -1,0 +1,13 @@
+
+on:
+  push:
+    branches: [ master, main ]
+
+jobs:
+  build_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository code
+        uses: actions/checkout@v2
+      - name: only on default branch
+        run: echo "hello world"
