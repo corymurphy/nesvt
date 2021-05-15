@@ -14,7 +14,7 @@ jobs:
         shell: pwsh
         run: ./Build-Website
       - name: inject secrets
-        run: envsubst < ./webcontent/contact.php.tpl > ./webcontent/contact.php
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./webcontent/contact.php.tpl > ./webcontent/contact.php
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
