@@ -9,5 +9,20 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: only on default branch
-        run: echo "hello world"
+      - name: build website
+        shell: pwsh
+        run: ./Build-Website
+      - name: inject secrets
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./webcontent/contact.php.tpl > ./webcontent/contact.php
+        env:
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: ./
+          local-dir: ./webcontent/
+          protocol: ftp
