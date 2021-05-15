@@ -48,9 +48,9 @@ function validateForm()
   function sendEmail() 
   {
     
-    $email_to = "<TODO>";
+    $email_to = "${CONTACT_EMAIL}";
 
-    $email_subject = "NESVT Contact Request";
+    $email_subject = "NE-SVT Contact Request";
 
     validateForm();
 
@@ -103,13 +103,11 @@ function validateForm()
     die(); 
   }
 
-  $privatekey = "";
-
+  $privatekey = "${CAPTCHA_PRIVATE_KEY}";
 
   $captchaResponse = $_POST['g-recaptcha-response'];
 
-
-  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=&response=".$captchaResponse."&remoteip=".$_SERVER['REMOTE_ADDR']);
+  $response = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$privatekey."&response=".$captchaResponse."&remoteip=".$_SERVER['REMOTE_ADDR']);
   $obj = json_decode($response);
   if($obj->success == true)
   {
@@ -121,6 +119,5 @@ function validateForm()
   {
     redirectError();
   }
-
 
 ?>
