@@ -5,7 +5,7 @@
             "car": "mazda",
             "runs": [{
                 "dnf": true,
-                "time": "65.000",
+                "time": "65.001",
                 "cones": 3
             }]
         },
