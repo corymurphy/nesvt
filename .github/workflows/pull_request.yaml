@@ -2,7 +2,7 @@ name: nesvt.vnext cicd pipeline
 
 on:
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   pull_request:
