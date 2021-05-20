@@ -4,6 +4,7 @@
             "name": "cory",
             "car": "mazda",
             "class": "es",
+            "position": 3,
             "runs": [{
                 "dnf": true,
                 "time": "65.001",
@@ -14,12 +15,15 @@
             "name": "john",
             "car": "mazda",
             "class": "es",
+            "position": 2,
             "runs": [{
+                    "number": 1,
                     "dnf": true,
                     "time": "65.000",
                     "cones": 1
                 },
                 {
+                    "number": 2,
                     "dnf": false,
                     "time": "65.000",
                     "cones": 0

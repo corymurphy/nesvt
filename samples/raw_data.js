@@ -1,4 +1,4 @@
-[{
+raw_data = [{
     "#": "309",
     "CarColor": "Black",
     "CarModel": "2010 Honda Accord L",

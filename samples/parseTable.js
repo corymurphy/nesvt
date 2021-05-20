@@ -43,7 +43,7 @@ function mapRow(headings) {
             }
 
             return Object.assign(result, {
-                [headings[i]]: value
+                [headings[i].replace(" ", "")]: value
             });
         }, {});
     };
@@ -84,22 +84,78 @@ results = []
 
 // }
 
+// var allCustomerName = details.map(obj=>
+//     obj.customerDetails[0].customerName);
+//     console.log(allCustomerName);
+
+// let keys = Object.keys(data.ASSETMboSet.ASSET[0].Attributes)
+
+// console.log("keys = ", keys)
+
 // let arr = [1, 2, 3, 4, 5];
+
+
+function getConeHits(entry) {
+
+    if (entry.includes("+")) {
+
+    }
+}
+
+function parseRuns(record) {
+
+
+    // }, {
+    //     number: 2,
+    //     time: "79.371"
+    //   }, {
+    //     number: 3,
+    //     time: "80.875+1"
+    //   }, {
+    //     number: 4,
+    //     time: "79.253+dnf"
+    //   }, {
+
+    runs = []
+
+    for (let i = 0; i < Object.keys(record).length; i++) {
+
+        entry = Object.keys(record)[i]
+
+        if (entry.includes("Run")) {
+            number = parseInt(entry.replace("Run", "").replace("..", ""))
+            runs.push({
+                "number": number,
+                "time": record[entry],
+                "dnf": record[entry].includes("dnf")
+            })
+        }
+
+    }
+
+    return runs
+}
+
 for (let i = 0; i < raw_data.length; i++) {
 
-    record = raw_data[i];
-
-    if (!('Driver' in record)) {
+    if (!('Driver' in raw_data[i])) {
         continue;
     }
 
-    console.log(raw_data[i].Driver);
+    result = {
+        "name": raw_data[i].Driver,
+        "class": raw_data[i].Class,
+        "car": raw_data[i].CarModel,
+        "runs": parseRuns(raw_data[i])
+    }
 
     if (raw_data[i + 1].Driver == 0) {
         // these are extra runs, skip for now
         i++
-
     }
 
+    results.push(result)
 
 }
+
+console.log(results);
