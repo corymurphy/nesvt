@@ -1,30 +1,4 @@
 /**
- * @license
- *
- * The MIT License (MIT)
- *
- * Copyright (c) 2014 Nick Williams
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in
- * all copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
- * THE SOFTWARE.
- */
-
-/**
  * generates factory functions to convert table rows to objects,
  * based on the titles in the table's <thead>
  * @param  {Array<String>} headings the values of the table's <thead>
@@ -65,15 +39,6 @@ function parseTable(table) {
 
     return [...table.tBodies[0].rows].map(mapRow(headings));
 }
-
-var table = document.querySelectorAll("table")[3]
-
-
-var output = document.querySelector("pre");
-var raw_data = parseTable(table);
-
-
-results = []
 
 function getConeHits(entry) {
 
@@ -147,28 +112,56 @@ function isTrophy(pos) {
     return pos.includes("T")
 }
 
-for (let i = 0; i < raw_data.length; i++) {
-
-    if (!('Driver' in raw_data[i])) {
-        continue;
+function getNextRow(data, i) {
+    if (i + 1 < data.length) {
+        return data[i + 1]
+    } else {
+        return null
     }
-
-    result = {
-        "name": raw_data[i].Driver,
-        "class": raw_data[i].Class,
-        "car": raw_data[i].CarModel,
-        "runs": parseRuns(raw_data[i], raw_data[i + 1]),
-        "trophy": isTrophy(raw_data[i]["Pos."]),
-        "position": parsePosition(raw_data[i]["Pos."])
-    }
-
-    if (raw_data[i + 1].Driver == 0) {
-        // these are extra runs, skip for now
-        i++
-    }
-
-    results.push(result)
-
 }
+
+function parseResults(data) {
+
+    var results = [];
+
+    // start at 1 to because it's the table header, and because
+    // why not use the actual table head directive?
+    for (let i = 1; i < data.length; i++) {
+
+        row = data[i];
+
+        // because we're dealing with silly nonsense, the next row contains
+        // additional runs, but there is no indication it's included with this row.
+        next_row = getNextRow(data, i)
+
+        // skip if table line break
+        // imagine how much less stupid this code would be if
+        // they used web concepts from the last 20 years?
+        if (!('Driver' in row)) {
+            continue;
+        }
+
+        result = {
+            "name": row.Driver,
+            "class": row.Class,
+            "car": row.CarModel,
+            "runs": parseRuns(row, next_row),
+            "trophy": isTrophy(row["Pos."]),
+            "position": parsePosition(row["Pos."])
+        }
+
+        // these are extra runs, skip for now
+        if (next_row) {
+            i++
+        }
+
+        results.push(result)
+    }
+    return results;
+}
+
+var table = document.querySelectorAll("table")[3]
+var output = document.querySelector("pre");
+var results = parseResults(parseTable(table));
 
 console.log(results);
