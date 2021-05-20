@@ -3,6 +3,7 @@
     "drivers": [{
             "name": "cory",
             "car": "mazda",
+            "class": "es",
             "runs": [{
                 "dnf": true,
                 "time": "65.001",
@@ -12,6 +13,7 @@
         {
             "name": "john",
             "car": "mazda",
+            "class": "es",
             "runs": [{
                     "dnf": true,
                     "time": "65.000",

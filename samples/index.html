@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>parseTable</title>
+</head>
+
+<body>
+    <table>
+        <thead>
+            <tr>
+                <th>name</th>
+                <th>age</th>
+                <th>eye colour</th>
+                <th>coffee?</th>
+                <th>food</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>dave</td>
+                <td>35</td>
+                <td>blue</td>
+                <td><input type="checkbox" checked /></td>
+                <td><input type="text" value="sandwich" /></td>
+            </tr>
+            <tr>
+                <td>sarah</td>
+                <td>29</td>
+                <td>brown</td>
+                <td><input type="checkbox" checked /></td>
+                <td><input type="text" value="soup" /></td>
+            </tr>
+            <tr>
+                <td>john</td>
+                <td>42</td>
+                <td>green</td>
+                <td><input type="checkbox" /></td>
+                <td><input type="text" value="stew" /></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pre></pre>
+
+    <script src="parseTable.js"></script>
+    <script>
+        var table = document.querySelector("table");
+        var output = document.querySelector("pre");
+        var data = parseTable(table);
+
+        // OUTPUTS
+        // =======
+        //
+        // [
+        //   {
+        //     name: "dave",
+        //     age: "35",
+        //     "eye colour": "blue",
+        //     "coffee?": true,
+        //     food: "sandwich"
+        //   },
+        //   {
+        //     name: "sarah",
+        //     age: "29",
+        //     "eye colour": "brown",
+        //     "coffee?": true,
+        //     food: "soup"
+        //   },
+        //   {
+        //     name: "john",
+        //     age: "42",
+        //     "eye colour": "green",
+        //     "coffee?": false,
+        //     food: "stew"
+        //   }
+        // ]
+    </script>
+</body>
+
+</html>
