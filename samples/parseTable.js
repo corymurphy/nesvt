@@ -135,6 +135,18 @@ function parseRuns(records, extended) {
     return runs
 }
 
+function parsePosition(pos) {
+    if (pos.includes("T")) {
+        return parseInt(pos.replace("T", ""));
+    } else {
+        return parseInt(pos);
+    }
+}
+
+function isTrophy(pos) {
+    return pos.includes("T")
+}
+
 for (let i = 0; i < raw_data.length; i++) {
 
     if (!('Driver' in raw_data[i])) {
@@ -145,7 +157,9 @@ for (let i = 0; i < raw_data.length; i++) {
         "name": raw_data[i].Driver,
         "class": raw_data[i].Class,
         "car": raw_data[i].CarModel,
-        "runs": parseRuns(raw_data[i], raw_data[i + 1])
+        "runs": parseRuns(raw_data[i], raw_data[i + 1]),
+        "trophy": isTrophy(raw_data[i]["Pos."]),
+        "position": parsePosition(raw_data[i]["Pos."])
     }
 
     if (raw_data[i + 1].Driver == 0) {
