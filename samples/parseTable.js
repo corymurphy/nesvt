@@ -97,40 +97,59 @@ results = []
 
 function getConeHits(entry) {
 
-    if (entry.includes("+")) {
+    if (entry.includes("dnf")) {
+        return 0
+    }
 
+    if (entry.includes("+")) {
+        return parseInt(entry.split("+")[1]);
+    } else {
+        return 0;
     }
 }
 
-function parseRuns(record) {
+function getTime(entry) {
+    if (entry.includes("+")) {
+        return entry.split("+")[0]
+    } else {
+        return entry
+    }
+}
 
-
-    // }, {
-    //     number: 2,
-    //     time: "79.371"
-    //   }, {
-    //     number: 3,
-    //     time: "80.875+1"
-    //   }, {
-    //     number: 4,
-    //     time: "79.253+dnf"
-    //   }, {
+function parseRuns(records, extended) {
 
     runs = []
 
-    for (let i = 0; i < Object.keys(record).length; i++) {
+    for (let i = 0; i < Object.keys(records).length; i++) {
 
-        entry = Object.keys(record)[i]
+        key = Object.keys(records)[i]
 
-        if (entry.includes("Run")) {
-            number = parseInt(entry.replace("Run", "").replace("..", ""))
+        if (key.includes("Run")) {
+            number = parseInt(key.replace("Run", "").replace("..", ""))
             runs.push({
                 "number": number,
-                "time": record[entry],
-                "dnf": record[entry].includes("dnf")
+                "time": getTime(records[key]),
+                "dnf": records[key].includes("dnf"),
+                "cones": getConeHits(records[key]),
+                "raw": records[key]
             })
         }
+    }
 
+    for (let i = 0; i < Object.keys(extended).length; i++) {
+
+        key = Object.keys(extended)[i]
+
+        if (key.includes("Run")) {
+            number = parseInt(key.replace("Run", "").replace("..", ""))
+            runs.push({
+                "number": number + 10,
+                "time": getTime(extended[key]),
+                "dnf": extended[key].includes("dnf"),
+                "cones": getConeHits(extended[key]),
+                "raw": extended[key]
+            })
+        }
     }
 
     return runs
@@ -146,7 +165,7 @@ for (let i = 0; i < raw_data.length; i++) {
         "name": raw_data[i].Driver,
         "class": raw_data[i].Class,
         "car": raw_data[i].CarModel,
-        "runs": parseRuns(raw_data[i])
+        "runs": parseRuns(raw_data[i], raw_data[i + 1])
     }
 
     if (raw_data[i + 1].Driver == 0) {
