@@ -1,4 +1,9 @@
 /**
+ * 
+    Pulled mapRow and parseTable from https://gist.github.com/WickyNilliams/9252235 and modified for our use.
+ */
+
+/**
  * generates factory functions to convert table rows to objects,
  * based on the titles in the table's <thead>
  * @param  {Array<String>} headings the values of the table's <thead>
@@ -32,7 +37,6 @@ function mapRow(headings) {
  * @return {Array<Object>}       array of objects representing each row in the table
  */
 function parseTable(table) {
-    // table.tBodies[0].rows[0]
     var headings = [...table.tBodies[0].rows[0].cells].map(
         heading => heading.innerText
     );
@@ -160,8 +164,8 @@ function parseResults(data) {
     return results;
 }
 
-var table = document.querySelectorAll("table")[3]
-var output = document.querySelector("pre");
-var results = parseResults(parseTable(table));
+// var table = document.querySelectorAll("table")[3]
+// var output = document.querySelector("pre");
+// var results = parseResults(parseTable(table));
 
-console.log(results);
+// console.log(results);
