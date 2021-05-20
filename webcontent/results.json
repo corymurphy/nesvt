@@ -5,6 +5,7 @@
             "car": "mazda",
             "class": "es",
             "position": 3,
+            "trophy": false,
             "runs": [{
                 "number": 1,
                 "dnf": true,
@@ -16,6 +17,7 @@
             "name": "john",
             "car": "mazda",
             "class": "es",
+            "trophy": true,
             "position": 2,
             "runs": [{
                     "number": 1,
