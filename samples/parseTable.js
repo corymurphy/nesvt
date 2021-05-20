@@ -72,28 +72,8 @@ var table = document.querySelectorAll("table")[3]
 var output = document.querySelector("pre");
 var raw_data = parseTable(table);
 
-// console.log(raw_data)
 
 results = []
-
-// const animals = ['dog', 'cat', 'mouse'];
-// animals.push('rabbit', 'turtle');
-// console.log(animals);
-
-// for (let i in raw_data) {
-
-// }
-
-// var allCustomerName = details.map(obj=>
-//     obj.customerDetails[0].customerName);
-//     console.log(allCustomerName);
-
-// let keys = Object.keys(data.ASSETMboSet.ASSET[0].Attributes)
-
-// console.log("keys = ", keys)
-
-// let arr = [1, 2, 3, 4, 5];
-
 
 function getConeHits(entry) {
 
