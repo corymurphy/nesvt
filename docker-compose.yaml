@@ -1,0 +1,34 @@
+version: "3.9"
+services:
+  build:
+    image: mcr.microsoft.com/powershell
+    command: pwsh ./Build-Website.ps1
+    volumes:
+      - .:/app
+    working_dir: /app
+    user: "1000"
+  npm-install:
+    image: node
+    command: npm install
+    volumes:
+      - ./results:/app
+    working_dir: /app
+    user: "1000"
+  results-web:
+    image: node
+    command: npm start
+    volumes:
+      - ./results:/app
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    depends_on: 
+      - build
+  web:
+    image: nginx
+    volumes:
+      - ./webcontent:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+    depends_on:
+      - build
