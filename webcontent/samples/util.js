@@ -164,8 +164,20 @@ function parseResults(data) {
     return results;
 }
 
-// var table = document.querySelectorAll("table")[3]
-// var output = document.querySelector("pre");
-// var results = parseResults(parseTable(table));
+function initDoc(body) {
+    return (new DOMParser).parseFromString(body, 'text/html');
+}
 
-// console.log(results);
+function retrieveResults() {
+    var req = new XMLHttpRequest();
+    req.open("GET", "results_sample.html", false); // TODO: run this async and allow for configurable resource.
+    req.send();
+    return req.response;
+}
+
+var resultsHtml = retrieveResults();
+var doc = initDoc(resultsHtml);
+var table = doc.querySelectorAll("table")[3]
+var results = parseResults(parseTable(table));
+
+console.log(results);
