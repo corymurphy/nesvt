@@ -18,6 +18,22 @@ jobs:
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
+
+      # build react app
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16'
+          check-latest: true
+      - name: npm install
+        run: npm install
+        working-directory: results
+      - name: npm build
+        run: npm run build
+        working-directory: results
+      - name: copy artifacts to results-beta
+        run: mv results/build webcontent/results-beta
+
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
