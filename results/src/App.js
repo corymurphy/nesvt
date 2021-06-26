@@ -7,6 +7,8 @@ import DriverClasses from './components/DriverClasses';
 import { initDoc, parseResults, parseTable } from './util.js';
 
 function App() {
+
+    // eslint-disable-next-line 
     const [results, setResults] = useState({ })
 
     useEffect(() => {
@@ -15,6 +17,7 @@ function App() {
             setResults(data)
         }
         getData();
+    // eslint-disable-next-line 
     }, results)
 
     const fetchData = async() => {
