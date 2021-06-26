@@ -5,10 +5,6 @@ import Driver from "./Driver"
 
 const DriverClass = ({driverClass, drivers}) => {
 
-    // const [isOpen, setIsOpen] = useState(false);
-    
-    // const toggle = () => setIsOpen(!isOpen);
-
     const getDriversInClass = (classAlias, drivers) => {
         return drivers.filter(function(driver){
             return driver.class === classAlias;
@@ -41,10 +37,3 @@ const DriverClass = ({driverClass, drivers}) => {
 }
 
 export default DriverClass
-
-{/* <button class="btn" type="button" 
-data-bs-toggle="collapse" 
-data-bs-target="#classList1"
-    aria-expanded="true" aria-controls="collapseClassList1">
-    <h3>{driverClass.name} - {driverClass.alias}</h3>
-</button> */}
