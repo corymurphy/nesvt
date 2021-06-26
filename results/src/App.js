@@ -33,7 +33,7 @@ function App() {
     return (
       <>
         <Header />
-        {results.hasOwnProperty("class") ? <DriverClasses results={results} /> : 'No classes' }
+        <DriverClasses results={results} />
       </>
     );
 }

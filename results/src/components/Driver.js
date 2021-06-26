@@ -13,6 +13,10 @@ const Driver = ({driver}) => {
         }).length
     }
 
+    const displayRun = (run) => {
+
+    }
+
     // TODO: figure this out
     const latestRun = (runs) => {
         var latest = ""
@@ -81,13 +85,11 @@ const Driver = ({driver}) => {
                     </div>
                 </div>
             </div>
-            
-            {
+
             <Collapse in={open}>
                 <div><Runs runs={driver.runs}/></div>
             </Collapse>
             
-            }
         </div>
     )
 }
