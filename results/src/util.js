@@ -128,19 +128,14 @@ const getClassFullName = (shortName) => {
     switch (shortName) {
         case "es":
             return "Experienced Street";
-            // break;
         case "er":
             return "Experienced Race";
-            // break;
         case "int":
             return "Intermediate";
-            // break;
         case "n":
             return "Novice";
-            // break;
         default:
             return shortName;
-            // break;
     }
 }
 
@@ -192,38 +187,106 @@ export const parseResults = (data) => {
         }
 
         results.drivers.push(result)
-            // results.push(result)
     }
     return results;
 }
 
-// function initDoc(body) {
-//     return (new DOMParser()).parseFromString(body, 'text/html');
-// }
-// const initDoc = function(body) {
-//     return (new DOMParser()).parseFromString(body, 'text/html');
-// }
+export const displayRun = (run) => {
 
-// function retrieveResults() {
-//     var req = new XMLHttpRequest();
-//     req.open("GET", "results_sample.html", false); // TODO: run this async and allow for configurable resource.
-//     req.send();
-//     return req.response;
-// }
+    if (run.time === 999.999) {
+        return 'dns'
+    }
 
-// var resultsHtml = retrieveResults();
-// var doc = initDoc(resultsHtml);
-// var table = doc.querySelectorAll("table")[3]
-// var results = parseResults(parseTable(table));
+    if (run.dnf) {
+        return `${run.time}+dnf`
+    }
 
-// console.log(results);
+    if (run.cones > 0) {
+        return `${run.time}+${run.cones}`
+    }
 
-// export default initDoc;
+    return `${run.time}`
+}
 
-// function initDoc(body) {
-//     return (new DOMParser()).parseFromString(body, 'text/html');
-// }
+export const actualTime = (run) => {
+
+    var penalty = 2.000
+
+    if (run.dnf) {
+        return 999.999
+    }
+
+    if (run.cones > 0) {
+        return parseFloat(run.time) + (run.cones * penalty)
+    }
+
+    return parseFloat(run.time)
+}
+
+export const countRuns = (runs) => {
+    return runs.filter((run) => {
+        return run.time !== null && run.time !== ''
+    }).length
+}
+
+export const latestRun = (runs) => {
+    runs = runs.filter((run) => {
+        return run.time !== null && run.time !== ''
+    })
+
+    if (runs.length === 0) {
+        return 'dns'
+    }
+    return displayRun(runs[runs.length - 1]);
+}
+
+export const fastestRun = (runs) => {
+    var fastest = { time: 999.999, dnf: false, cones: 0 };
+    runs.forEach((run, index, runs) => {
+        if (actualTime(run) < actualTime(fastest) && !run.dnf) {
+            fastest = run;
+        }
+    })
+    return displayRun(fastest)
+}
 
 export const initDoc = (body) => {
     return (new DOMParser()).parseFromString(body, 'text/html');
 }
+
+export const parseResultsFromHtml = (data) => {
+    var doc = initDoc(data)
+    const table = doc.querySelectorAll("table")[3]
+    return parseResults(parseTable(table));
+}
+
+// eslint-disable-next-line
+const fetchData = async() => {
+    const res = await fetch('results_sample.html');
+    const data = await res.text();
+    // console.log(results)
+    return parseResultsFromHtml(data);
+}
+
+
+// exec a func on component render
+// [results, setResults] = useState(() => {
+//   console.log('run func')
+//   return 4
+// })
+
+// useEffect(() => {
+//     fetch('url')
+//       .then(response => response.json())
+//       .then(json => console.log(json))
+// // eslint-disable-next-line 
+// }, [results])
+
+// useEffect(() => {
+//     const getData = async() => {
+//         const data = await fetchData()
+//         setResults(data)
+//     }
+//     getData();
+// // eslint-disable-next-line 
+// }, results)

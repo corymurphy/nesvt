@@ -1,3 +1,5 @@
+import { displayRun } from "../util.js"
+
 const Runs = ({runs}) => {
     return (
     <>
@@ -5,7 +7,7 @@ const Runs = ({runs}) => {
         <div class="row row-cols-auto">
             {runs.filter(function(run){return run.time !== null && run.time !== ''}).map((run, key) => (
                 <div class="col">
-                    <p class="card-text"><b>{key+1}</b>: {run.time}</p>
+                    <p class="card-text"><b>{key+1}</b>: {displayRun(run)}</p>
                 </div>
             ))}
         </div>

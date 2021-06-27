@@ -2,44 +2,11 @@ import { useState } from 'react'
 import { Collapse, Button } from 'react-bootstrap'
 
 import Runs from './Runs'
+import { fastestRun, countRuns, latestRun } from '../util'
 
 const Driver = ({driver}) => {
 
     const [open, setOpen] = useState(false);
-
-    const countRuns = (runs) => {
-        return runs.filter((run) => {
-            return run.time !== null && run.time !== ''
-        }).length
-    }
-
-    const displayRun = (run) => {
-
-    }
-
-    // TODO: figure this out
-    const latestRun = (runs) => {
-        var latest = ""
-        runs.forEach((run, index, runs) => {
-            if (index+1 > runs.length) {
-                latest = run.time
-            }
-            // if (runs[index+1])
-        })
-        return latest;
-    }
-    
-    const fastestRun = (runs) => {
-        var fastest = 999.999;
-        runs.forEach((run, index, runs) => {
-            var current = parseFloat(run.time)
-            // TODO: check if the run is valid (ie not dnf)
-            if (current < fastest && !run.dnf) {
-                fastest = current;
-            }
-        })
-        return fastest
-    }
     
     return (
         <div class="container-fluid">
