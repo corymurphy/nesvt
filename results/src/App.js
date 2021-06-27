@@ -11,6 +11,28 @@ function App() {
     // eslint-disable-next-line 
     const [results, setResults] = useState({ })
 
+    // exec a func on component render
+    // [results, setResults] = useState(() => {
+    //   console.log('run func')
+    //   return 4
+    // })
+
+    // useEffect(() => {
+    //     fetch('url')
+    //       .then(response => response.json())
+    //       .then(json => console.log(json))
+    // // eslint-disable-next-line 
+    // }, [results])
+
+    
+    useEffect(() => {
+        const getData = async() => {
+            const data = await fetchData()
+            setResults(data)
+        }
+        getData();
+    }, [results])
+
     useEffect(() => {
         const getData = async() => {
             const data = await fetchData()
