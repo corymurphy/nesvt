@@ -45,7 +45,7 @@ const Driver = ({driver}) => {
                             <p class="card-text">Runs: <b>{countRuns(driver.runs)}</b></p>
                         </div>
                         <div class="row">
-                        <Button variant="outline-primary" class="text-nowrap timesButton" onClick={() => setOpen(!open)} aria-expanded={open}>
+                        <Button variant="outline-primary timesButton" class="text-nowrap timesButton" onClick={() => setOpen(!open)} aria-expanded={open}>
                             Show All
                         </Button>
                         </div>
@@ -53,8 +53,8 @@ const Driver = ({driver}) => {
                 </div>
             </div>
 
-            <Collapse in={open}>
-                <div><Runs runs={driver.runs}/></div>
+            <Collapse in={open} variant="px-2">
+                <div class="px-2"><Runs runs={driver.runs}/></div>
             </Collapse>
             
         </div>

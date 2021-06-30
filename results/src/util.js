@@ -77,7 +77,7 @@ function parseRuns(records, extended) {
             var number = parseInt(key.replace("Run", "").replace("..", ""))
             runs.push({
                 "number": number,
-                "time": getTime(records[key]),
+                "time": getTime(records[key]).replace(/(\r\n|\n|\r)/gm, "").trim(),
                 "dnf": records[key].includes("dnf"),
                 "cones": getConeHits(records[key]),
                 "raw": records[key]

@@ -20,7 +20,7 @@ jobs:
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
 
       # build react app
-      - name: Use Node.js ${{ matrix.node-version }}
+      - name: use nodejs 16
         uses: actions/setup-node@v2
         with:
           node-version: '16'

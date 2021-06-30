@@ -14,25 +14,27 @@ const DriverClass = ({driverClass, drivers}) => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div class="container pt-4">
-            <div class="row">
-                <div class="col-sm-8">
-                    <Button variant="" onClick={() => setOpen(!open)} aria-expanded={open}><h3>{driverClass.name} - {driverClass.alias}</h3> </Button>
-                </div>
-                
-                <div class="col-sm-4 text-muted align-self-center">
-                    <h4>{driverClass.count} Drivers</h4>
-                </div>
-
-                <Collapse in={open}>
-                    <div>
-                        {getDriversInClass(driverClass.alias, drivers).map((driver) => (
-                            <Driver driver={driver} />
-                        ))}
+        <>
+            <div class="container pt-4">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <Button variant="" onClick={() => setOpen(!open)} aria-expanded={open}><h3>{driverClass.name} - {driverClass.alias}</h3> </Button>
                     </div>
-                </Collapse> 
+                    
+                    <div class="col-sm-4 text-muted align-self-center">
+                        <h4>{driverClass.count} Drivers</h4>
+                    </div>
+                </div>
             </div>
-        </div>
+
+            <Collapse in={open}>
+                <div>
+                    {getDriversInClass(driverClass.alias, drivers).map((driver) => (
+                        <Driver driver={driver} />
+                    ))}
+                </div>
+            </Collapse>
+        </>
     )
 }
 

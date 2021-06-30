@@ -7,23 +7,14 @@ services:
       - .:/app
     working_dir: /app
     user: "1000"
-  npm-install:
-    image: node
-    command: npm install
-    volumes:
-      - ./results:/app
-    working_dir: /app
-    user: "1000"
   results-web:
     image: node
-    command: npm start
+    command: bash -c "npm install && npm start"
     volumes:
       - ./results:/app
     working_dir: /app
     ports:
       - "3000:3000"
-    depends_on: 
-      - build
   web:
     image: nginx
     volumes:
