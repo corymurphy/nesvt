@@ -15,6 +15,8 @@ services:
     working_dir: /app
     ports:
       - "3000:3000"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
   web:
     image: nginx
     volumes:
