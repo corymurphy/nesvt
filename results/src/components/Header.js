@@ -1,4 +1,5 @@
 /* eslint-disable */
+import SearchBar from "./SearchBar";
 
 const Header = () => {
 
@@ -34,10 +35,7 @@ const Header = () => {
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Remove Cones</a>
                         </li>
                     </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search for Driver" aria-label="Search"></input>
-                        <button class="btn btn-light" type="submit">Go</button>
-                    </form>
+                    <SearchBar />
                 </div>
             </div>
         </nav>
