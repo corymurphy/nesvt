@@ -8,20 +8,32 @@ import { parseResultsFromHtml } from './util.js';
 
 function App() {
 
-    const [results, setResults] = useState({ })
+  const [results, setResults] = useState({})
 
-    useEffect(() => {
-      fetch('results_sample.html')
-        .then(response => response.text())
-        .then(data => setResults(parseResultsFromHtml(data)))
-    }, [])
+  useEffect(() => {
+    fetch('results_sample.html')
+      .then(response => response.text())
+      .then(data => setResults(parseResultsFromHtml(data)))
+  }, [])
 
-    return (
-      <>
-        <Header />
-        <DriverClasses results={results} />
-      </>
-    );
+  const [currentDriverClass, setCurrentDriverClass] = useState("all");
+
+  function selectDriverClassHandler(selectedDriverClass) {
+    setCurrentDriverClass(selectedDriverClass);
+  }
+
+  return (
+    <>
+      <Header
+        results={results}
+        onSelectDriverClass={selectDriverClassHandler}
+      />
+      <DriverClasses
+        results={results}
+        selectedDriverClass={currentDriverClass}
+      />
+    </>
+  );
 }
 
 export default App;

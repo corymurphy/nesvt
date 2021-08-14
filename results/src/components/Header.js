@@ -1,7 +1,12 @@
 /* eslint-disable */
 import SearchBar from "./SearchBar";
+import ClassDropDown from "./ClassDropDown";
 
-const Header = () => {
+const Header = (props) => {
+
+    function changeDriverClassHandler(selectedDriverClass) {
+        props.onSelectDriverClass(selectedDriverClass);
+    }
 
     return (
         <nav class="navbar fixed-top navbar-expand-lg navbar-dark" id="mainNavBar">
@@ -14,22 +19,14 @@ const Header = () => {
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active" aria-current="page" href="#">Dark Mode?</a>
-                        </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" aria-expanded="false">
-                                Class
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarClassSelector">
-                                <li><a class="dropdown-item" href="#">ES</a></li>
-                                <li><a class="dropdown-item" href="#">ER (Hardcoded)</a></li>
-                                <li>
-                                    <hr class="dropdown-divider" />
-                                </li>
-                                <li><a class="dropdown-item" href="#">Show All</a></li>
-                            </ul>
+                            <ClassDropDown 
+                            driverclasses={props.results.class}
+                            onSelectDriverClass={changeDriverClassHandler}
+                            />
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-current="page" href="#">Enable PAX</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Remove Cones</a>

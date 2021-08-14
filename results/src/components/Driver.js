@@ -4,10 +4,10 @@ import { Collapse, Button } from 'react-bootstrap'
 import Runs from './Runs'
 import { fastestRun, countRuns, latestRun } from '../util'
 
-const Driver = ({driver}) => {
+const Driver = ({ driver }) => {
 
     const [open, setOpen] = useState(false);
-    
+
     return (
         <div class="container-fluid">
             <div class="card w-100 border-success mt-2" >
@@ -45,18 +45,19 @@ const Driver = ({driver}) => {
                             <p class="card-text">Runs: <b>{countRuns(driver.runs)}</b></p>
                         </div>
                         <div class="row">
-                        <Button variant="outline-primary timesButton" class="text-nowrap timesButton" onClick={() => setOpen(!open)} aria-expanded={open}>
-                            Show All
-                        </Button>
+                            <Button variant="outline-primary timesButton" class="text-nowrap timesButton" onClick={() => setOpen(!open)} aria-expanded={open}>
+                                Show All
+                            </Button>
                         </div>
                     </div>
                 </div>
+                <Collapse in={open} variant="px-2">
+                    <div class="px-2"><Runs runs={driver.runs} /></div>
+                </Collapse>
             </div>
 
-            <Collapse in={open} variant="px-2">
-                <div class="px-2"><Runs runs={driver.runs}/></div>
-            </Collapse>
-            
+
+
         </div>
     )
 }
