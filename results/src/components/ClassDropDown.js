@@ -3,6 +3,7 @@ import { useState } from "react";
 const ClassDropDown = (props) => {
 
     const [selectedClass, setSelectedClass] = useState("all");
+    const [dropdownActive, setDropdownActive] = useState("");
 
     function classSelectHandler(event) {
         event.preventDefault();

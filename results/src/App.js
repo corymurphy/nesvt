@@ -17,9 +17,14 @@ function App() {
   }, [])
 
   const [currentDriverClass, setCurrentDriverClass] = useState("all");
+  const [currentDriver, setCurrentDriver] = useState("");
 
   function selectDriverClassHandler(selectedDriverClass) {
     setCurrentDriverClass(selectedDriverClass);
+  }
+
+  function selectDriverHandler(selectedDriver) {
+    setCurrentDriver(selectedDriver);
   }
 
   return (
@@ -27,10 +32,12 @@ function App() {
       <Header
         results={results}
         onSelectDriverClass={selectDriverClassHandler}
+        onSelectDriver={selectDriverHandler}
       />
       <DriverClasses
         results={results}
         selectedDriverClass={currentDriverClass}
+        selectedDriver={currentDriver}
       />
     </>
   );
