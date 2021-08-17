@@ -11,7 +11,7 @@
  */
 function mapRow(headings) {
     return function mapRowToObject({ cells }) {
-        return [...cells].reduce(function(result, cell, i) {
+        return [...cells].reduce(function (result, cell, i) {
             const input = cell.querySelector("input,select");
             var value;
 
@@ -134,6 +134,16 @@ const getClassFullName = (shortName) => {
             return "Intermediate";
         case "n":
             return "Novice";
+        case "pony":
+            return "Pony Car";
+        case "fwd":
+            return "Wrong-Wheel Drive";
+        case "cst":
+            return "Corvette Street";
+        case "crt":
+            return "Corvette Race";
+        case "mzst":
+            return "Zoom Zoom";
         default:
             return shortName;
     }
@@ -261,7 +271,7 @@ export const parseResultsFromHtml = (data) => {
 }
 
 // eslint-disable-next-line
-const fetchData = async() => {
+const fetchData = async () => {
     const res = await fetch('results_sample.html');
     const data = await res.text();
     // console.log(results)
