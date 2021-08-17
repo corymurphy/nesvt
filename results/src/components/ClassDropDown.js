@@ -3,7 +3,6 @@ import { useState } from "react";
 const ClassDropDown = (props) => {
 
     const [selectedClass, setSelectedClass] = useState("all");
-    const [dropdownActive, setDropdownActive] = useState("");
 
     function classSelectHandler(event) {
         event.preventDefault();
@@ -13,15 +12,17 @@ const ClassDropDown = (props) => {
 
     return (
         <div>
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+            {/* eslint-disable-next-line */}
+            <a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Class
             </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarClassSelector">
+            <ul className="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarClassSelector">
                 {props.driverclasses ? Object.keys(props.driverclasses).sort().map(driverclass =>
                     <li>
                         <button
-                            class={driverclass === selectedClass ? "dropdown-item active" : "dropdown-item"}
+                            className={driverclass === selectedClass && props.clearButtonHidden === false ?
+                                "dropdown-item active" : "dropdown-item"}
                             type="button"
                             id={driverclass}
                             onClick={classSelectHandler}>
@@ -31,7 +32,7 @@ const ClassDropDown = (props) => {
                 ) :
                     <li>
                         <button
-                            class="dropdown-item"
+                            className="dropdown-item"
                             type="button"
                             id="nodata">
                             No Data
@@ -39,11 +40,12 @@ const ClassDropDown = (props) => {
                     </li>
                 }
                 <li>
-                    <hr class="dropdown-divider" />
+                    <hr className="dropdown-divider" />
                 </li>
                 <li>
                     <button
-                        class={selectedClass === "all" ? "dropdown-item active" : "dropdown-item"}
+                        className={selectedClass === "all" || props.clearButtonHidden === true ?
+                            "dropdown-item active" : "dropdown-item"}
                         type="button"
                         id="all"
                         onClick={classSelectHandler}>
