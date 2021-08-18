@@ -21,9 +21,13 @@ function mapRow(headings) {
                 value = cell.innerText;
             }
 
-            return Object.assign(result, {
-                [headings[i].replace(" ", "")]: value
-            });
+            // this if statements exists solely for if there are extra rows without headings (because that crashes the app)
+            // the drivers that have extra rows will not show up in the results, but it doesn't crash so that's cool
+            if (headings[i]) {
+                return Object.assign(result, {
+                    [headings[i].replace(" ", "")]: value
+                });
+            }
         }, {});
     };
 }
@@ -162,41 +166,45 @@ export const parseResults = (data) => {
     for (let i = 1; i < data.length; i++) {
 
         var row = data[i];
+        // this if statement exists solely in case there are a bunch of rows without headers (which crashes the app)
+        // drivers with extra rows will not show up in the results because of this check. but the app doesn't crash!
+        if (row) {
+            // because we're dealing with silly nonsense, the next row contains
+            // additional runs, but there is no indication it's included with this row.
+            var next_row = getNextRow(data, i)
 
-        // because we're dealing with silly nonsense, the next row contains
-        // additional runs, but there is no indication it's included with this row.
-        var next_row = getNextRow(data, i)
+            // skip if table line break
+            // imagine how much less stupid this code would be if
+            // they used web concepts from the last 20 years?
 
-        // skip if table line break
-        // imagine how much less stupid this code would be if
-        // they used web concepts from the last 20 years?
-        if (!('Driver' in row)) {
-            continue;
+            if (!('Driver' in row)) {
+                continue;
+            }
+
+                var result = {
+                    "name": row.Driver,
+                    "number": row['#'],
+                    "class": row.Class,
+                    "car": row.CarModel,
+                    "runs": parseRuns(row, next_row),
+                    "trophy": isTrophy(row["Pos."]),
+                    "position": parsePosition(row["Pos."])
+                }
+
+            // TODO: refactor
+            if (results.class.hasOwnProperty(row.Class)) {
+                results.class[row.Class].count = results.class[row.Class].count + 1
+            } else {
+                results.class[row.Class] = { count: 1, name: getClassFullName(row.Class), alias: row.Class }
+            }
+
+            // these are extra runs, skip for now
+            if (next_row) {
+                i++
+            }
+
+            results.drivers.push(result)
         }
-
-        var result = {
-            "name": row.Driver,
-            "number": row['#'],
-            "class": row.Class,
-            "car": row.CarModel,
-            "runs": parseRuns(row, next_row),
-            "trophy": isTrophy(row["Pos."]),
-            "position": parsePosition(row["Pos."])
-        }
-
-        // TODO: refactor
-        if (results.class.hasOwnProperty(row.Class)) {
-            results.class[row.Class].count = results.class[row.Class].count + 1
-        } else {
-            results.class[row.Class] = { count: 1, name: getClassFullName(row.Class), alias: row.Class }
-        }
-
-        // these are extra runs, skip for now
-        if (next_row) {
-            i++
-        }
-
-        results.drivers.push(result)
     }
     return results;
 }

@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const Header = (props) => {
 
+    // TODO: pull the event name from the axware page and put it in the navbar
+
     const [clearButtonHidden, setClearButtonHidden] = useState(true)
 
     function changeDriverClassHandler(selectedDriverClass) {
@@ -48,7 +50,7 @@ const Header = (props) => {
                             />
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled" aria-current="page" href="#">Enable PAX</a>
+                            <a className="nav-link disabled" aria-current="page" href="#">Raw Results</a>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Remove Cones</a>
