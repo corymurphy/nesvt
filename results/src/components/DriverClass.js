@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Collapse, Button } from 'react-bootstrap'
 
 import Driver from "./Driver"
@@ -13,11 +13,23 @@ const DriverClass = (props) => {
 
     const [open, setOpen] = useState(false);
 
-    // I want to make a thingy that automatically un-collapses the classes if a specific class or driver is selected
-    // and then collapse the classes if the "clear filter" or "show all" buttons are pressed
-    // but all my attempts make infinite react render loops???
+    // I want to make a thingy that automatically collapses the times (the ones from "show all" button press)
+    // when you switch classes with the filter. or press the clear filter button. right now the behaviour is:
+    // if you press show all
 
     // also I want to sort the classes alphabetically
+
+    useEffect(() => {
+        if (props.clearButtonPressed || props.selectedDriverClass === "all") {
+            setOpen(false);
+            // setCollapse(true);
+        }
+        if (props.selectedDriver || props.selectedDriverClass !== "all") {
+            setOpen(true);
+            // setCollapse(true);
+        }
+    }, [props.clearButtonPressed, props.selectedDriver, props.selectedDriverClass])
+
 
     return (
         <div>
@@ -40,7 +52,9 @@ const DriverClass = (props) => {
             <Collapse in={open}>
                 <div>
                     {getDriversInClass(props.driverClass.alias, props.drivers).map((driver) => (
-                        <Driver driver={driver} />
+                        <Driver 
+                        driver={driver} 
+                        />
                     ))}
                 </div>
             </Collapse>

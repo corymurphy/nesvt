@@ -32,6 +32,8 @@ const DriverClasses = (props) => {
                         key={i}
                         driverClass={item}
                         drivers={props.results.drivers}
+                        selectedDriverClass={props.selectedDriverClass}
+                        clearButtonPressed={props.clearButtonPressed}
                     />
                 ) :
                 props.results.hasOwnProperty("class") && !props.selectedDriver ?
@@ -41,6 +43,7 @@ const DriverClasses = (props) => {
                             driverClass => driverClass.alias === props.selectedDriverClass)[0]}
                         drivers={props.results.drivers}
                         selectedDriverClass={props.selectedDriverClass}
+                        clearButtonPressed={props.clearButtonPressed}
                     /> :
                     // this is dumb but it works
                     props.results.hasOwnProperty("class") && props.selectedDriver ?
@@ -52,6 +55,8 @@ const DriverClasses = (props) => {
                             drivers={Object.values(props.results.drivers).filter(
                                 driver => driver.name === props.selectedDriver)}
                             selectedDriver={props.selectedDriver}
+                            selectedDriverClass={props.selectedDriverClass}
+                            clearButtonPressed={props.clearButtonPressed}
                         /> :
                         <DriverClass
                             key={0}

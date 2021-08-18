@@ -18,6 +18,7 @@ function App() {
 
   const [currentDriverClass, setCurrentDriverClass] = useState("all");
   const [currentDriver, setCurrentDriver] = useState("");
+  const [clearButtonPressed, setClearButtonPressed] = useState(false);
 
   function selectDriverClassHandler(selectedDriverClass) {
     setCurrentDriverClass(selectedDriverClass);
@@ -27,17 +28,23 @@ function App() {
     setCurrentDriver(selectedDriver);
   }
 
+  function clearButtonHandler(clearButtonPressed) {
+    setClearButtonPressed(clearButtonPressed);
+  }
+
   return (
     <>
       <Header
         results={results}
         onSelectDriverClass={selectDriverClassHandler}
         onSelectDriver={selectDriverHandler}
+        onClearButtonHidden={clearButtonHandler}
       />
       <DriverClasses
         results={results}
         selectedDriverClass={currentDriverClass}
         selectedDriver={currentDriver}
+        clearButtonPressed={clearButtonPressed}
       />
     </>
   );

@@ -12,7 +12,8 @@ const Header = (props) => {
 
     function changeDriverClassHandler(selectedDriverClass) {
         props.onSelectDriverClass(selectedDriverClass);
-        { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false) }
+        { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false), props.onClearButtonHidden(false) }
+        props.onSelectDriver("")
     }
 
     function driverSearchHandler(selectedDriver) {
@@ -21,6 +22,7 @@ const Header = (props) => {
             setClearButtonHidden(true);
         } else {
             setClearButtonHidden(false);
+            props.onClearButtonHidden(false);
         }
     }
 
@@ -28,6 +30,7 @@ const Header = (props) => {
         setClearButtonHidden(true);
         props.onSelectDriver("");
         props.onSelectDriverClass("all");
+        props.onClearButtonHidden(true);
     }
 
 
