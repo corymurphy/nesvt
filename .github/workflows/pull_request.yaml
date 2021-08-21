@@ -31,8 +31,8 @@ jobs:
       - name: npm build
         run: npm run build
         working-directory: results
-      - name: copy artifacts to results-beta
-        run: mv results/build webcontent/results-beta
+      - name: copy artifacts to results
+        run: mv results/build webcontent/results
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
