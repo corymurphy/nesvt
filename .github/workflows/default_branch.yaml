@@ -32,8 +32,17 @@ jobs:
         run: npm run build
         working-directory: results
       - name: copy artifacts to results
-        run: mv results/build webcontent/results
+        run: mv results/build webcontent/results2
 
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@4.0.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: ./
+          local-dir: ./webcontent/
+          protocol: ftp
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
         with:
