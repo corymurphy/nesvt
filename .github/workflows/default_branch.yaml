@@ -32,7 +32,7 @@ jobs:
         run: npm run build
         working-directory: results
       - name: copy artifacts to results
-        run: mv results/build webcontent/results2
+        run: mv results/build webcontent/results
 
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.0.0
