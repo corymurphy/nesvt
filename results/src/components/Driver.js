@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Collapse, Button } from 'react-bootstrap'
 
 import Runs from './Runs'
-import { fastestRun, countRuns, latestRun } from '../util'
+import { fastestRun, countRuns, latestRun, displayRun } from '../util'
 
 const Driver = (props) => {
 
@@ -13,7 +13,7 @@ const Driver = (props) => {
             <div className="card w-100 border-success mt-2" >
                 <div className="row g-3 align-items-center">
                     <div className="col-1 d-flex justify-content-center">
-                        <h4 className="driverPosition">{props.driver.position}</h4>
+                        <h4 className="driverPosition">{props.position !== null && props.position ? props.position : props.driver.position}</h4>
                     </div>
                     <div className="col-4">
                         <div className="row">
@@ -31,7 +31,7 @@ const Driver = (props) => {
                             <p className="card-text">Fastest Run:</p>
                         </div>
                         <div className="row">
-                            <p className="card-text"><b>{fastestRun(props.driver.runs)}</b></p>
+                            <p className="card-text"><b>{displayRun(fastestRun(props.driver.runs))}</b></p>
                         </div>
                         <div className="row">
                             <p className="card-text">Last Run:</p>

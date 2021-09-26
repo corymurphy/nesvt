@@ -1,6 +1,7 @@
 /* eslint-disable */
 import SearchBar from "./SearchBar";
 import ClassDropDown from "./ClassDropDown";
+import SortByDropDown from "./SortByDropDown";
 import "./SearchBar.css";
 import { useState } from "react";
 
@@ -13,7 +14,12 @@ const Header = (props) => {
     function changeDriverClassHandler(selectedDriverClass) {
         props.onSelectDriverClass(selectedDriverClass);
         { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false), props.onClearButtonHidden(false) }
-        props.onSelectDriver("")
+        props.onSelectDriver("");
+        sessionStorage.setItem("class", selectedDriverClass);
+    }
+
+    function changeSortByHandler(selectedSortBy) {
+        props.onSelectedSortBy(selectedSortBy);
     }
 
     function driverSearchHandler(selectedDriver) {
@@ -50,6 +56,12 @@ const Header = (props) => {
                                 driverclasses={props.results.class}
                                 onSelectDriverClass={changeDriverClassHandler}
                                 clearButtonHidden={clearButtonHidden}
+                            />
+                        </li>
+
+                        <li className="nav-item">
+                            <SortByDropDown
+                                onSelectedSortBy={changeSortByHandler}
                             />
                         </li>
                         <li className="nav-item">

@@ -184,14 +184,17 @@ export const parseResults = (data) => {
             continue;
         }
 
+        var normalizedRuns = parseRuns(row, next_row)
+
         var result = {
             "name": row.Driver,
             "number": row['#'],
             "class": row.Class,
             "car": row.CarModel,
-            "runs": parseRuns(row, next_row),
+            "runs": normalizedRuns,
             "trophy": isTrophy(row["Pos."]),
-            "position": parsePosition(row["Pos."])
+            "position": parsePosition(row["Pos."]),
+            "fastest": actualTime(fastestRun(normalizedRuns))
         }
 
         // TODO: refactor
@@ -268,7 +271,7 @@ export const fastestRun = (runs) => {
             fastest = run;
         }
     })
-    return displayRun(fastest)
+    return fastest
 }
 
 export const initDoc = (body) => {
@@ -279,6 +282,30 @@ export const parseResultsFromHtml = (data) => {
     var doc = initDoc(data)
     const table = doc.querySelectorAll("table")[3]
     return parseResults(parseTable(table));
+}
+
+export const sortByCarNumber = (a, b) => {
+    if (parseInt(a.number) < parseInt(b.number)) {
+        return -1
+    }
+
+    if (parseInt(a.number) > parseInt(b.number)) {
+        return 1
+    }
+
+    return 0
+}
+
+export const sortByFastest = (a, b) => {
+    if (a.fastest < b.fastest) {
+        return -1
+    }
+
+    if (a.fastest > b.fastest) {
+        return 1
+    }
+
+    return 0
 }
 
 // eslint-disable-next-line

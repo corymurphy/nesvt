@@ -3,7 +3,7 @@ import './App.css';
 import { useEffect, useState } from 'react'
 
 import Header from './components/Header'
-import DriverClasses from './components/DriverClasses';
+import ResultsSorter from './components/ResultsSorter';
 import { parseResultsFromHtml } from './util.js';
 
 function App() {
@@ -16,7 +16,12 @@ function App() {
       .then(data => setResults(parseResultsFromHtml(data)))
   }, [])
 
-  const [currentDriverClass, setCurrentDriverClass] = useState("all");
+  const [selectedSortBy, setSelectedSortBy] = useState(
+    sessionStorage.getItem('sortBy') || 'class'
+  );
+  const [currentDriverClass, setCurrentDriverClass] = useState(
+    sessionStorage.getItem('class') || 'all'
+  );
   const [currentDriver, setCurrentDriver] = useState("");
   const [clearButtonPressed, setClearButtonPressed] = useState(false);
 
@@ -32,6 +37,12 @@ function App() {
     setClearButtonPressed(clearButtonPressed);
   }
 
+  function selectSortByHandler(selectedSortBy) {
+    setSelectedSortBy(selectedSortBy);
+  }
+
+
+
   return (
     <>
       <Header
@@ -39,12 +50,16 @@ function App() {
         onSelectDriverClass={selectDriverClassHandler}
         onSelectDriver={selectDriverHandler}
         onClearButtonHidden={clearButtonHandler}
+        onSelectedSortBy={selectSortByHandler}
+        selectedSortBy={selectedSortBy}
+        
       />
-      <DriverClasses
+      <ResultsSorter
         results={results}
         selectedDriverClass={currentDriverClass}
         selectedDriver={currentDriver}
         clearButtonPressed={clearButtonPressed}
+        selectedSortBy={selectedSortBy}
       />
     </>
   );
