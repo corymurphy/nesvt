@@ -1,11 +1,11 @@
 body {
     padding-top: 2rem;
-    background-color: #212322 !important;
-    /* color: #fdf5e6 !important; */
+    background-color: #0d1117 !important;
+    color: #c9d1d9 !important;
 }
 
 .navbar {
-    background-color: #050505 !important;
+    background-color: #161b22 !important;
 }
 
 .card {
@@ -13,7 +13,16 @@ body {
 }
 
 .border-darkmode {
-    border-color: #fdf5e6 !important;
+    border-color: #30363d !important;
+    border: 1px solid;
+}
+
+h3 {
+    color: #c9d1d9 !important;
+}
+
+.card {
+    background-color: #161b22 !important;
 }
 
 
