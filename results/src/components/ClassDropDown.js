@@ -2,7 +2,7 @@ import { useState } from "react";
 
 const ClassDropDown = (props) => {
 
-    const [selectedClass, setSelectedClass] = useState("all");
+    const [selectedClass, setSelectedClass] = useState(sessionStorage.getItem("class") || "all");
 
     function classSelectHandler(event) {
         event.preventDefault();
