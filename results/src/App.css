@@ -1,14 +1,19 @@
 body {
     padding-top: 2rem;
-    background-color: #bdc1c7 !important;
+    background-color: #212322 !important;
+    /* color: #fdf5e6 !important; */
 }
 
 .navbar {
-    background-color: #363636 !important;
+    background-color: #050505 !important;
 }
 
 .card {
     word-wrap: break-word;
+}
+
+.border-darkmode {
+    border-color: #fdf5e6 !important;
 }
 
 
@@ -23,3 +28,6 @@ body {
         font-size: 75%;
     }
 }
+
+
+/* fdf5e6 */

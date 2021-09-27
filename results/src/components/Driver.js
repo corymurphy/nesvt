@@ -10,7 +10,7 @@ const Driver = (props) => {
 
     return (
         <div className="container-fluid">
-            <div className="card w-100 border-success mt-2" >
+            <div className="card w-100 border-darkmode mt-2" >
                 <div className="row g-3 align-items-center">
                     <div className="col-1 d-flex justify-content-center">
                         <h4 className="driverPosition">{props.position !== null && props.position ? props.position : props.driver.position}</h4>

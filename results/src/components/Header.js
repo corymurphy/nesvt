@@ -59,7 +59,7 @@ const Header = (props) => {
                             />
                         </li>
 
-                        <li className="nav-item">
+                        <li className="nav-item dropdown">
                             <SortByDropDown
                                 onSelectedSortBy={changeSortByHandler}
                             />
