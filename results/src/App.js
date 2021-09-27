@@ -14,6 +14,14 @@ function App() {
     fetch('results_sample.html')
       .then(response => response.text())
       .then(data => setResults(parseResultsFromHtml(data)))
+    
+    const id = setInterval(() =>
+      fetch('results_sample.html')
+        .then(response => response.text())
+        .then(data => setResults(parseResultsFromHtml(data)))
+    , 15000)
+
+    return () => clearInterval(id);  
   }, [])
 
   const [selectedSortBy, setSelectedSortBy] = useState(
