@@ -65,10 +65,10 @@ const Header = (props) => {
                             />
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link" aria-current="page" href="http://ne-svt.org/results/results_sample.html">Raw Results</a>
+                            <a className="nav-link" aria-current="page" href="results_sample.html">Raw Results</a>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link disabled" href="#" tabIndex="-1" aria-disabled="true">Remove Cones</a>
+                            <a className="nav-link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" tabIndex="-1" aria-disabled="true">Remove Cones</a>
                         </li>
                     </ul>
                     <button
