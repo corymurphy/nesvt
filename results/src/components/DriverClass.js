@@ -30,7 +30,6 @@ const DriverClass = (props) => {
         }
     }, [props.clearButtonPressed, props.selectedDriver, props.selectedDriverClass])
 
-
     return (
         <div>
             <div className="container pt-4">

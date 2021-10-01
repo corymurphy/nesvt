@@ -17,7 +17,7 @@ const SortByDropDown = (props) => {
                 data-bs-toggle="dropdown" aria-expanded="false">
                 Sort By
             </a>
-            <ul className="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarSortBySelector">
+            <ul className="dropdown-menu darkmode" aria-labelledby="navbarDropdown" id="navbarSortBySelector">
                 {Object.keys(SortBy).map(sortBy =>
                     <li>
                         <button

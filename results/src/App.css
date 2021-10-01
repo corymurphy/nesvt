@@ -10,6 +10,7 @@ body {
 
 .card {
     word-wrap: break-word;
+    background-color: #181818 !important;
 }
 
 .border-darkmode {
@@ -21,9 +22,10 @@ h3 {
     color: #c9d1d9 !important;
 }
 
-.card {
+
+/* .card {
     background-color: #161b22 !important;
-}
+} */
 
 
 /* font scaling for the "show all" buttons on smaller screens */
