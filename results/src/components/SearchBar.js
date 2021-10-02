@@ -17,13 +17,27 @@ const SearchBar = (props) => {
         let inputCharLength = currentInput.length;
         let autoCompleteValues = [];
         // sorry about this
-        let drivers = props.drivers.map((driver) => driver.name).sort();
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(0, inputCharLength).toLowerCase() === currentInput.toLowerCase()));
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(
-                driver.indexOf(" ") + 1, driver.indexOf(" ") + 1 + inputCharLength).toLowerCase() ===
+        let driverNames = props.drivers.map((driver) => driver.name).sort();
+
+        autoCompleteValues.push(...driverNames.filter(
+            driverNames => driverNames.slice(0, inputCharLength).toLowerCase() === currentInput.toLowerCase()));
+
+        autoCompleteValues.push(...driverNames.filter(
+            driverNames => driverNames.slice(
+                driverNames.indexOf(" ") + 1, driverNames.indexOf(" ") + 1 + inputCharLength).toLowerCase() ===
                 currentInput.toLowerCase()));
+        
+        if (Number(currentInput)) {
+            let filtered = props.drivers
+                .filter((driver) => {
+                    return driver.number.match(currentInput);
+                })
+                .map(driver => driver.name);
+            
+            console.log(autoCompleteValues)
+            console.log(filtered);
+            autoCompleteValues.push(...filtered);
+        }
 
         // checks that input exists, then checks if the input exists in the "drivers" array (aka if it's valid input),
         // and then passes the search along. this prevents errors down the road.
@@ -50,8 +64,8 @@ const SearchBar = (props) => {
                 onChange={driverSearchHandler}>
             </input>
             <datalist id="driverListOptions">
-                {autoCompleteArray.map(driver =>
-                    <option value={driver} />)}
+                {autoCompleteArray.map((driver,i) =>
+                    <option id={i} value={driver} />)}
             </datalist>
             <button
                 className="btn btn-light"
