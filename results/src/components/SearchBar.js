@@ -16,14 +16,13 @@ const SearchBar = (props) => {
         let currentInput = event.target.value;
         let inputCharLength = currentInput.length;
         let autoCompleteValues = [];
-        // sorry about this
-        let drivers = props.drivers.map((driver) => driver.name).sort();
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(0, inputCharLength).toLowerCase() === currentInput.toLowerCase()));
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(
-                driver.indexOf(" ") + 1, driver.indexOf(" ") + 1 + inputCharLength).toLowerCase() ===
-                currentInput.toLowerCase()));
+
+        autoCompleteValues.push(...props.drivers
+            .map((driver) => driver.name)
+            .filter((name) => {
+                return name.toLowerCase().match(currentInput.toLowerCase())
+            })
+            .sort());
 
         if (Number(currentInput)) {
             let filtered = props.drivers
@@ -32,9 +31,11 @@ const SearchBar = (props) => {
                 })
                 .map(driver => driver.name);
 
-            console.log(autoCompleteValues)
+            
             console.log(filtered);
             autoCompleteValues.push(...filtered);
+            console.log(autoCompleteValues);
+
         }
         // checks that input exists, then checks if the input exists in the "drivers" array (aka if it's valid input),
         // and then passes the search along. this prevents errors down the road.
