@@ -44,13 +44,3 @@ jobs:
           local-dir: ./webcontent/
           protocol: ftp
           log-level: verbose
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
-          server-dir: ./
-          local-dir: ./webcontent/
-          log-level: verbose
-          protocol: ftp
