@@ -42,7 +42,7 @@ jobs:
           password: ${{ secrets.ftp_password }}
           server-dir: ./
           local-dir: ./webcontent/
-          protocol: ftp
+          protocol: ftps
       - name: 📂 Sync files
         uses: SamKirkland/FTP-Deploy-Action@4.2.0
         with:
@@ -51,4 +51,4 @@ jobs:
           password: ${{ secrets.ftp_password }}
           server-dir: ./
           local-dir: ./webcontent/
-          protocol: ftp
+          protocol: ftps
