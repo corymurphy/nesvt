@@ -35,7 +35,7 @@ jobs:
         run: mv results/build webcontent/results
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.1.0
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
         with:
           server: ${{ secrets.FTP_SERVER }}
           username: ${{ secrets.ftp_username }}
@@ -43,4 +43,3 @@ jobs:
           server-dir: ./
           local-dir: ./webcontent/
           protocol: ftp
-          log-level: verbose
