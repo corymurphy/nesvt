@@ -42,5 +42,4 @@ jobs:
           password: ${{ secrets.ftp_password }}
           server-dir: /dev/
           local-dir: ./webcontent/
-          protocol: ftps
-          port: 22
+          protocol: ftp
