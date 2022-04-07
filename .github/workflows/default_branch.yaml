@@ -35,16 +35,16 @@ jobs:
         run: mv results/build webcontent/results
 
       - name: 📂 Sync files
-        # uses: SamKirkland/FTP-Deploy-Action@4.3.0
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        # uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          # server: ${{ secrets.FTP_SERVER }}
-          # username: ${{ secrets.ftp_username }}
-          # password: ${{ secrets.ftp_password }}
-          ftp-server: sftp://${{ secrets.FTP_SERVER }}/
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          git-ftp-args: --insecure
-          # server-dir: ./
-          local-dir: ./webcontent/
-          # protocol: ftp
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          # ftp-server: sftp://${{ secrets.FTP_SERVER }}/
+          # ftp-username: ${{ secrets.FTP_USERNAME }}
+          # ftp-password: ${{ secrets.FTP_PASSWORD }}
+          # git-ftp-args: --insecure
+          # # server-dir: ./
+          # local-dir: ./webcontent/
+          # # protocol: ftp
