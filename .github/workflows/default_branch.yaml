@@ -43,3 +43,4 @@ jobs:
           server-dir: ./
           local-dir: ./webcontent/
           protocol: ftps
+          port: 22
