@@ -34,12 +34,36 @@ jobs:
       - name: copy artifacts to results
         run: mv results/build webcontent/results
 
+
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "github@nesvt.org"
+
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add -A
+          git commit -m "ephemeral commit for git ftp push"
+
+
+      # 4.0+ is broken with 1and1    
+      # - name: 📂 Sync files
+      #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
+      #   with:
+      #     server: ${{ secrets.FTP_SERVER }}
+      #     username: ${{ secrets.ftp_username }}
+      #     password: ${{ secrets.ftp_password }}
+      #     server-dir: /dev/
+      #     local-dir: ./webcontent/
+      #     protocol: ftp
+
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.0
+        uses: SamKirkland/FTP-Deploy-Action@3.1.1
         with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.ftp_username }}
-          password: ${{ secrets.ftp_password }}
-          server-dir: /dev/
+          ftp-server: sftp://${{ secrets.FTP_SERVER }}/dev/
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          git-ftp-args: --insecure
           local-dir: ./webcontent/
-          protocol: ftp
