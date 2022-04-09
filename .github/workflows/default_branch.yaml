@@ -43,6 +43,7 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
+          rm -f .gitignore
           git add -A
           git commit -m "ephemeral commit for git ftp push"
 
