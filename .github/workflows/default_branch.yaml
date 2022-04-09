@@ -34,10 +34,6 @@ jobs:
       - name: copy artifacts to results
         run: mv results/build webcontent/results
 
-      - name: copy artifacts to results
-        run: mv results/build webcontent/results
-
-
       - name: move webcontent to root because git ftp is silly
         run: mv webcontent/* ./
 
@@ -73,4 +69,4 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           git-ftp-args: --insecure
-          local-dir: ./
+          # local-dir: ./
