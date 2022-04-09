@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 const SearchBar = (props) => {
 
@@ -50,28 +51,80 @@ const SearchBar = (props) => {
         setAutoCompleteArray(autoCompleteValues);
     }
 
+    
+    const fuseOpts = {
+        keys: [
+            "name",
+            "number"
+        ]
+    }
+      const handleOnSearch = (string, results) => {
+        console.log(string, results)
+      }
+    
+      const handleOnHover = (result) => {
+        console.log(result)
+      }
+    
+      const handleOnSelect = (item) => {
+        
+        props.onSearchForDriver(item.name);
+        setEnteredDriver("");
+      }
+    
+      const handleOnFocus = () => {
+        console.log('Focused')
+      }
+    
+      const formatResult = (item) => {
+        return (
+          <>
+            <span style={{ display: 'block', textAlign: 'left' }}>name: {item.name}</span>
+            <span style={{ display: 'block', textAlign: 'left' }}>number: {item.number}</span>
+          </>
+        )
+      }
+
+      
     return (
-        <form className="d-flex">
-            <input
-                id="driversearchform"
-                autoComplete="off"
-                className="form-control me-2"
-                list="driverListOptions"
-                placeholder="Enter Driver Name..."
-                aria-label="Driver Search"
-                onChange={driverSearchHandler}>
-            </input>
-            <datalist id="driverListOptions">
-                {autoCompleteArray.map((driver,i) =>
-                    <option id={i} value={driver} />)}
-            </datalist>
-            <button
-                className="btn btn-light"
-                type="submit"
-                onClick={searchButtonHandler}>
-                Go
-            </button>
-        </form>
+        <div style={{ flex: 1, maxWidth: 400  }}>
+        <ReactSearchAutocomplete
+            items={props.drivers}
+            onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            autoFocus
+            formatResult={formatResult}
+            fuseOptions={fuseOpts}
+          />
+        </div>
+
+
+
+
+        // <form className="d-flex">
+
+        //     <input
+        //         id="driversearchform"
+        //         autoComplete="off"
+        //         className="form-control me-2"
+        //         list="driverListOptions"
+        //         placeholder="Enter Driver Name..."
+        //         aria-label="Driver Search"
+        //         onChange={driverSearchHandler}>
+        //     </input>
+        //     <datalist id="driverListOptions">
+        //         {autoCompleteArray.map((driver,i) =>
+        //             <option id={i} value={driver} />)}
+        //     </datalist>
+        //     <button
+        //         className="btn btn-light"
+        //         type="submit"
+        //         onClick={searchButtonHandler}>
+        //         Go
+        //     </button>
+        // </form>
     )
 }
 
