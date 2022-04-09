@@ -1,0 +1,5 @@
+FROM mcr.microsoft.com/powershell
+
+RUN adduser --shell /bin/bash --uid 1000 --system --group nesvt
+
+RUN apt update && apt install -y entr

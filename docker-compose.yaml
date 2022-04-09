@@ -1,4 +1,5 @@
 version: "3.9"
+
 services:
   build:
     image: mcr.microsoft.com/powershell
@@ -25,3 +26,12 @@ services:
       - "8080:80"
     depends_on:
       - build
+  web-watch-build:
+    build:
+      context: .
+      dockerfile: Dockerfile.powershell
+    command: ./scripts/watch-and-build.sh
+    volumes:
+      - .:/app
+    working_dir: /app
+    user: "1000"
