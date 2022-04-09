@@ -35,7 +35,9 @@ jobs:
         run: mv results/build webcontent/results
 
       - name: move webcontent to root because git ftp is silly
-        run: mv webcontent/* ./
+        run: |
+          rm -rf results/
+          mv webcontent/* ./
 
       - name: setup git config
         run: |
