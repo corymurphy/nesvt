@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
 const SearchBar = (props) => {
 
@@ -16,15 +17,27 @@ const SearchBar = (props) => {
         let currentInput = event.target.value;
         let inputCharLength = currentInput.length;
         let autoCompleteValues = [];
-        // sorry about this
-        let drivers = props.drivers.map((driver) => driver.name).sort();
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(0, inputCharLength).toLowerCase() === currentInput.toLowerCase()));
-        autoCompleteValues.push(...drivers.filter(
-            driver => driver.slice(
-                driver.indexOf(" ") + 1, driver.indexOf(" ") + 1 + inputCharLength).toLowerCase() ===
-                currentInput.toLowerCase()));
 
+        autoCompleteValues.push(...props.drivers
+            .map((driver) => driver.name)
+            .filter((name) => {
+                return name.toLowerCase().match(currentInput.toLowerCase())
+            })
+            .sort());
+
+        if (Number(currentInput)) {
+            let filtered = props.drivers
+                .filter((driver) => {
+                    return driver.number.match(currentInput);
+                })
+                .map(driver => driver.name);
+
+            
+            console.log(filtered);
+            autoCompleteValues.push(...filtered);
+            console.log(autoCompleteValues);
+
+        }
         // checks that input exists, then checks if the input exists in the "drivers" array (aka if it's valid input),
         // and then passes the search along. this prevents errors down the road.
         if (currentInput.length === 0) {
@@ -38,28 +51,54 @@ const SearchBar = (props) => {
         setAutoCompleteArray(autoCompleteValues);
     }
 
+    
+    const fuseOpts = {
+        keys: [
+            "name",
+            "number"
+        ]
+    }
+      const handleOnSearch = (string, results) => {
+        // console.log(string, results)
+      }
+    
+      const handleOnHover = (result) => {
+        // console.log(result)
+      }
+    
+      const handleOnSelect = (item) => { 
+        props.onSearchForDriver(item.name);
+        setEnteredDriver("");
+        props.navButtonRef.current.click() // forces the navbar to close
+      }
+    
+      const handleOnFocus = () => {
+        // console.log('Focused')
+      }
+    
+      const formatResult = (item) => {
+        return (
+          <>
+            <span style={{ display: 'block', textAlign: 'left' }}>name: {item.name}</span>
+            <span style={{ display: 'block', textAlign: 'left' }}>number: {item.number}</span>
+          </>
+        )
+      }
+
+      
     return (
-        <form className="d-flex">
-            <input
-                id="driversearchform"
-                autoComplete="off"
-                className="form-control me-2"
-                list="driverListOptions"
-                placeholder="Enter Driver Name..."
-                aria-label="Driver Search"
-                onChange={driverSearchHandler}>
-            </input>
-            <datalist id="driverListOptions">
-                {autoCompleteArray.map(driver =>
-                    <option value={driver} />)}
-            </datalist>
-            <button
-                className="btn btn-light"
-                type="submit"
-                onClick={searchButtonHandler}>
-                Go
-            </button>
-        </form>
+        <div style={{ flex: 1, maxWidth: 400  }}>
+        <ReactSearchAutocomplete
+            items={props.drivers}
+            onSearch={handleOnSearch}
+            onHover={handleOnHover}
+            onSelect={handleOnSelect}
+            onFocus={handleOnFocus}
+            autoFocus
+            formatResult={formatResult}
+            fuseOptions={fuseOpts}
+          />
+        </div>
     )
 }
 

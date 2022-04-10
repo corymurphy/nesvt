@@ -9,7 +9,7 @@ services:
     working_dir: /app
     user: "1000"
   results-web:
-    image: node
+    image: node:16
     command: bash -c "npm install && npm start"
     volumes:
       - ./results:/app

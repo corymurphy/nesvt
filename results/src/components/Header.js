@@ -3,13 +3,14 @@ import SearchBar from "./SearchBar";
 import ClassDropDown from "./ClassDropDown";
 import SortByDropDown from "./SortByDropDown";
 import "./SearchBar.css";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 const Header = (props) => {
 
     // TODO: pull the event name from the axware page and put it in the navbar
 
     const [clearButtonHidden, setClearButtonHidden] = useState(true)
+    const navButtonRef = useRef();
 
     function changeDriverClassHandler(selectedDriverClass) {
         props.onSelectDriverClass(selectedDriverClass);
@@ -44,7 +45,8 @@ const Header = (props) => {
         <nav className="navbar fixed-top navbar-expand-lg navbar-dark" id="mainNavBar">
             <div className="container-fluid">
                 <a className="navbar-brand" href="">Results</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                
+                <button ref={navButtonRef} className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
@@ -81,6 +83,7 @@ const Header = (props) => {
                     <SearchBar
                         drivers={props.results.drivers}
                         onSearchForDriver={driverSearchHandler}
+                        navButtonRef={navButtonRef}
                     />
                 </div>
             </div>
