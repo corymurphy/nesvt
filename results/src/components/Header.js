@@ -46,7 +46,7 @@ const Header = (props) => {
             <div className="container-fluid">
                 <a className="navbar-brand" href="">Results</a>
                 
-                <button ref={btnRef} className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                <button ref={navButtonRef} className="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
