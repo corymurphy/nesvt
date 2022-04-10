@@ -13,6 +13,7 @@ const Header = (props) => {
     const navButtonRef = useRef();
 
     function changeDriverClassHandler(selectedDriverClass) {
+        navButtonRef.current.click()
         props.onSelectDriverClass(selectedDriverClass);
         { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false), props.onClearButtonHidden(false) }
         props.onSelectDriver("");
@@ -20,6 +21,7 @@ const Header = (props) => {
     }
 
     function changeSortByHandler(selectedSortBy) {
+        navButtonRef.current.click()
         props.onSelectedSortBy(selectedSortBy);
     }
 
