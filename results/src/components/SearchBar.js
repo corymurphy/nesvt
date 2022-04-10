@@ -69,7 +69,7 @@ const SearchBar = (props) => {
       const handleOnSelect = (item) => { 
         props.onSearchForDriver(item.name);
         setEnteredDriver("");
-        props.btnRef.current.click() // forces the navbar to close
+        props.navButtonRef.current.click() // forces the navbar to close
       }
     
       const handleOnFocus = () => {
