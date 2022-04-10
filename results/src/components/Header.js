@@ -36,6 +36,7 @@ const Header = (props) => {
     }
 
     function clearButtonHandler() {
+        navButtonRef.current.click()
         setClearButtonHidden(true);
         props.onSelectDriver("");
         props.onSelectDriverClass("all");
