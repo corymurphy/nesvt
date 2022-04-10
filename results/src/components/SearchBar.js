@@ -59,21 +59,21 @@ const SearchBar = (props) => {
         ]
     }
       const handleOnSearch = (string, results) => {
-        console.log(string, results)
+        // console.log(string, results)
       }
     
       const handleOnHover = (result) => {
-        console.log(result)
+        // console.log(result)
       }
     
-      const handleOnSelect = (item) => {
-        
+      const handleOnSelect = (item) => { 
         props.onSearchForDriver(item.name);
         setEnteredDriver("");
+        props.btnRef.current.click() // forces the navbar to close
       }
     
       const handleOnFocus = () => {
-        console.log('Focused')
+        // console.log('Focused')
       }
     
       const formatResult = (item) => {
@@ -99,32 +99,6 @@ const SearchBar = (props) => {
             fuseOptions={fuseOpts}
           />
         </div>
-
-
-
-
-        // <form className="d-flex">
-
-        //     <input
-        //         id="driversearchform"
-        //         autoComplete="off"
-        //         className="form-control me-2"
-        //         list="driverListOptions"
-        //         placeholder="Enter Driver Name..."
-        //         aria-label="Driver Search"
-        //         onChange={driverSearchHandler}>
-        //     </input>
-        //     <datalist id="driverListOptions">
-        //         {autoCompleteArray.map((driver,i) =>
-        //             <option id={i} value={driver} />)}
-        //     </datalist>
-        //     <button
-        //         className="btn btn-light"
-        //         type="submit"
-        //         onClick={searchButtonHandler}>
-        //         Go
-        //     </button>
-        // </form>
     )
 }
 
