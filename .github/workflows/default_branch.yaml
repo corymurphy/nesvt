@@ -5,7 +5,8 @@ on:
 
 jobs:
   build_deploy:
-    runs-on: ubuntu-latest
+    # runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
@@ -54,14 +55,22 @@ jobs:
 
 
       # 4.0+ is broken with 1and1    
-      - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /dev/
-          local-dir: ./webcontent/
-          protocol: ftps
-          port: 22
+      # - name: 📂 Sync files
+      #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
+      #   with:
+      #     server: ${{ secrets.FTP_SERVER }}
+      #     username: ${{ secrets.ftp_username }}
+      #     password: ${{ secrets.ftp_password }}
+      #     server-dir: /dev/
+      #     local-dir: ./webcontent/
+      #     protocol: ftps-legacy
+      #     port: 22
 
+      - name: 📂 Sync files
+        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        with:
+          ftp-server: sftp://${{ secrets.FTP_SERVER }}/
+          ftp-username: ${{ secrets.FTP_USERNAME }}
+          ftp-password: ${{ secrets.FTP_PASSWORD }}
+          git-ftp-args: --insecure
+          local-dir: ./
