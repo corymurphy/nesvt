@@ -63,6 +63,7 @@ jobs:
           server-dir: /dev/
           local-dir: ./webcontent/
           protocol: ftp
+          port: 22
 
 #       - name: 📂 Sync files
 #         uses: SamKirkland/FTP-Deploy-Action@3.1.1
