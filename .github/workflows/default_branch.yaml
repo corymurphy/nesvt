@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
       - name: build website
         shell: pwsh
         run: ./Build-Website
