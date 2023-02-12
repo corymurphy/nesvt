@@ -53,22 +53,22 @@ jobs:
           git commit -m "ephemeral commit for git ftp push"
 
 
-      # 4.0+ is broken with 1and1    
-      # - name: 📂 Sync files
-      #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      #   with:
-      #     server: ${{ secrets.FTP_SERVER }}
-      #     username: ${{ secrets.ftp_username }}
-      #     password: ${{ secrets.ftp_password }}
-      #     server-dir: /dev/
-      #     local-dir: ./webcontent/
-      #     protocol: ftp
-
+#       4.0+ is broken with 1and1    
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@3.1.1
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
-          ftp-server: sftp://${{ secrets.FTP_SERVER }}/
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          git-ftp-args: --insecure
-          # local-dir: ./
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.ftp_username }}
+          password: ${{ secrets.ftp_password }}
+          server-dir: /dev/
+          local-dir: ./webcontent/
+          protocol: ftp
+
+#       - name: 📂 Sync files
+#         uses: SamKirkland/FTP-Deploy-Action@3.1.1
+#         with:
+#           ftp-server: sftp://${{ secrets.FTP_SERVER }}/
+#           ftp-username: ${{ secrets.FTP_USERNAME }}
+#           ftp-password: ${{ secrets.FTP_PASSWORD }}
+#           git-ftp-args: --insecure
+#           # local-dir: ./
