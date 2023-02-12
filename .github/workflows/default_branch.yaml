@@ -52,6 +52,8 @@ jobs:
           rm -f .gitignore
           git add -A
           git commit -m "ephemeral commit for git ftp push"
+          ls -lah
+          pwd
 
 
       # 4.0+ is broken with 1and1    
