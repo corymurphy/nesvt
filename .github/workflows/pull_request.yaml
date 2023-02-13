@@ -68,7 +68,7 @@ jobs:
         # uses: SamKirkland/FTP-Deploy-Action@3.1.2
         uses: corymurphy/ftp-deploy-action@3.1.8
         with:
-          ftp-server: sftp://${{ secrets.FTP_SERVER }}/
+          ftp-server: sftp://${{ secrets.FTP_SERVER }}/dev
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           git-ftp-args: --insecure
