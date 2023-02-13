@@ -58,6 +58,7 @@ jobs:
           git commit -m "ephemeral commit for git ftp push"
           ls -lah
           pwd
+          git config --global --add safe.directory /github/workspace
 
 
       # 4.0+ is broken with 1and1    
