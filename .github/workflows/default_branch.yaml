@@ -39,10 +39,10 @@ jobs:
       - name: copy artifacts to results
         run: mv results/build webcontent/results
 
-      - name: move webcontent to root because git ftp is silly
-        run: |
-          rm -rf results/
-          mv webcontent/* ./
+      # - name: move webcontent to root because git ftp is silly
+      #   run: |
+      #     rm -rf results/
+      #     mv webcontent/* ./
 
       - name: setup git config
         run: |
@@ -73,10 +73,11 @@ jobs:
       #     port: 22
 
       - name: 📂 Sync files
-        uses: corymurphy/ftp-deploy-action@3.1.5
+        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        # uses: corymurphy/ftp-deploy-action@3.1.5
         with:
           ftp-server: sftp://${{ secrets.FTP_SERVER }}/
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           git-ftp-args: --insecure
-          local-dir: /home/runner/work/nesvt/nesvt
+          local-dir: ./webcontent
