@@ -39,10 +39,10 @@ jobs:
       - name: copy artifacts to results
         run: mv results/build webcontent/results
 
-      # - name: move webcontent to root because git ftp is silly
-      #   run: |
-      #     rm -rf results/
-      #     mv webcontent/* ./
+      - name: move webcontent to root because git ftp is silly
+        run: |
+          rm -rf results/
+          mv webcontent/* ./
 
       - name: setup git config
         run: |
@@ -56,9 +56,6 @@ jobs:
           rm -f .gitignore
           git add -A
           git commit -m "ephemeral commit for git ftp push"
-          ls -lah
-          pwd
-          git config --global --add safe.directory /github/workspace
 
       # 4.0+ is broken with 1and1    
       # - name: 📂 Sync files
@@ -80,4 +77,4 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           git-ftp-args: --insecure
-          local-dir: ./webcontent
+          # local-dir: ./webcontent/
