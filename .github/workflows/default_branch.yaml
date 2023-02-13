@@ -73,7 +73,7 @@ jobs:
       #     port: 22
 
       - name: 📂 Sync files
-        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        uses: corymurphy/ftp-deploy-action@3.1.3
         with:
           ftp-server: sftp://${{ secrets.FTP_SERVER }}/
           ftp-username: ${{ secrets.FTP_USERNAME }}
