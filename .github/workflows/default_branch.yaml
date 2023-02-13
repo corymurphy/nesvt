@@ -60,7 +60,6 @@ jobs:
           pwd
           git config --global --add safe.directory /github/workspace
 
-
       # 4.0+ is broken with 1and1    
       # - name: 📂 Sync files
       #   uses: SamKirkland/FTP-Deploy-Action@4.3.3
@@ -74,8 +73,8 @@ jobs:
       #     port: 22
 
       - name: 📂 Sync files
-        # uses: SamKirkland/FTP-Deploy-Action@3.1.2
-        uses: corymurphy/ftp-deploy-action@3.1.7
+        uses: SamKirkland/FTP-Deploy-Action@3.1.2
+        # uses: corymurphy/ftp-deploy-action@3.1.2
         with:
           ftp-server: sftp://${{ secrets.FTP_SERVER }}/
           ftp-username: ${{ secrets.FTP_USERNAME }}
