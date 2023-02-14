@@ -1,0 +1,111 @@
+main > .container {
+  padding: 20px;
+}
+
+.jumbotron {
+  border-radius: 0;
+
+  background-size: cover;
+  max-height: 300px;
+}
+
+body {
+  background-color: #e9ecef;
+}
+
+.site-header {
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #999;
+}
+
+.title-links {
+  color: #999;
+}
+
+.video-responsive {
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+  height: 0;
+  max-width: 700px;
+  max-height: 350px;
+}
+.video-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.alert-bottom {
+  position: fixed;
+  bottom: 5px;
+  left: 2%;
+  width: 96%;
+}
+
+.nesvt-nav-margin {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.nesvt-nav {
+  font-size: 1.3rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+@media (max-width: 992px) {
+  .nesvt-title {
+    font-size: 1.5rem;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .lead.video {
+    margin-top: 10px;
+  }
+
+  .nesvt-nav-item {
+    margin-left: 40px;
+  }
+
+  .display-4 {
+    font-size: 2rem !important;
+    font-weight: 300;
+    line-height: 1.2;
+  }
+
+  .jumbotron {
+    height: 30%;
+    background-image: url("../images/mobile.svg");
+  }
+
+  .nesvt-btn {
+    width: 100%;
+  }
+}
+
+@media (min-width: 993px) {
+  .nesvt-title {
+    display: none;
+  }
+
+  .jumbotron {
+    height: 100%;
+    margin-bottom: 1rem;
+    background-image: url("../images/BackGround.png");
+  }
+
+  .nesvt-btn {
+    width: 20%;
+  }
+}
+
+@media (min-width: 576px) {
+  .jumbotron {
+    padding: 4rem 2rem;
+    margin-bottom: 2rem;
+  }
+}

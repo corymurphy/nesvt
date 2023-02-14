@@ -1,4 +1,4 @@
-function HomeJumbotron() {
+function Jumbotron() {
   return (
     <>
       <div className="jumbotron">
@@ -7,8 +7,8 @@ function HomeJumbotron() {
             Welcome to NE-SVT Autocross!
           </h3>
           <p></p>
-          <p>
-            <a className="btn btn-primary btn-lg" href="faq.html" role="button">
+          <p className="lead">
+            <a className="btn btn-primary btn-lg" href="./faq" role="button">
               Learn more
             </a>
           </p>
@@ -18,4 +18,4 @@ function HomeJumbotron() {
   );
 }
 
-export default HomeJumbotron;
+export default Jumbotron;

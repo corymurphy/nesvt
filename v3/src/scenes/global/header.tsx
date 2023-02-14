@@ -16,7 +16,7 @@ function Header() {
       <div style={{ color: "#e9ecef" }} className="nesvt-title">
         NE-SVT{" "}
       </div>
-      <a style={{ padding: "0" }} className="nav-link" href="home.html">
+      <a style={{ padding: "0" }} className="nav-link" href="./">
         <img src="images/logo2.png" width="35" height="35" alt="" />
       </a>
 
@@ -29,7 +29,7 @@ function Header() {
             <a
               className="nav-link"
               style={{ marginRight: "40px" }}
-              href="home.html"
+              href="./"
             >
               Home
             </a>
@@ -78,7 +78,7 @@ function Header() {
           </li>
 
           <li className="nav-item nesvt-nav-margin ">
-            <a className="nav-link" href="gallery.html">
+            <a className="nav-link" href="./gallery">
               Gallery
             </a>
           </li>
