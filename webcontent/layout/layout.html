@@ -26,15 +26,16 @@
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/global.js"></script>
 
-
     <nav class="navbar navbar-expand-lg navbar-dark site-header">
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08" aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample08"
+            aria-controls="navbarsExample08" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
         <div style="color:#e9ecef;" class="nesvt-title">NE-SVT </div>
-        <a style="padding:0;" class="nav-link" href="home.html"><img src="images/logo2.png" width="35" height="35" alt=""></a>
+        <a style="padding:0;" class="nav-link" href="home.html"><img src="images/logo2.png" width="35" height="35"
+                alt=""></a>
 
         <div class="collapse navbar-collapse justify-content-md-center nesvt-nav" id="navbarsExample08">
 
@@ -53,15 +54,8 @@
                 </li>
 
                 <li class="nav-item dropdown nesvt-nav-margin">
-                    <!--<a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown08" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>-->
-                    <a class="nav-link dropdown-toggle title-links" href="faq.html" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
-                    <!--
-          <div class="dropdown-menu" aria-labelledby="dropdown08">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
-            <a class="dropdown-item" href="#">Something else here</a>
-          </div>
-        -->
+                    <a class="nav-link dropdown-toggle title-links" href="faq.html" id="dropdown01"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">FAQ</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="faq.html#autocross101">What is Autocross?</a>
                         <a class="dropdown-item" href="faq.html#tech">Will I pass tech?</a>
@@ -91,12 +85,13 @@
     </main>
 
     <div class="alert-bottom alert alert-danger" id="helmetAlert" style="display: none;">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close" onclick="neSvt.dismissHelmetNotification();">&times;</a>
+        <a href="#" class="close" data-dismiss="alert" aria-label="close"
+            onclick="neSvt.dismissHelmetNotification();">&times;</a>
         <strong>REMINDER</strong> -- All helmets must be Snell M2015 / SA2015 or newer.
     </div>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             neSvt.setHelmetWindowState();
         });
     </script>
