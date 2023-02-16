@@ -1,0 +1,45 @@
+/* body {
+    padding-top: 2rem;
+    background-color: #1e242900 !important;
+    color: #c9d1d9 !important;
+} */
+
+.navbar {
+    background-color: #161b22 !important;
+}
+
+/* .card {
+    word-wrap: break-word;
+    background-color: #181818 !important;
+    background-color: #2f4350 !important;
+} */
+
+.border-darkmode {
+    border-color: #30363d !important;
+    border: 1px solid;
+}
+
+/* h3 {
+    color: #c9d1d9 !important;
+} */
+
+
+/* .card {
+    background-color: #161b22 !important;
+} */
+
+
+/* font scaling for the "show all" buttons on smaller screens */
+
+@media (max-width: 576px) {
+    button[class*="timesButton"] {
+        font-size: medium;
+        padding: 0%;
+    }
+    div[class="card w-100"] {
+        font-size: 75%;
+    }
+}
+
+
+/* fdf5e6 */

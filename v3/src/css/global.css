@@ -9,9 +9,9 @@ main > .container {
   max-height: 300px;
 }
 
-/* body {
+body {
   background-color: #2f435000;
-} */
+}
 
 .site-header {
   background-color: rgba(0, 0, 0, 0.85);
@@ -30,6 +30,7 @@ main > .container {
   max-width: 700px;
   max-height: 350px;
 }
+
 .video-responsive iframe {
   left: 0;
   top: 0;
@@ -43,17 +44,6 @@ main > .container {
   bottom: 5px;
   left: 2%;
   width: 96%;
-}
-
-.nesvt-nav-margin {
-  margin-left: 40px;
-  margin-right: 40px;
-}
-
-.nesvt-nav {
-  font-size: 1.3rem;
-  font-weight: 400;
-  line-height: 1.2;
 }
 
 @media (max-width: 992px) {
