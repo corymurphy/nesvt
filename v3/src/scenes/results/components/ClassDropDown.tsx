@@ -1,10 +1,10 @@
 import { useState } from "react";
 
-const ClassDropDown = (props) => {
+const ClassDropDown = (props: any) => {
 
     const [selectedClass, setSelectedClass] = useState(sessionStorage.getItem("class") || "all");
 
-    function classSelectHandler(event) {
+    function classSelectHandler(event: any) {
         event.preventDefault();
         setSelectedClass(event.target.id);
         props.onSelectDriverClass(event.target.id);

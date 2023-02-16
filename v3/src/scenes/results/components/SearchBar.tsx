@@ -1,33 +1,33 @@
 import { useState } from "react";
 import { ReactSearchAutocomplete } from 'react-search-autocomplete'
 
-const SearchBar = (props) => {
+const SearchBar = (props: any) => {
 
     const [enteredDriver, setEnteredDriver] = useState("");
     const [autoCompleteArray, setAutoCompleteArray] = useState([]);
 
-    function searchButtonHandler(event) {
+    function searchButtonHandler(event: any) {
         event.preventDefault();
         props.onSearchForDriver(enteredDriver);
         setEnteredDriver("");
         document.querySelector("#driversearchform").value = "";
     }
 
-    function driverSearchHandler(event) {
+    function driverSearchHandler(event: any) {
         let currentInput = event.target.value;
         let inputCharLength = currentInput.length;
         let autoCompleteValues = [];
 
         autoCompleteValues.push(...props.drivers
-            .map((driver) => driver.name)
-            .filter((name) => {
+            .map((driver: any) => driver.name)
+            .filter((name: any) => {
                 return name.toLowerCase().match(currentInput.toLowerCase())
             })
             .sort());
 
         if (Number(currentInput)) {
             let filtered = props.drivers
-                .filter((driver) => {
+                .filter((driver: any) => {
                     return driver.number.match(currentInput);
                 })
                 .map(driver => driver.name);
@@ -58,15 +58,15 @@ const SearchBar = (props) => {
             "number"
         ]
     }
-      const handleOnSearch = (string, results) => {
+      const handleOnSearch = (string: any, results: any) => {
         // console.log(string, results)
       }
     
-      const handleOnHover = (result) => {
+      const handleOnHover = (result: any) => {
         // console.log(result)
       }
     
-      const handleOnSelect = (item) => { 
+      const handleOnSelect = (item: any) => { 
         props.onSearchForDriver(item.name);
         setEnteredDriver("");
         props.navButtonRef.current.click() // forces the navbar to close
@@ -76,7 +76,7 @@ const SearchBar = (props) => {
         // console.log('Focused')
       }
     
-      const formatResult = (item) => {
+      const formatResult = (item: any) => {
         return (
           <>
             <span style={{ display: 'block', textAlign: 'left' }}>name: {item.name}</span>

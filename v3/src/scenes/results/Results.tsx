@@ -33,19 +33,19 @@ function Results() {
   const [currentDriver, setCurrentDriver] = useState("");
   const [clearButtonPressed, setClearButtonPressed] = useState(false);
 
-  function selectDriverClassHandler(selectedDriverClass) {
+  function selectDriverClassHandler(selectedDriverClass: any) {
     setCurrentDriverClass(selectedDriverClass);
   }
 
-  function selectDriverHandler(selectedDriver) {
+  function selectDriverHandler(selectedDriver: any) {
     setCurrentDriver(selectedDriver);
   }
 
-  function clearButtonHandler(clearButtonPressed) {
+  function clearButtonHandler(clearButtonPressed: any) {
     setClearButtonPressed(clearButtonPressed);
   }
 
-  function selectSortByHandler(selectedSortBy) {
+  function selectSortByHandler(selectedSortBy: any) {
     setSelectedSortBy(selectedSortBy);
   }
 

@@ -4,7 +4,7 @@ import { Collapse, Button } from 'react-bootstrap'
 import Runs from './Runs'
 import { fastestRun, countRuns, latestRun, displayRun } from '../util'
 
-const Driver = (props) => {
+const Driver = (props: any) => {
 
     const [open, setOpen] = useState(false);
 

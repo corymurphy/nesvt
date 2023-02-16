@@ -2,9 +2,9 @@ import { sortByFastest, sortByCarNumber } from "../util";
 import Driver from "./Driver"
 import DriverClasses from './DriverClasses';
 
-const ResultsSorter = (props) => {
+const ResultsSorter = (props: any) => {
 
-    function isTime(props) {
+    function isTime(props: any) {
         if(props.selectedSortBy === "time" && props.results.hasOwnProperty('drivers')) {
             return true
         } else {
@@ -12,7 +12,7 @@ const ResultsSorter = (props) => {
         }
     }
 
-    function isNumber(props) {
+    function isNumber(props: any) {
         if(props.selectedSortBy === "number" && props.results.hasOwnProperty('drivers')) {
             return true
         } else {
@@ -34,7 +34,7 @@ const ResultsSorter = (props) => {
 
             {isTime(props) &&
                 <div className="container pt-4">
-                    {props.results.drivers.sort(sortByFastest).map((driver, position) =>
+                    {props.results.drivers.sort(sortByFastest).map((driver: any, position: any) =>
                         
                         <Driver
                             driver={driver}
@@ -46,7 +46,7 @@ const ResultsSorter = (props) => {
 
             {isNumber(props) &&
                 <div className="container pt-4">
-                    {props.results.drivers.sort(sortByCarNumber).map((driver, position) =>
+                    {props.results.drivers.sort(sortByCarNumber).map((driver: any, position: any) =>
                         
                         <Driver
                         driver={driver}

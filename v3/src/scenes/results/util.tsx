@@ -9,7 +9,7 @@
  * @param  {Array<String>} headings the values of the table's <thead>
  * @return {(row: HTMLTableRowElement) => Object} a function that takes a table row and spits out an object
  */
-function mapRow(headings) {
+function mapRow(headings: any) {
     return function mapRowToObject({ cells }) {
         return [...cells].reduce(function(result, cell, i) {
             const input = cell.querySelector("input,select");
@@ -40,7 +40,7 @@ function mapRow(headings) {
  * @param  {HTMLTableElement} table the table to convert
  * @return {Array<Object>}       array of objects representing each row in the table
  */
-export const parseTable = (table) => {
+export const parseTable = (table: any) => {
     var headings = [...table.tBodies[0].rows[0].cells].map(
         heading => heading.innerText
     );
@@ -48,7 +48,7 @@ export const parseTable = (table) => {
     return [...table.tBodies[0].rows].map(mapRow(headings));
 }
 
-function getConeHits(entry) {
+function getConeHits(entry: any) {
 
     if (entry.includes("dnf")) {
         return 0
@@ -61,7 +61,7 @@ function getConeHits(entry) {
     }
 }
 
-function getTime(entry) {
+function getTime(entry: any) {
     if (entry.includes("+")) {
         return entry.split("+")[0]
     } else {
@@ -69,7 +69,7 @@ function getTime(entry) {
     }
 }
 
-function parseRuns(records, extended) {
+function parseRuns(records: any, extended: any) {
 
     var runs = []
 
@@ -108,7 +108,7 @@ function parseRuns(records, extended) {
     return runs
 }
 
-function parsePosition(pos) {
+function parsePosition(pos: any) {
     if (pos.includes("T")) {
         return parseInt(pos.replace("T", ""));
     } else {
@@ -116,11 +116,11 @@ function parsePosition(pos) {
     }
 }
 
-function isTrophy(pos) {
+function isTrophy(pos: any) {
     return pos.includes("T")
 }
 
-function getNextRow(data, i) {
+function getNextRow(data: any, i: any) {
     if (i + 1 < data.length) {
         return data[i + 1]
     } else {
@@ -128,7 +128,7 @@ function getNextRow(data, i) {
     }
 }
 
-const getClassFullName = (shortName) => {
+const getClassFullName = (shortName: any) => {
     switch (shortName) {
         case "es":
             return "Experienced Street";
@@ -153,7 +153,7 @@ const getClassFullName = (shortName) => {
     }
 }
 
-export const parseResults = (data) => {
+export const parseResults = (data: any) => {
 
     // var results = [];
     var results = {
@@ -215,7 +215,7 @@ export const parseResults = (data) => {
     return results;
 }
 
-export const displayRun = (run) => {
+export const displayRun = (run: any) => {
 
     if (run.time === 999.999) {
         return 'dns'
@@ -232,7 +232,7 @@ export const displayRun = (run) => {
     return `${run.time}`
 }
 
-export const actualTime = (run) => {
+export const actualTime = (run: any) => {
 
     var penalty = 2.000
 
@@ -247,14 +247,14 @@ export const actualTime = (run) => {
     return parseFloat(run.time)
 }
 
-export const countRuns = (runs) => {
-    return runs.filter((run) => {
+export const countRuns = (runs: any) => {
+    return runs.filter((run: any) => {
         return run.time !== null && run.time !== ''
     }).length
 }
 
-export const latestRun = (runs) => {
-    runs = runs.filter((run) => {
+export const latestRun = (runs: any) => {
+    runs = runs.filter((run: any) => {
         return run.time !== null && run.time !== ''
     })
 
@@ -264,9 +264,9 @@ export const latestRun = (runs) => {
     return displayRun(runs[runs.length - 1]);
 }
 
-export const fastestRun = (runs) => {
+export const fastestRun = (runs: any) => {
     var fastest = { time: 999.999, dnf: false, cones: 0 };
-    runs.forEach((run, index, runs) => {
+    runs.forEach((run: any, index: any, runs: any) => {
         if (actualTime(run) < actualTime(fastest) && !run.dnf) {
             fastest = run;
         }
@@ -274,17 +274,17 @@ export const fastestRun = (runs) => {
     return fastest
 }
 
-export const initDoc = (body) => {
+export const initDoc = (body: any) => {
     return (new DOMParser()).parseFromString(body, 'text/html');
 }
 
-export const parseResultsFromHtml = (data) => {
+export const parseResultsFromHtml = (data: any) => {
     var doc = initDoc(data)
     const table = doc.querySelectorAll("table")[3]
     return parseResults(parseTable(table));
 }
 
-export const sortByCarNumber = (a, b) => {
+export const sortByCarNumber = (a: any, b: any) => {
     if (parseInt(a.number) < parseInt(b.number)) {
         return -1
     }
@@ -296,7 +296,7 @@ export const sortByCarNumber = (a, b) => {
     return 0
 }
 
-export const sortByFastest = (a, b) => {
+export const sortByFastest = (a: any, b: any) => {
     if (a.fastest < b.fastest) {
         return -1
     }

@@ -3,6 +3,7 @@
 
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
+import Events from "./scenes/events/events";
 import Faq from "./scenes/faq/faq";
 import Gallery from "./scenes/gallery/gallery";
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/results" element={<Results />} />
         <Route path="/faq" element={<Faq/> } />
+        <Route path="/events" element={<Events />} />
       </Routes>
     </>
   );

@@ -5,14 +5,14 @@ import SortByDropDown from "./SortByDropDown";
 import "./SearchBar.css";
 import { useRef, useState } from "react";
 
-const Header = (props) => {
+const Header = (props: any) => {
 
     // TODO: pull the event name from the axware page and put it in the navbar
 
     const [clearButtonHidden, setClearButtonHidden] = useState(true)
     const navButtonRef = useRef();
 
-    function changeDriverClassHandler(selectedDriverClass) {
+    function changeDriverClassHandler(selectedDriverClass: any) {
         navButtonRef.current.click()
         props.onSelectDriverClass(selectedDriverClass);
         { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false), props.onClearButtonHidden(false) }
@@ -20,12 +20,12 @@ const Header = (props) => {
         sessionStorage.setItem("class", selectedDriverClass);
     }
 
-    function changeSortByHandler(selectedSortBy) {
+    function changeSortByHandler(selectedSortBy: any) {
         navButtonRef.current.click()
         props.onSelectedSortBy(selectedSortBy);
     }
 
-    function driverSearchHandler(selectedDriver) {
+    function driverSearchHandler(selectedDriver: any) {
         props.onSelectDriver(selectedDriver);
         if (selectedDriver === "") {
             setClearButtonHidden(true);

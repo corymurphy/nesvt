@@ -3,10 +3,10 @@ import { Collapse, Button } from 'react-bootstrap'
 
 import Driver from "./Driver"
 
-const DriverClass = (props) => {
+const DriverClass = (props: any) => {
 
-    const getDriversInClass = (classAlias, drivers) => {
-        return drivers.filter(function (driver) {
+    const getDriversInClass = (classAlias: string, drivers: any) => {
+        return drivers.filter(function (driver: any) {
             return driver.class === classAlias;
         })
     }
@@ -51,7 +51,7 @@ const DriverClass = (props) => {
 
             <Collapse in={open}>
                 <div>
-                    {getDriversInClass(props.driverClass.alias, props.drivers).map((driver) => (
+                    {getDriversInClass(props.driverClass.alias, props.drivers).map((driver: any) => (
                         <Driver 
                         driver={driver} 
                         />
