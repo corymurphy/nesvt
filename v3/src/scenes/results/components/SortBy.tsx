@@ -1,7 +1,7 @@
 const SortBy = {
-    Time: "time",
-    Number: "number",
-    Class: "class",
-}
+  Time: "time",
+  Number: "number",
+  Class: "class",
+};
 
 export default SortBy;
