@@ -1,6 +1,6 @@
 import DriverClass from "./DriverClass"
 
-const DriverClasses = (props: any) => {
+const DriverClasses = (props) => {
 
     // define empty driver array and empty class object to pass along when there's no data
     const nullDriver = [{

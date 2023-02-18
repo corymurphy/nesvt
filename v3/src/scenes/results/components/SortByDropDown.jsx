@@ -1,10 +1,10 @@
 import { useState } from "react";
 import SortBy from "./SortBy";
 
-const SortByDropDown = (props: any) => {
+const SortByDropDown = (props) => {
     const [selectedSort, setSelectedSort] = useState(sessionStorage.getItem("sortBy") || "class");
 
-    function sortSelectHandler(event: any) {
+    function sortSelectHandler(event) {
         event.preventDefault();
         setSelectedSort(event.target.id);
         props.onSelectedSortBy(event.target.id);

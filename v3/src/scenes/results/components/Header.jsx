@@ -5,14 +5,14 @@ import SortByDropDown from "./SortByDropDown";
 import "./SearchBar.css";
 import { useRef, useState } from "react";
 
-const Header = (props: any) => {
+const Header = (props) => {
 
     // TODO: pull the event name from the axware page and put it in the navbar
 
     const [clearButtonHidden, setClearButtonHidden] = useState(true)
     const navButtonRef = useRef();
 
-    function changeDriverClassHandler(selectedDriverClass: any) {
+    function changeDriverClassHandler(selectedDriverClass) {
         navButtonRef.current.click()
         props.onSelectDriverClass(selectedDriverClass);
         { selectedDriverClass === "all" ? setClearButtonHidden(true) : setClearButtonHidden(false), props.onClearButtonHidden(false) }
@@ -20,12 +20,12 @@ const Header = (props: any) => {
         sessionStorage.setItem("class", selectedDriverClass);
     }
 
-    function changeSortByHandler(selectedSortBy: any) {
+    function changeSortByHandler(selectedSortBy) {
         navButtonRef.current.click()
         props.onSelectedSortBy(selectedSortBy);
     }
 
-    function driverSearchHandler(selectedDriver: any) {
+    function driverSearchHandler(selectedDriver) {
         props.onSelectDriver(selectedDriver);
         if (selectedDriver === "") {
             setClearButtonHidden(true);
@@ -45,11 +45,8 @@ const Header = (props: any) => {
 
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark" id="mainNavBar">
+        <nav className="navbar fixed-top navbar-expand-lg navbar-dark" id="mainNavBar">
             <div className="container-fluid">
-            <a className="navbar-brand" href="./">
-          <img src="images/logo2.png" width="35" height="35" alt="" />
-        </a>
                 <a className="navbar-brand" href="">Results</a>
                 
                 <button ref={navButtonRef} className="navbar-toggler" type="button" data-bs-toggle="collapse"

@@ -54,7 +54,9 @@ const Driver = (props: any) => {
                         </div>
                     </div>
                 </div>
-                <Collapse in={open} variant="px-2">
+
+                {/* <Collapse in={open}  variant="px-2"> */}
+                <Collapse in={open}>
                     <div className="px-2"><Runs runs={props.driver.runs} /></div>
                 </Collapse>
             </div>
