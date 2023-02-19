@@ -1,12 +1,24 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Accordion, Container } from "react-bootstrap";
 
 function Faq() {
-  const [active, setActive] = useState<string[]>([""]);
+  const [active, setActive] = useState<string[]>([window.location.hash]);
+
+  const hashChangeHandler = useCallback(() => {
+    setActive([window.location.hash]);
+  }, []);
+
 
   useEffect(() => {
-    setActive([window.location.hash]);
-  });
+    window.addEventListener('hashchange', hashChangeHandler);
+    return () => {
+      window.removeEventListener('hashchange', hashChangeHandler);
+    };
+  }, []);
+
+  // useEffect(() => {
+  //   setActive([window.location.hash]);
+  // }, []);
 
   return (
     <Container>
@@ -44,8 +56,9 @@ function Faq() {
         <Accordion.Item eventKey="#tech">
           <Accordion.Header>Will my car pass tech?</Accordion.Header>
           <Accordion.Body>
+          {/* <h4>Your Car</h4> */}
             <p className="lead">
-              <h4>Your Car</h4>
+              
               <ul>
                 <li>Your car must be registered and insured.</li>
                 <li>
