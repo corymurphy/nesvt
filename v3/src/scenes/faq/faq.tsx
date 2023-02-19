@@ -4,17 +4,16 @@ import { Accordion, Container } from "react-bootstrap";
 function Faq() {
   const [active, setActive] = useState<string[]>([window.location.hash]);
 
-  const hashChangeHandler = useCallback(() => {
-    setActive([window.location.hash]);
-  }, []);
+  // const hashChangeHandler = useCallback(() => {
+  //   setActive([window.location.hash]);
+  // }, []);
 
-
-  useEffect(() => {
-    window.addEventListener('hashchange', hashChangeHandler);
-    return () => {
-      window.removeEventListener('hashchange', hashChangeHandler);
-    };
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('hashchange', hashChangeHandler);
+  //   return () => {
+  //     window.removeEventListener('hashchange', hashChangeHandler);
+  //   };
+  // }, []);
 
   // useEffect(() => {
   //   setActive([window.location.hash]);
@@ -22,7 +21,7 @@ function Faq() {
 
   return (
     <Container>
-      <Accordion activeKey={active} flush>
+      <Accordion defaultActiveKey={active} flush>
         <Accordion.Item eventKey="#autocross101">
           <Accordion.Header>What is Autocross?</Accordion.Header>
           <Accordion.Body>
@@ -31,12 +30,9 @@ function Faq() {
             <div className="video-responsive">
               <iframe
                 src="http://player.vimeo.com/video/12067348"
-                frameBorder="0"
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
-                  marginTop: "10px",
-                  marginBottom: "20px",
                 }}
               ></iframe>
             </div>
@@ -56,54 +52,44 @@ function Faq() {
         <Accordion.Item eventKey="#tech">
           <Accordion.Header>Will my car pass tech?</Accordion.Header>
           <Accordion.Body>
-          {/* <h4>Your Car</h4> */}
-            <p className="lead">
-              
-              <ul>
-                <li>Your car must be registered and insured.</li>
-                <li>
-                  Check tires - Good condition, no exposed cords, cracks in
-                  sidewalls.
-                </li>
-                <li>Check wheel lugs for tightness, none missing.</li>
-                <li>Hub caps / wheel / lug covers removed.</li>
-                <li>Check wheel bearings for tightness.</li>
-                <li>Check suspension for tightness.</li>
-                <li>
-                  Check seat belts for good condition, lap belts minimum are
-                  required. Racing harness should be mounted properly.
-                </li>
-                <li>Check the battery mounting, must be mounted securely.</li>
-                <li>Check overall for fluid leaks.</li>
-                <li>
-                  Check that brake pedal is firm. Brake and clutch fluid levels
-                  are sufficient, no leaks.
-                </li>
-                <li>Check throttle return spring.</li>
-                <li>
-                  Remove all loose items from interior, NO FLOOR MAT ON DRIVER
-                  SIDE.
-                </li>
-                <li>
-                  Remove all suction cup devices. i.e. radar detectors, gps
-                  receivers etc.
-                </li>
-              </ul>
-            </p>
-
-            <p className="lead">
-              <h4>You</h4>
-              <ul>
-                <li>
-                  Helmet must be of SNELL 2010 (M OR SA) standard or newer or
-                  FIA homologation.
-                </li>
-                <li>
-                  Car numbers (className is optional) must be on both sides of
-                  the car and readable from 25 feet.
-                </li>
-              </ul>
-            </p>
+            <ul>
+              <li>Your car must be registered and insured.</li>
+              <li>
+                Check tires - Good condition, no exposed cords, cracks in
+                sidewalls.
+              </li>
+              <li>Check wheel lugs for tightness, none missing.</li>
+              <li>Hub caps / wheel / lug covers removed.</li>
+              <li>Check wheel bearings for tightness.</li>
+              <li>Check suspension for tightness.</li>
+              <li>
+                Check seat belts for good condition, lap belts minimum are
+                required. Racing harness should be mounted properly.
+              </li>
+              <li>Check the battery mounting, must be mounted securely.</li>
+              <li>Check overall for fluid leaks.</li>
+              <li>
+                Check that brake pedal is firm. Brake and clutch fluid levels
+                are sufficient, no leaks.
+              </li>
+              <li>Check throttle return spring.</li>
+              <li>
+                Remove all loose items from interior, NO FLOOR MAT ON DRIVER
+                SIDE.
+              </li>
+              <li>
+                Remove all suction cup devices. i.e. radar detectors, gps
+                receivers etc.
+              </li>
+              <li>
+                Helmet must be of SNELL 2015 (M OR SA) standard or newer or FIA
+                homologation.
+              </li>
+              <li>
+                Car numbers (className is optional) must be on both sides of the
+                car and readable from 25 feet.
+              </li>
+            </ul>
           </Accordion.Body>
         </Accordion.Item>
 
@@ -187,7 +173,7 @@ function Faq() {
               </strong>
             </p>
             <p className="lead">
-              Click <a href="/autocrossevents.html">here</a> to see our events
+              Click <a href="./events">here</a> to see our events
               page
             </p>
           </Accordion.Body>
