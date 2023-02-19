@@ -12,7 +12,7 @@ const ClassDropDown = (props: any) => {
   }
 
   return (
-    <div>
+    <>
       {/* eslint-disable-next-line */}
       <a
         className="nav-link dropdown-toggle"
@@ -74,7 +74,7 @@ const ClassDropDown = (props: any) => {
           </button>
         </li>
       </ul>
-    </div>
+    </>
   );
 };
 

@@ -1,34 +1,35 @@
-import './Results.css';
+import "./Results.css";
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from "react";
 
-import Header from './components/Header'
-import ResultsSorter from './components/ResultsSorter';
-import { parseResultsFromHtml } from './util';
+import Header from "./components/Header";
+import ResultsSorter from "./components/ResultsSorter";
+import { parseResultsFromHtml } from "./util";
 
 function Results() {
-
-  const [results, setResults] = useState({})
+  const [results, setResults] = useState({});
 
   useEffect(() => {
-    fetch('results_sample.html')
-      .then(response => response.text())
-      .then(data => setResults(parseResultsFromHtml(data)))
-    
-    const id = setInterval(() =>
-      fetch('results_sample.html')
-        .then(response => response.text())
-        .then(data => setResults(parseResultsFromHtml(data)))
-    , 15000)
+    fetch("results_sample.html")
+      .then((response) => response.text())
+      .then((data) => setResults(parseResultsFromHtml(data)));
 
-    return () => clearInterval(id);  
-  }, [])
+    const id = setInterval(
+      () =>
+        fetch("results_sample.html")
+          .then((response) => response.text())
+          .then((data) => setResults(parseResultsFromHtml(data))),
+      15000
+    );
+
+    return () => clearInterval(id);
+  }, []);
 
   const [selectedSortBy, setSelectedSortBy] = useState(
-    sessionStorage.getItem('sortBy') || 'class'
+    sessionStorage.getItem("sortBy") || "class"
   );
   const [currentDriverClass, setCurrentDriverClass] = useState(
-    sessionStorage.getItem('class') || 'all'
+    sessionStorage.getItem("class") || "all"
   );
   const [currentDriver, setCurrentDriver] = useState("");
   const [clearButtonPressed, setClearButtonPressed] = useState(false);
@@ -49,8 +50,6 @@ function Results() {
     setSelectedSortBy(selectedSortBy);
   }
 
-
-
   return (
     <>
       <Header
@@ -60,7 +59,6 @@ function Results() {
         onClearButtonHidden={clearButtonHandler}
         onSelectedSortBy={selectSortByHandler}
         selectedSortBy={selectedSortBy}
-        
       />
       <ResultsSorter
         results={results}

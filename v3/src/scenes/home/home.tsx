@@ -7,10 +7,10 @@ function Home() {
     <>
       <Jumbotron />
 
-      <div className="container">
+      <div className="container" style={{ paddingTop: "20px" }}>
         <div className="row">
-            <Events />
-            <About />
+          <Events />
+          <About />
         </div>
       </div>
 

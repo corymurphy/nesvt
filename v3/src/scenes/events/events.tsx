@@ -1,6 +1,6 @@
 function Events() {
   return (
-    <div className="container">
+    <div className="container" style={{paddingTop: "20px"}}>
       <div className="row">
         <div className="col-lg-12">
           <ul className="event-list">

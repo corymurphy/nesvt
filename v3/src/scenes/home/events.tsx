@@ -27,7 +27,7 @@ function Events() {
         <p>
           <a
             className="btn btn-primary"
-            href="./autocrossevents"
+            href="./events"
             style={{ width: "100%" }}
             role="button"
           >

@@ -84,7 +84,7 @@ body {
 
   .jumbotron {
     height: 100%;
-    margin-bottom: 1rem;
+    /* margin-bottom: 1rem; */
     background-image: url("../images/BackGround.png");
   }
 
@@ -95,7 +95,7 @@ body {
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
-    margin-bottom: 2rem;
+    padding: 2rem 2rem;
+    /* margin-bottom: 2rem; */
   }
 }
