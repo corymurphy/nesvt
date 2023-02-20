@@ -1,10 +1,6 @@
-// import { useState } from 'react'
-// import reactLogo from './assets/react.svg'
-
 import { useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
-// import getEvents from "./data/events";
-// import events from "./data/events";
+
 import { ClubEvent } from "./models/data/event";
 import Events from "./scenes/events/events";
 import Faq from "./scenes/faq/faq";
@@ -15,31 +11,16 @@ import Home from "./scenes/home/home";
 import Results from "./scenes/results/Results";
 
 function App() {
-  // var events: Event[] = []
-  
-  // const [count, setCount] = useState(0)
-
-  // useEffect(()=>
-  // {
-  //     if(useLocation().pathname == '/about'){
-
-  //     }
-  // }
-  // },[useLocation()]);
-
   return (
     <>
-      {/* {useLocation().pathname !== "/results" ? <Header /> : null} */}
       {useLocation().pathname !== "/results" ? <Header /> : null}
-      {/* <main role="main"> */}
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/results" element={<Results />} />
-          <Route path="/faq" element={<Faq />} />
-          <Route path="/events" element={<Events />} />
-        </Routes>
-      {/* </main> */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/results" element={<Results />} />
+        <Route path="/faq" element={<Faq />} />
+        <Route path="/events" element={<Events />} />
+      </Routes>
     </>
   );
 }
