@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-const ClassDropDown = (props: any) => {
+const ClassDropDownLegacy = (props: any) => {
   const [selectedClass, setSelectedClass] = useState(
     sessionStorage.getItem("class") || "all"
   );
@@ -78,4 +78,4 @@ const ClassDropDown = (props: any) => {
   );
 };
 
-export default ClassDropDown;
+export default ClassDropDownLegacy;

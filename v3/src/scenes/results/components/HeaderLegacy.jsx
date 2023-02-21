@@ -5,7 +5,7 @@ import SortByDropDown from "./SortByDropDown";
 import "./SearchBar.css";
 import { useRef, useState } from "react";
 
-const Header = (props) => {
+const HeaderLegacy = (props) => {
   // TODO: pull the event name from the axware page and put it in the navbar
 
   const [clearButtonHidden, setClearButtonHidden] = useState(true);
@@ -121,4 +121,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default HeaderLegacy;
