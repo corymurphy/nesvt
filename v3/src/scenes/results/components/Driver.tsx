@@ -19,7 +19,7 @@ const Driver = (props: any) => {
             </h4>
           </div>
           <div className="col-4">
-            <div className="row">
+            <div key={props.position + 1} className="row">
               <h5 className="card-title">{props.driver.name}</h5>
             </div>
             <div className="row">

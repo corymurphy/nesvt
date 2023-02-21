@@ -1,4 +1,4 @@
-const SortBy = {
+const SortBy: any = {
   Time: "time",
   Number: "number",
   Class: "class",

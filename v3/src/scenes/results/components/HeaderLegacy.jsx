@@ -1,7 +1,7 @@
 /* eslint-disable */
 import SearchBar from "./SearchBar";
 import ClassDropDown from "./ClassDropDown";
-import SortByDropDown from "./SortByDropDown";
+import SortByDropDown from "./SortByDropDownLegacy";
 import "./SearchBar.css";
 import { useRef, useState } from "react";
 

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import SortBy from "./SortBy";
 
-const SortByDropDown = (props) => {
+const SortByDropDownLegacy = (props) => {
   const [selectedSort, setSelectedSort] = useState(
     sessionStorage.getItem("sortBy") || "class"
   );
@@ -51,4 +51,4 @@ const SortByDropDown = (props) => {
   );
 };
 
-export default SortByDropDown;
+export default SortByDropDownLegacy;

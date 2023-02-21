@@ -13,42 +13,40 @@ export default function ClassDropDown(props: any) {
   }
 
   return (
-    <Navbar.Collapse id="classes">
-      <Nav>
-        <NavDropdown id="classes" title="Class" menuVariant="dark">
-          {props.results.hasOwnProperty("class") ? (
-            Object.keys(props.results.class).map((item) => (
-              <NavDropdown.Item
-                className={
-                  item === selectedClass && props.clearButtonHidden === false
-                    ? "dropdown-item active"
-                    : "dropdown-item"
-                }
-                id={item}
-                onClick={classSelectHandler}
-                key={item}
-              >
-                {item}
-              </NavDropdown.Item>
-            ))
-          ) : (
-            <NavDropdown.Item key="noData">No Data</NavDropdown.Item>
-          )}
-          <NavDropdown.Divider />
-          <NavDropdown.Item
-            className={
-              selectedClass === "all" || props.clearButtonHidden === true
-                ? "dropdown-item active"
-                : "dropdown-item"
-            }
-            onClick={classSelectHandler}
-            id="all"
-            key="showAll"
-          >
-            Show All
-          </NavDropdown.Item>
-        </NavDropdown>
-      </Nav>
-    </Navbar.Collapse>
+    <Nav>
+      <NavDropdown id="classes" title="Class" menuVariant="dark">
+        {props.results.hasOwnProperty("class") ? (
+          Object.keys(props.results.class).map((item) => (
+            <NavDropdown.Item
+              className={
+                item === selectedClass && props.clearButtonHidden === false
+                  ? "dropdown-item active"
+                  : "dropdown-item"
+              }
+              id={item}
+              onClick={classSelectHandler}
+              key={item}
+            >
+              {item}
+            </NavDropdown.Item>
+          ))
+        ) : (
+          <NavDropdown.Item key="noData">No Data</NavDropdown.Item>
+        )}
+        <NavDropdown.Divider />
+        <NavDropdown.Item
+          className={
+            selectedClass === "all" || props.clearButtonHidden === true
+              ? "dropdown-item active"
+              : "dropdown-item"
+          }
+          onClick={classSelectHandler}
+          id="all"
+          key="showAll"
+        >
+          Show All
+        </NavDropdown.Item>
+      </NavDropdown>
+    </Nav>
   );
 }

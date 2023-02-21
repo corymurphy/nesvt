@@ -8,23 +8,23 @@ function Header() {
           <Image src="images/logo2.png" width={35} height={35} />
         </Navbar.Brand>
 
-        <Nav>
-          <Nav.Link href="./">Home</Nav.Link>
-        </Nav>
+        <Navbar.Collapse>
+          <Nav>
+            <Nav.Link href="./">Home</Nav.Link>
+          </Nav>
 
-        <Nav>
-          <Nav.Link href="./results">Live Timing</Nav.Link>
-        </Nav>
+          <Nav>
+            <Nav.Link href="./results">Live Timing</Nav.Link>
+          </Nav>
 
-        <Nav>
-          <Nav.Link href="./events">Events</Nav.Link>
-        </Nav>
+          <Nav>
+            <Nav.Link href="./events">Events</Nav.Link>
+          </Nav>
 
-        <Nav>
-          <Nav.Link href="./gallery">Gallery</Nav.Link>
-        </Nav>
+          <Nav>
+            <Nav.Link href="./gallery">Gallery</Nav.Link>
+          </Nav>
 
-        <Navbar.Collapse id="faq">
           <Nav>
             <NavDropdown id="faq" title="FAQ" menuVariant="dark">
               <NavDropdown.Item href="./faq#autocross101">
