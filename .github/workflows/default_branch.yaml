@@ -25,6 +25,12 @@ jobs:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
 
+      - name: inject secrets into v3 project
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./webcontent/v3/public/contact.php.tpl > ./webcontent/v3/public/contact.php
+        env:
+          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+          CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
+
       - name: use nodejs 16
         uses: actions/setup-node@v2
         with:

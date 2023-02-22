@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- TODO: use js to change title with club and event #  -->
+    <title>Live Results</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <link rel="stylesheet" href="app.css">
+</head>
+
+<body>
+    <!-- just grabbed a navbar off of boostrap for funsies and synergy -->
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary" id="mainNavBar">
+        <div class="container-fluid">
+            <!-- could change the navbar-brand to state the club name and event number -->
+            <a class="navbar-brand" href="#">RESULTS</a>
+            <!-- buttons could be used for refresh, e-mailing results to yourself, other? -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <!-- this doesn't do anything -->
+                        <a class="nav-link active" aria-current="page" href="#">Dark Mode?</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Class
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown" id="navbarClassSelector">
+                            <!-- if going to use these, should auto-populate with classes using js -->
+                            <!-- also need to determine desired functionality of this menu -->
+                            <li><a class="dropdown-item" href="#">ES</a></li>
+                            <li><a class="dropdown-item" href="#">ER (Hardcoded)</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Show All</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Remove Cones</a>
+                    </li>
+                </ul>
+                <!-- need to figure out what we want the behaviour of the search function to be -->
+                <form class="d-flex">
+                    <input class="form-control me-2" type="search" placeholder="Search for Driver" aria-label="Search">
+                    <button class="btn btn-light" type="submit">Go</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#classList1"
+                    aria-expanded="true" aria-controls="collapseClassList1">
+                    <h3>ES - Experienced Street</h3>
+                </button>
+            </div>
+            <div class="col-sm-4 text-muted align-self-center">
+                <h4>69 Drivers</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse show" id="classList1">
+        <div class="container-fluid" id="class1">
+            <div class="card w-100 border-success mt-2" id="class1Driver1">
+                <div class="row g-3 align-items-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <!-- driver's position in class -->
+                        <h4 class="driverPosition">1</h4>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h5 class="card-title">Driver Name</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">#420</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">2006 Subaru Vape</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <p class="card-text">Fastest Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>69.420</b></p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">Last Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>68.008+3</b></p>
+                        </div>
+                    </div>
+                    <div class="col-2 p-2">
+                        <div class="row text-center">
+                            <p class="card-text">Runs: <b>7</b></p>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-outline-primary text-nowrap timesButton"
+                                data-bs-toggle="collapse" data-bs-target="#class1Driver1Times" aria-expanded="false"
+                                aria-controls="collapseClass1Driver1Times">Show
+                                All</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- colapsable list of all recorded times -->
+                <div class="collapse px-2" id="class1Driver1Times">
+                    <hr class="style1 mb-0">
+                    <div class="row row-cols-auto">
+                        <div class="col">
+                            <p class="card-text"><b>1</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>2</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>3</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>4</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>5</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>6</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>7</b>: 69.690</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-100 mt-2" id="class1Driver2">
+                <div class="row g-3 align-items-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <!-- driver's position in class -->
+                        <h4 class="driverPosition">2</h4>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h5 class="card-title">Driver Name</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">#69</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">2021 ND2</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <p class="card-text">Fastest Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>80.085</b></p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">Last Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>77.420+DNF</b></p>
+                        </div>
+                    </div>
+                    <div class="col-2 p-2">
+                        <div class="row text-center">
+                            <p class="card-text">Runs: <b>6</b></p>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-outline-primary text-nowrap timesButton">Show
+                                All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container pt-4">
+        <div class="row">
+            <div class="col-sm-8">
+                <button class="btn" type="button" data-bs-toggle="collapse" data-bs-target="#classList2"
+                    aria-expanded="true" aria-controls="collapseClassList2">
+                    <h3>ER - Experienced Race (Hardcoded)</h3>
+                </button>
+            </div>
+            <div class="col-sm-4 text-muted align-self-center">
+                <h4>5 Drivers</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="collapse show" id="classList2">
+        <div class="container-fluid">
+            <div class="card w-100 border-success mt-2" id="class2Driver1">
+                <div class="row g-3 align-items-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <!-- driver's position in class -->
+                        <h4 class="driverPosition">1</h4>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h5 class="card-title">Driver Name</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">#420</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">2006 Subaru Vape</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <p class="card-text">Fastest Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>69.420</b></p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">Last Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>68.008+3</b></p>
+                        </div>
+                    </div>
+                    <div class="col-2 p-2">
+                        <div class="row text-center">
+                            <p class="card-text">Runs: <b>7</b></p>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-outline-primary text-nowrap timesButton"
+                                data-bs-toggle="collapse" data-bs-target="#class2Driver1Times" aria-expanded="false"
+                                aria-controls="collapseClass2Driver1Times">Show
+                                All</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- colapsable list of all recorded times -->
+                <div class="collapse px-2" id="class2Driver1Times">
+                    <hr class="style1 mb-0">
+                    <div class="row row-cols-auto">
+                        <div class="col">
+                            <p class="card-text"><b>1</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>2</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>3</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>4</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>5</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>6</b>: 69.690</p>
+                        </div>
+                        <div class="col">
+                            <p class="card-text"><b>7</b>: 69.690</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card w-100 mt-2" id="class2Driver2">
+                <div class="row g-3 align-items-center">
+                    <div class="col-1 d-flex justify-content-center">
+                        <!-- driver's position in class -->
+                        <h4 class="driverPosition">2</h4>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <h5 class="card-title">Driver Name</h5>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">#69</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">2021 ND2</p>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="row">
+                            <p class="card-text">Fastest Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>80.085</b></p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text">Last Run:</p>
+                        </div>
+                        <div class="row">
+                            <p class="card-text"><b>77.420+DNF</b></p>
+                        </div>
+                    </div>
+                    <div class="col-2 p-2">
+                        <div class="row text-center">
+                            <p class="card-text">Runs: <b>6</b></p>
+                        </div>
+                        <div class="row">
+                            <button type="button" class="btn btn-outline-primary text-nowrap timesButton">Show
+                                All</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <!-- js for page functions -->
+    <script src="app.js"></script>
+    <!-- js for parsing driver data -->
+    <script src="util.js"></script>
+</body>
+
+</html>

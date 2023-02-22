@@ -44,6 +44,11 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
+
+          <Nav>
+            <Nav.Link href="./contact">Contact Us</Nav.Link>
+          </Nav>
+
         </Navbar.Collapse>
 
         <Navbar.Toggle aria-controls="faq" />
