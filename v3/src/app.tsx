@@ -21,7 +21,7 @@ function App() {
         <Route path="/results" element={<Results />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/events" element={<Events />} />
-        <Route path="/contact" element={<Contact />} />
+        <Route path="/contactus" element={<Contact />} />
       </Routes>
     </>
   );

@@ -1,6 +1,8 @@
-export default function Context() {
+import Row from "react-bootstrap/Row";
+
+export default function Contact() {
   return (
-    <div className="container">
+    <div className="container" style={{ padding: "20px" }}>
       <div
         className="alert alert-success contact-result"
         style={{ display: "none" }}
@@ -25,7 +27,7 @@ export default function Context() {
             <div className="card-header">Please complete the form below</div>
             <div className="card-body">
               <form method="post" action="contact.php" accept-charset="utf-8">
-                <div className="form-row">
+                <Row style={{ paddingBottom: "10px" }}>
                   <div className="form-group col-md-6">
                     <label htmlFor="givenname">Firstname</label>
                     <input
@@ -42,9 +44,9 @@ export default function Context() {
                       className="form-control"
                     />
                   </div>
-                </div>
+                </Row>
 
-                <div className="form-row">
+                <Row style={{ paddingBottom: "10px" }}>
                   <div className="form-group col-md-6">
                     <label htmlFor="inputEmail4">Email</label>
                     <input
@@ -63,9 +65,9 @@ export default function Context() {
                       placeholder="Phone"
                     />
                   </div>
-                </div>
+                </Row>
 
-                <div className="form-group">
+                <div className="form-group" style={{ paddingBottom: "10px" }}>
                   <label htmlFor="exampleFormControlTextarea1">Message</label>
                   <textarea
                     className="form-control"
@@ -74,7 +76,7 @@ export default function Context() {
                   ></textarea>
                 </div>
 
-                <div className="form-row">
+                <Row style={{ paddingBottom: "10px" }}>
                   <div className="form-group col-md-6">
                     <div className="form-check form-check-inline">
                       <input
@@ -128,7 +130,7 @@ export default function Context() {
                       </label>
                     </div>
                   </div>
-                </div>
+                </Row>
 
                 <div className="form-row">
                   <div

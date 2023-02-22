@@ -46,7 +46,7 @@ function Header() {
           </Nav>
 
           <Nav>
-            <Nav.Link href="./contact">Contact Us</Nav.Link>
+            <Nav.Link href="./contactus">Contact Us</Nav.Link>
           </Nav>
 
         </Navbar.Collapse>
