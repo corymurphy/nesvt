@@ -83,13 +83,13 @@ function sendEmail()
 
 function redirectError()
 {
-  header("Location: contact?result=error");
+  header("Location: ./#/contact?result=error");
   die();
 }
 
 function redirectSuccess()
 {
-  header('Location: contact?result=success');
+  header('Location: ./#/contact?result=success');
   die();
 }
 
