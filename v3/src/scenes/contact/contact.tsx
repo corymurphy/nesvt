@@ -132,18 +132,24 @@ export default function Contact() {
                   </div>
                 </Row>
 
-                <div className="form-row">
-                  <div
+                <Row>
+                <div
                     className="g-recaptcha"
                     data-sitekey="6Lf2V04UAAAAAKv74ndYKz_QcK3wmF2d-yLEpe9Y"
                   ></div>
-                </div>
+                </Row>
+                {/* <div className="form-row">
 
-                <div className="form-row" style={{ paddingTop: "15px" }}>
-                  <button type="submit" className="btn btn-primary nesvt-btn">
+                </div> */}
+
+                <Row style={{ paddingTop: "15px" }}>
+                <button type="submit" className="btn btn-primary nesvt-btn">
                     Submit
                   </button>
-                </div>
+                </Row>
+                {/* <div className="form-row" style={{ paddingTop: "15px" }}>
+
+                </div> */}
               </form>
             </div>
           </div>
