@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./app";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, HashRouter } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 // import 'bootstrap/dist/js/bootstrap.min.js';
 import 'react-bootstrap';
@@ -16,8 +16,11 @@ import "./css/gallery-grid.css";
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
   <React.StrictMode>
-    <BrowserRouter>
+    {/* <BrowserRouter>
       <App />
-    </BrowserRouter>
+    </BrowserRouter> */}
+    <HashRouter>
+      <App />
+    </HashRouter>
   </React.StrictMode>
 );

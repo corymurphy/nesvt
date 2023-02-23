@@ -53,6 +53,9 @@ jobs:
         run: npm run build
         working-directory: v3
 
+      - name: copy results app into main app
+        run : cp -r results/build ./v3/dist/results/
+
       - name: copy v3 build artifacts to webcontent/v3
         run: mv v3/dist webcontent/v3
 
