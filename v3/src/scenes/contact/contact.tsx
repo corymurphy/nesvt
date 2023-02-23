@@ -1,11 +1,25 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Success from "./success";
 import Error from "./error";
 
 export default function Contact() {
-  const [showError, setShowError] = useState(location.hash.includes("result=error"));
-  const [showSuccess, setShowSuccess] = useState(location.hash.includes("result=success"));
+  const [showError, setShowError] = useState(
+    location.hash.includes("result=error")
+  );
+  const [showSuccess, setShowSuccess] = useState(
+    location.hash.includes("result=success")
+  );
+
+  useEffect(() => {
+    grecaptcha.ready(function () {
+      try {
+        grecaptcha.render("recaptcha-container", {
+          sitekey: "6Lf2V04UAAAAAKv74ndYKz_QcK3wmF2d-yLEpe9Y",
+        });
+      } catch {}
+    });
+  }, []);
 
   return (
     <div className="container" style={{ padding: "20px" }}>
@@ -21,7 +35,7 @@ export default function Contact() {
           <div className="card">
             <div className="card-header">Please complete the form below</div>
             <div className="card-body">
-              <form method="post" action="contact.php" accept-charset="utf-8">
+              <form method="post" action="contact.php" acceptCharset="utf-8">
                 <Row style={{ paddingBottom: "10px" }}>
                   <div className="form-group col-md-6">
                     <label htmlFor="givenname">Firstname</label>
@@ -78,7 +92,8 @@ export default function Contact() {
                         className="form-check-input"
                         type="checkbox"
                         name="info"
-                        value="true"
+                        // value="true"
+                        defaultChecked={true}
                       />
                       <label
                         htmlFor="inputEmail4"
@@ -101,7 +116,7 @@ export default function Contact() {
                         type="radio"
                         name="contact"
                         value="email"
-                        checked
+                        defaultChecked={true}
                       />
                       <label
                         className="form-check-label"
@@ -128,28 +143,25 @@ export default function Contact() {
                 </Row>
 
                 <Row>
-                  <div
-                    className="g-recaptcha"
-                    data-sitekey="6Lf2V04UAAAAAKv74ndYKz_QcK3wmF2d-yLEpe9Y"
-                  ></div>
+                  <div id="recaptcha-container"></div>
                 </Row>
-                {/* <div className="form-row">
-
-                </div> */}
 
                 <Row style={{ paddingTop: "15px" }}>
                   <button type="submit" className="btn btn-primary nesvt-btn">
                     Submit
                   </button>
                 </Row>
-                {/* <div className="form-row" style={{ paddingTop: "15px" }}>
-
-                </div> */}
               </form>
             </div>
           </div>
         </div>
       </div>
+
+      <script
+        async
+        defer
+        src="https://www.google.com/recaptcha/api.js?onloadCallback=onloadCallback"
+      ></script>
     </div>
   );
 }

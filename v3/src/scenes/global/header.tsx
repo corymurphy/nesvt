@@ -4,7 +4,7 @@ function Header() {
   return (
     <Navbar variant="dark" bg="dark" expand="lg">
       <Container fluid>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="./">
           <Image src="images/logo2.png" width={35} height={35} />
         </Navbar.Brand>
 

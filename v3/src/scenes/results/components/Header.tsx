@@ -9,7 +9,7 @@ import {
 import { useRef, useState } from "react";
 import ClassDropDown from "./ClassDownDrop";
 import SortByDropDown from "./SortByDropDown";
-import "./SearchBar.css"
+import "./SearchBar.css";
 import SearchBar from "./SearchBar";
 // import SearchBar from "../"
 
@@ -61,9 +61,6 @@ export default function Header(props: any) {
         </Navbar.Brand>
 
         <Navbar.Collapse>
-          <Nav>
-            <Nav.Link href="./">Home</Nav.Link>
-          </Nav>
           <ClassDropDown
             results={props.results}
             clearButtonHidden={clearButtonHidden}
@@ -96,10 +93,9 @@ export default function Header(props: any) {
             onSearchForDriver={driverSearchHandler}
             navButtonRef={navButtonRef}
           />
-
         </Navbar.Collapse>
 
-        <Navbar.Toggle/>
+        <Navbar.Toggle />
       </Container>
     </Navbar>
   );

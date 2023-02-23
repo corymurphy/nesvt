@@ -31,7 +31,7 @@ function Faq() {
             is about 9 minutes long.
             <div className="video-responsive">
               <iframe
-                src="http://player.vimeo.com/video/12067348"
+                src="https://player.vimeo.com/video/12067348"
                 style={{
                   alignItems: "center",
                   justifyContent: "center",
