@@ -14,7 +14,7 @@ function Header() {
           </Nav>
 
           <Nav>
-            <Nav.Link href="./results">Live Timing</Nav.Link>
+            <Nav.Link href="./#/results">Live Timing</Nav.Link>
           </Nav>
 
           <Nav>

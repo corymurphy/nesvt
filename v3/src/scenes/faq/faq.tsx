@@ -2,9 +2,10 @@ import { useCallback, useEffect, useState } from "react";
 import { Accordion, Container } from "react-bootstrap";
 
 function Faq() {
-  var hashPrefix: string = "#/faq"
-  const [active, setActive] = useState<string[]>([hashPrefix + window.location.hash]);
+  var hashPrefix: string = "#/faq";
+  const [active, setActive] = useState<string[]>([window.location.hash]);
 
+  console.log(active);
   // const hashChangeHandler = useCallback(() => {
   //   setActive([window.location.hash]);
   // }, []);
@@ -23,7 +24,7 @@ function Faq() {
   return (
     <Container>
       <Accordion defaultActiveKey={active} flush>
-        <Accordion.Item eventKey="#autocross101">
+        <Accordion.Item eventKey={hashPrefix + "#autocross101"}>
           <Accordion.Header>What is Autocross?</Accordion.Header>
           <Accordion.Body>
             This video gives a very good over view of the sport of autocross and
@@ -50,7 +51,7 @@ function Faq() {
             our or anyone else's events.
           </Accordion.Body>
         </Accordion.Item>
-        <Accordion.Item eventKey="#tech">
+        <Accordion.Item eventKey={hashPrefix + "#tech"}>
           <Accordion.Header>Will my car pass tech?</Accordion.Header>
           <Accordion.Body>
             <ul>
@@ -94,7 +95,7 @@ function Faq() {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="#location">
+        <Accordion.Item eventKey={hashPrefix + "#location"}>
           <Accordion.Header>Where do you race?</Accordion.Header>
           <Accordion.Body>
             <p className="lead">
@@ -144,7 +145,7 @@ function Faq() {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="#join">
+        <Accordion.Item eventKey={hashPrefix + "#join"}>
           <Accordion.Header>How do I join NE-SVT?</Accordion.Header>
           <Accordion.Body>
             <h3>Signing up for ne-svt membership.</h3>
@@ -163,7 +164,7 @@ function Faq() {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey="#signup">
+        <Accordion.Item eventKey={hashPrefix + "#signup"}>
           <Accordion.Header>
             How do I sign up for an autocross event?
           </Accordion.Header>
@@ -174,8 +175,7 @@ function Faq() {
               </strong>
             </p>
             <p className="lead">
-              Click <a href="./events">here</a> to see our events
-              page
+              Click <a href="./events">here</a> to see our events page
             </p>
           </Accordion.Body>
         </Accordion.Item>
