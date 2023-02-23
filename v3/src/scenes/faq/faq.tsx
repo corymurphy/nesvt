@@ -2,7 +2,8 @@ import { useCallback, useEffect, useState } from "react";
 import { Accordion, Container } from "react-bootstrap";
 
 function Faq() {
-  const [active, setActive] = useState<string[]>([window.location.hash]);
+  var hashPrefix: string = "#/faq"
+  const [active, setActive] = useState<string[]>([hashPrefix + window.location.hash]);
 
   // const hashChangeHandler = useCallback(() => {
   //   setActive([window.location.hash]);
