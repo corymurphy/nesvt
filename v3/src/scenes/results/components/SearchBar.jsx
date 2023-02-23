@@ -85,7 +85,7 @@ const SearchBar = (props) => {
   };
 
   return (
-    <div style={{ flex: 1, maxWidth: 400, "z-index": "1" }}>
+    <div style={{ flex: 1, maxWidth: 400, zIndex: "999", position: "relative" }}>
       <ReactSearchAutocomplete
         items={props.drivers}
         onSearch={handleOnSearch}

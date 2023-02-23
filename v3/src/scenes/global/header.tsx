@@ -51,7 +51,7 @@ function Header() {
 
         </Navbar.Collapse>
 
-        <Navbar.Toggle aria-controls="faq" />
+        <Navbar.Toggle/>
       </Container>
     </Navbar>
   );

@@ -98,6 +98,8 @@ export default function Header(props: any) {
           />
 
         </Navbar.Collapse>
+
+        <Navbar.Toggle/>
       </Container>
     </Navbar>
   );
