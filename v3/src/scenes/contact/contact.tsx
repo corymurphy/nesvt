@@ -1,22 +1,17 @@
+import { useState } from "react";
 import Row from "react-bootstrap/Row";
+import Success from "./success";
+import Error from "./error";
 
 export default function Contact() {
+  const [showError, setShowError] = useState(location.hash.includes("result=error"));
+  const [showSuccess, setShowSuccess] = useState(location.hash.includes("result=success"));
+
   return (
     <div className="container" style={{ padding: "20px" }}>
-      <div
-        className="alert alert-success contact-result"
-        style={{ display: "none" }}
-      >
-        <strong>SUCCESS</strong>: Your message has been sent, please allow us
-        some time to response.
-      </div>
+      {showSuccess ? <Success /> : <></>}
 
-      <div
-        className="alert alert-danger contact-result"
-        style={{ display: "none" }}
-      >
-        <strong>ERROR</strong>: Email could not be sent.
-      </div>
+      {showError ? <Error /> : <></>}
 
       <div
         className="col-md-12"
@@ -133,7 +128,7 @@ export default function Contact() {
                 </Row>
 
                 <Row>
-                <div
+                  <div
                     className="g-recaptcha"
                     data-sitekey="6Lf2V04UAAAAAKv74ndYKz_QcK3wmF2d-yLEpe9Y"
                   ></div>
@@ -143,7 +138,7 @@ export default function Contact() {
                 </div> */}
 
                 <Row style={{ paddingTop: "15px" }}>
-                <button type="submit" className="btn btn-primary nesvt-btn">
+                  <button type="submit" className="btn btn-primary nesvt-btn">
                     Submit
                   </button>
                 </Row>
