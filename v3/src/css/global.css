@@ -1,13 +1,6 @@
-.event-year {
-  display: block;
-  font-size: 28pt;
-  font-weight: 100;
-  line-height: 1;
-}
-
 .msr-link {
   display: inline-block; 
-  padding: 15px;
+  /* padding: 15px; */
 }
 
 .msr-img {
