@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function HelmetAlert(props: any) {
+export default function HelmetAlert() {
   const [showHelmet, setShowHelmet] = useState(
     window.localStorage.getItem("helmetDismissed") == null || false
   );
