@@ -38,7 +38,7 @@ jobs:
         working-directory: site
 
       - name: copy build artifacts to webcontent
-        run: mv site/dist webcontent/
+        run: mv site/dist/* webcontent/
 
       - name: move webcontent to root because git ftp is silly
         run: |
