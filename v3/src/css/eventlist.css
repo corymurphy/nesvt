@@ -43,6 +43,12 @@
     font-weight: 900;
     line-height: 1;
 }
+.event-list > li > time > .year {
+    display: block;
+    font-size: 22pt;
+    font-weight: 100;
+    line-height: 1;
+}
 .event-list > li > img {
     width: 100%;
 }

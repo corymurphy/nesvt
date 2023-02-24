@@ -9,23 +9,15 @@ function Header() {
         </Navbar.Brand>
 
         <Navbar.Collapse>
-          <Nav>
+          <Nav className="me-auto">
             <Nav.Link href="./">Home</Nav.Link>
-          </Nav>
 
-          <Nav>
             <Nav.Link href="./#/results">Live Timing</Nav.Link>
-          </Nav>
 
-          <Nav>
             <Nav.Link href="./#/events">Events</Nav.Link>
-          </Nav>
 
-          <Nav>
             <Nav.Link href="./#/gallery">Gallery</Nav.Link>
-          </Nav>
 
-          <Nav>
             <NavDropdown id="faq" title="FAQ" menuVariant="dark">
               <NavDropdown.Item href="./#/faq#autocross101">
                 What is Autocross?
@@ -43,15 +35,25 @@ function Header() {
                 How do I sign up?
               </NavDropdown.Item>
             </NavDropdown>
-          </Nav>
 
-          <Nav>
             <Nav.Link href="./#/contact">Contact Us</Nav.Link>
           </Nav>
 
+          <Nav>
+            <Navbar.Brand>
+              <a href="https://motorsportreg.com" className="msr-link">
+                <img
+                  src="https://msr-hotlink.s3.amazonaws.com/powered-by/powered-by-msr-outline@2x.png"
+                  alt="Online registration and event management service for motorsport events powered by MotorsportReg.com"
+                  title="Online registration and event management service for motorsport events powered by MotorsportReg.com"
+                  className="msr-img"
+                />
+              </a>
+            </Navbar.Brand>
+          </Nav>
         </Navbar.Collapse>
 
-        <Navbar.Toggle/>
+        <Navbar.Toggle />
       </Container>
     </Navbar>
   );

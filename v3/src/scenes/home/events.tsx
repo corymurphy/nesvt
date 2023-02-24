@@ -3,6 +3,7 @@ import { ClubEvent } from "../../models/data/event";
 import { monthShort } from "../../models/data/date";
 import SignUpLink from "../../components/msr/signupLink";
 import EventCard from "../global/eventCard";
+import MembershipCard from "../global/membershipCard";
 
 function Events() {
   var events: ClubEvent[] = getEvents();
@@ -13,6 +14,7 @@ function Events() {
     <>
       <div className="col-md-6">
         <ul className="event-list">
+          <MembershipCard />
           <EventCard event={event}/>
         </ul>
 
