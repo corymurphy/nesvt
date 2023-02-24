@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import { ClubEvent } from "./models/data/event";
@@ -8,10 +8,12 @@ import Faq from "./scenes/faq/faq";
 import Gallery from "./scenes/gallery/gallery";
 
 import Header from "./scenes/global/header";
+import HelmetAlert from "./scenes/global/helmetAlert";
 import Home from "./scenes/home/home";
 import Results from "./scenes/results/Results";
 
 function App() {
+
   return (
     <>
       {useLocation().pathname !== "/results" ? <Header /> : null}
@@ -23,6 +25,7 @@ function App() {
         <Route path="/events" element={<Events />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
+      {useLocation().pathname !== "/results" ? <HelmetAlert /> : null}
     </>
   );
 }
