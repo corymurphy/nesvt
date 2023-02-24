@@ -19,7 +19,7 @@ jobs:
         run: mkdir webcontent
 
       - name: inject secrets
-        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/contact.php > ./webcontent/contact.php
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/public/contact.php > ./webcontent/contact.php
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
