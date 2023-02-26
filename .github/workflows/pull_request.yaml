@@ -5,38 +5,47 @@ on:
     branches: [ main ]
 
 jobs:
-  pull_request:
+  build_deploy:
     runs-on: ubuntu-latest
+    # runs-on: ubuntu-20.04
     steps:
+
       - name: Check out repository code
         uses: actions/checkout@v2
-      - name: build website
-        shell: pwsh
-        run: ./Build-Website
+        with:
+          fetch-depth: 2
+
+      - name: create deployable directory
+        run: mkdir webcontent
+
       - name: inject secrets
-        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./webcontent/contact.php.tpl > ./webcontent/contact.php
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/public/contact.php > ./webcontent/contact.php
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
 
-      # build react app
       - name: use nodejs 16
         uses: actions/setup-node@v2
         with:
           node-version: '16'
           check-latest: true
+
       - name: npm install
         run: npm install
-        working-directory: results
+        working-directory: site
+
       - name: npm build
         run: npm run build
-        working-directory: results
-      - name: copy artifacts to results
-        run: mv results/build webcontent/results
+        working-directory: site
+
+      - name: copy build artifacts to webcontent
+        run: mv site/dist/* webcontent/
 
       - name: move webcontent to root because git ftp is silly
         run: |
-          rm -rf results/
+          rm -rf site/
+          rm -rf .github/
+          rm -rf legacy/
           mv webcontent/* ./
 
       - name: setup git config

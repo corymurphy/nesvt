@@ -5,8 +5,8 @@ on:
 
 jobs:
   build_deploy:
-    # runs-on: ubuntu-latest
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
+    # runs-on: ubuntu-20.04
     steps:
 
       - name: Check out repository code
@@ -14,19 +14,11 @@ jobs:
         with:
           fetch-depth: 2
 
-
-      - name: build legacy website
-        shell: pwsh
-        run: ./Build-Website
+      - name: create deployable directory
+        run: mkdir webcontent
 
       - name: inject secrets
-        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./webcontent/contact.php.tpl > ./webcontent/contact.php
-        env:
-          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
-          CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
-
-      - name: inject secrets into v3 project
-        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./v3/public/contact.php.tpl > ./v3/public/contact.php
+        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/public/contact.php > ./webcontent/contact.php
         env:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
@@ -37,35 +29,22 @@ jobs:
           node-version: '16'
           check-latest: true
 
-      - name: results app npm install
+      - name: npm install
         run: npm install
-        working-directory: results
+        working-directory: site
 
-      - name: v3 app npm install
-        run: npm install
-        working-directory: v3
-
-      - name: results app npm build
+      - name: npm build
         run: npm run build
-        working-directory: results
+        working-directory: site
 
-      - name: v3 app npm build
-        run: npm run build
-        working-directory: v3
-
-      - name: copy results app into main app
-        run : cp -r results/build ./v3/dist/results/
-
-      - name: copy v3 build artifacts to webcontent/v3
-        run: mv v3/dist webcontent/v3
-
-      - name: copy artifacts to results
-        run: mv results/build webcontent/results
+      - name: copy build artifacts to webcontent
+        run: mv site/dist/* webcontent/
 
       - name: move webcontent to root because git ftp is silly
         run: |
-          rm -rf results/
-          rm -rf v3/
+          rm -rf site/
+          rm -rf .github/
+          rm -rf legacy/
           mv webcontent/* ./
 
       - name: setup git config
