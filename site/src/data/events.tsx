@@ -57,3 +57,11 @@ export function getEvents(): ClubEvent[] {
     },
   ];
 }
+
+export function defaultMembership(): {} {
+  return {
+    detailuri:  "https://www.MotorsportReg.com/events/ne-svt-2023-membership-devens-airfield-785736?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+    name: "NE-SVT 2023 Membership",
+    start: "2023-01-01"
+  }
+}

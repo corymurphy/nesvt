@@ -1,12 +1,56 @@
 import { useEffect, useState } from "react";
+import parseDate from "../../components/parse/datetime";
+import { defaultMembership } from "../../data/events";
 
-export default function MembershipCard() {
+export default function MembershipCard(props: {msrEvents: any}) {
   var msrLink: string =
     "https://www.motorsportreg.com/events/ne-svt-2023-membership-devens-airfield-785736";
 
+  let membershipEvent;
+
+  if (props.msrEvents == null) {
+    membershipEvent = defaultMembership()
+  }
+
+  function getMembershipEvent(msrEvents: any): {} {
+    let now = new Date();
+    let foundEvent;
+
+    if (msrEvents == null) {
+      return defaultMembership();
+    }
+
+    if (!msrEvents.hasOwnProperty("recordset")) {
+      return defaultMembership();
+    }
+
+    if (msrEvents.recordset.total == 0) {
+      return defaultMembership();
+    }
+
+    if (!msrEvents.hasOwnProperty("events")) {
+      return defaultMembership();
+    }
+
+    msrEvents.events.forEach((msrEvent: any) => {
+      if (msrEvent.type != "Membership") {
+        return
+      }
+      // now.getFullYear()
+      // var msrDate = new Date(msrEvent.start);
+      if (parseDate(msrEvent.start).getFullYear() == now.getFullYear()) {
+        foundEvent = msrEvent
+      }
+    });
+
+
+    return defaultMembership()
+  }
+
+
+
   return (
     <>
-      {" "}
       <li>
         <time dateTime={new Date().getFullYear().toString()}>
           <span className="year">{new Date().getFullYear()}</span>

@@ -1,0 +1,284 @@
+{
+  "response": {
+    "recordset": { "total": 9, "remaining": 0, "page": 1 },
+    "events": [
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-2022-membership-devens-airfield-393421?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/7F2AA1F7-9F42-FFE8-5E7DB1D2FD393421",
+        "name": "NE-SVT 2022 Membership",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.61157, 42.54029] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,54/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<p><big>Welcome to the membership page for NE-SVT Autocross for the 2022&nbsp;season.&nbsp; This membership will be required to run at our events. The club membership is open to licensed drivers of all makes and models of vehicles with the exception of SUVs and Pick Up Trucks, unless they have been specifically approved by the organizers.&nbsp; <u>Vehicles must be registered and insured</u>.&nbsp; <u>Unregistered cars will not be permitted.</u> &nbsp;</big></p>\n<p><big>You can learn more about the NE-SVT club at&nbsp; <a rel=\"nofollow\" href=\"http://www.ne-svt.org\">www.ne-svt.org</a>&nbsp;</big></p>\n<p><big>Our Autocross dates for <strong>2022</strong>&nbsp;are:&nbsp;&nbsp;<strong>4/16, 5/8, 6/18, 7/24, 9/3, 10/8, 10/23</strong></big></p>\n<p><big><strong>PLEASE NOTE: You will not be able to sign up for an Event until you have signed up for a membership!</strong></big></p>",
+        "public": true,
+        "start": "2022-01-01",
+        "end": "2022-10-31",
+        "id": "7F2AA1F7-9F42-FFE8-5E7DB1D2FD393421",
+        "registration": {
+          "start": "2022-01-21 05:00",
+          "end": "2022-11-01 03:59"
+        },
+        "type": "Membership"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autocross-april-16th-2022-devens-airfield-502986?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/63041380-B271-76C2-C2CCE925CA02986F",
+        "name": "NE-SVT Autocross April 16th, 2022",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,3/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<p><span style=\"color:#c0392b\"><strong>Event is full!</strong></span></p>\n<p>&nbsp;</p>\n<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to&nbsp;<strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><big>Other events for the season:&nbsp;5/8,&nbsp;6/18, 7/24, 9/3, 10/8, 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-04-16",
+        "end": "2022-04-16",
+        "id": "63041380-B271-76C2-C2CCE925CA02986F",
+        "registration": {
+          "start": "2022-03-14 04:00",
+          "end": "2022-04-15 03:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autocross-may-8th-2022-devens-airfield-611672?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/CA02DCD6-0AAF-E3C8-2D34E6E1FE16FF72",
+        "name": "NE-SVT Autocross May 8th, 2022",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,3/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to&nbsp;<strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><big>Other events for the season:&nbsp;6/18, 7/24, 9/3, 10/8, 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-05-08",
+        "end": "2022-05-08",
+        "id": "CA02DCD6-0AAF-E3C8-2D34E6E1FE16FF72",
+        "registration": {
+          "start": "2022-04-05 04:00",
+          "end": "2022-05-06 03:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autocross-june-18th-2022-devens-airfield-035871?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/9E068DA2-C811-D10A-765B2A15035C8C71",
+        "name": "NE-SVT Autox June 18 2022 - Let Me Show You My PAX",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,3/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to&nbsp;<strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><big>Other events for the season:&nbsp;7/24, 9/3, 10/8, 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-06-18",
+        "end": "2022-06-18",
+        "id": "9E068DA2-C811-D10A-765B2A15035C8C71",
+        "registration": {
+          "start": "2022-05-09 04:00",
+          "end": "2022-06-16 03:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autox-july-24th-2022-i-cone-dig-it-devens-airfield-043766?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/4A0F1DEB-03C8-9DA4-0A904604EEA3766E",
+        "name": "NE-SVT Autox July 24th 2022 - I Cone Dig It!",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,3/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to&nbsp;<strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><strong>We will be having a special back-to-back weekend with Track Club USA on the 23rd, where we will be running the same course but IN REVERSE!!!</strong></p>\n<p><strong>Track Club registration: <a href=\"https://msreg.com/TCUSAJULY2022\">https://msreg.com/TCUSAJULY2022</a></strong></p>\n<p><big>Other events for the season:&nbsp;9/3, 10/8, 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-07-24",
+        "end": "2022-07-24",
+        "id": "4A0F1DEB-03C8-9DA4-0A904604EEA3766E",
+        "registration": {
+          "start": "2022-06-21 04:00",
+          "end": "2022-07-22 03:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autox-september-3rd-2022-cone-get-it-devens-airfield-602098?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/EE5D97FB-BFF6-8867-E1BB6DDEA020DF98",
+        "name": "NE-SVT Autox September 3rd 2022 - Cone and Get It!",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": { "standard": "" },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to&nbsp;<strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><big>Other events for the season:&nbsp;10/8, 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-09-03",
+        "end": "2022-09-03",
+        "id": "EE5D97FB-BFF6-8867-E1BB6DDEA020DF98",
+        "registration": {
+          "start": "2022-08-03 04:00",
+          "end": "2022-09-02 03:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autox-october-8th-2022-cone-you-even-devens-airfield-403126?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/F4A15D55-F626-1351-1FAF13CF4C0E3126",
+        "name": "NE-SVT Autox October 8th 2022 - Cone You Even?",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/0f1bfce2-af7a-4bf0-9531-a92317c3ed07/-/crop/1593x896/0,82/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to the 6th <strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p><big>Other events for the season: 10/23</big></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\">&nbsp;</p>",
+        "public": true,
+        "start": "2022-10-08",
+        "end": "2022-10-08",
+        "id": "F4A15D55-F626-1351-1FAF13CF4C0E3126",
+        "registration": {
+          "start": "2022-09-07 04:00",
+          "end": "2022-10-06 15:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-autox-october-23rd-2022-onlycones-devens-airfield-251593?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/6C9C7334-DFF8-6FE0-8B41F92515D9CDE3",
+        "name": "NE-SVT Autox Oct. 23rd 2022 - Tire Warmer 500",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/0f1bfce2-af7a-4bf0-9531-a92317c3ed07/-/crop/1593x896/0,82/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<h2 style=\"font-style:italic\"><span style=\"color:#333333\">Welcome to the 7th and final <strong>NE-SVT</strong> Autocross of 2022.&nbsp; If you have never been to one of our events, you will not be disappointed! Our courses are just over 1.2 miles long and our events offer lots of seat time by limiting participation to only 60 cars!&nbsp; All drivers, regardless of experience levels are welcome.</span></h2>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#333333\"><em><strong>If you are not a 2022&nbsp;NE-SVT Member, you must sign up for membership first as detailed in the next screen.</strong></em></span></p>\n<p style=\"margin-left:0in; margin-right:0in\"><span style=\"color:#e67e22\"><strong>In the spirit of Halloween, costumes for both yourself and your car are welcome/encouraged!</strong></span></p>",
+        "public": true,
+        "start": "2022-10-23",
+        "end": "2022-10-23",
+        "id": "6C9C7334-DFF8-6FE0-8B41F92515D9CDE3",
+        "registration": {
+          "start": "2022-09-24 04:00",
+          "end": "2022-10-20 15:59"
+        },
+        "type": "Autocross/Solo"
+      },
+      {
+        "detailuri": "https://www.MotorsportReg.com/events/ne-svt-2023-membership-devens-airfield-785736?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
+        "uri": "/calendars/BE0DF141-9037-1A9A-C78BE57CFF3FD6ED",
+        "name": "NE-SVT 2023 Membership",
+        "organization": {
+          "uri": "/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87",
+          "name": "NE-SVT"
+        },
+        "cancelled": false,
+        "venue": {
+          "postalCode": "01434",
+          "geo": { "type": "Point", "coordinates": [-71.60017, 42.57743] },
+          "city": "Ayer",
+          "uri": "/calendars/venue/0D39AACD-A625-7163-B5C72E7D6F560CDE",
+          "name": "Devens Airfield",
+          "region": "MA"
+        },
+        "image": {
+          "standard": "//dl.motorsportreg.com/d85c7f92-eff5-420b-ada1-63ebb9e209cc/-/crop/1024x576/0,54/-/preview/-/progressive/yes/-/scale_crop/1012x606/center/-/format/png/msr.png"
+        },
+        "description": "<p><big>Welcome to the membership page for NE-SVT Autocross for the 2023&nbsp;season.&nbsp; This membership will be required to run at our events. The club membership is open to licensed drivers of all makes and models of vehicles with the exception of SUVs and Pick Up Trucks, unless they have been specifically approved by the organizers.&nbsp; <u>Vehicles must be registered and insured</u>.&nbsp; <u>Unregistered cars will not be permitted.</u> &nbsp;</big></p>\n<p><big>You can learn more about the NE-SVT club at&nbsp; <a rel=\"nofollow\" href=\"http://www.ne-svt.org\">www.ne-svt.org</a>&nbsp;</big></p>\n<p><big>Our Autocross dates for <strong>2023</strong>&nbsp;are:&nbsp;&nbsp;<strong>4/15, 5/14, 6/17, 7/23, 9/2, 10/7, 10/22</strong></big></p>\n<p><big><strong>PLEASE NOTE: You will not be able to sign up for an Event until you have signed up for a membership!</strong></big></p>",
+        "public": true,
+        "start": "2023-01-01",
+        "end": "2023-10-31",
+        "id": "BE0DF141-9037-1A9A-C78BE57CFF3FD6ED",
+        "registration": {
+          "start": "2023-01-21 05:00",
+          "end": "2023-11-01 03:59"
+        },
+        "type": "Membership"
+      }
+    ]
+  }
+}
