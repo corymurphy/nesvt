@@ -1,6 +1,7 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState, useEffect } from "react";
 import { Collapse, Button } from "react-bootstrap";
-
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import Driver from "./Driver";
 
 const DriverClass = (props: any) => {
@@ -44,8 +45,10 @@ const DriverClass = (props: any) => {
               aria-expanded={open}
             >
               <h3>
-                {props.driverClass.name}
-                {/* {props.driverClass.name} - {props.driverClass.alias.toUpperCase()} */}
+                <span>
+                  <FontAwesomeIcon icon={faCaretDown} />{" "}
+                  {props.driverClass.name}
+                </span>
               </h3>
             </Button>
           </div>
