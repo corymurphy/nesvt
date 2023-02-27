@@ -2,6 +2,9 @@ import { useCallback, useEffect, useState } from "react";
 import { Accordion, Container } from "react-bootstrap";
 
 function Faq() {
+  var msrLink: string =
+  "https://www.motorsportreg.com/events/ne-svt-2023-membership-devens-airfield-785736";
+
   var hashPrefix: string = "#/faq";
   const [active, setActive] = useState<string[]>([window.location.hash]);
 
@@ -154,10 +157,10 @@ function Faq() {
               in any ne-svt event. <br />
               You can sign up for membership here:&nbsp;{" "}
               <a
-                href="https://www.motorsportreg.com/events/ne-svt-2023-membership-devens-airfield-785736"
+                href={msrLink}
                 target="_blank"
               >
-                2023 ne-svt membership.
+                {new Date().getFullYear().toString()} ne-svt membership.
               </a>
               <br />
             </p>

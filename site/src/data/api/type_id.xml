@@ -1,0 +1,35 @@
+<select id="uidEventType" name="uidEventType" size="1">
+    <option value="">Choose a type...</option>
+    <option value="E45E2796-A916-6BD8-97619EBFDF81E3D6">Autocross/Solo</option>
+    <option value="791A3B8E-EA6B-642F-B0C0D6577659479B">Boat Racing</option>
+    <option value="E45F0646-CCDC-A393-98907C9C2CCF4EA4">Car Control Clinic</option>
+    <option value="0D28333F-A687-FAC2-D1FF74E5A6764080">Car Show/Concours</option>
+    <option value="E45CDE72-A859-E79F-D0CB8D7C1A6D415B">Club Race</option>
+    <option value="883FAD65-D778-BC8F-E1E30F42C045BFB0">Combined</option>
+    <option value="A0B33963-0230-8454-1B72E1B34BDFDD8F">Cross Country</option>
+    <option value="791A3BD8-AB40-3B9C-723E1E33EE5C5B21">Drag Racing</option>
+    <option value="976850B7-1D72-822B-79FA89B19C4C56BA">Drift</option>
+    <option value="4DC4D149-DDCD-6FC1-EC80F2C8A23C1CD4">Driver School</option>
+    <option value="272A3C82-BC41-4C9D-833E1E33EE5C5C33">Endurance Racing</option>
+    <option value="0DAAA8A0-DAA5-F16B-279E2070A40732CC">Festival/Social</option>
+    <option value="A0B33821-EACE-108D-42B9A5882D01E457">Flat Track</option>
+    <option value="8882210A-54E4-357F-0F626876BEED8EDF">Fun Run/Tour</option>
+    <option value="161A3C81-AB41-3B9C-723E1E33EE5C5B21">Hill Climb</option>
+    <option value="791A3B8D-BAFC-9345-F1E181CC87C95AD0">Ice Racing</option>
+    <option value="6D82210A-54E4-357F-0F626876BEED8EDF">Karting</option>
+    <option value="B8749D0A-1D72-822B-79974C62C67CE838" selected="selected">Membership</option>
+    <option value="791A3B90-E23E-3901-74030EADBF973BDB">Motocross</option>
+    <option value="6B71EF5B-1D72-822B-79E4EE2C0D51C95E">Motorcycle Race</option>
+    <option value="AC83310A-54E4-357F-0F626876BEED8EDF">Motorcycle School</option>
+    <option value="791A3B89-AB40-3B9C-723E1E33EE5C5B21">Off Road</option>
+    <option value="4DC7FA93-AF1F-8454-1A71E330357E382C">Open Track</option>
+    <option value="0D28334E-C687-FAC2-D1FF74E5A6764080">Pro Race</option>
+    <option value="CD063407-54E4-357F-0561772DF412108E">RallyCross</option>
+    <option value="9C82210A-54E4-357F-0F626876BEED8EDF">Road Rally</option>
+    <option value="AC83311C-54E4-357F-0F626876BEED8EDF">Seminar/Meeting</option>
+    <option value="272A3C81-BC41-4C9C-833E1E33EE5C5C32">Sim Racing</option>
+    <option value="791A3C80-AB40-3B9C-723E1E33EE5C5B21">Stage Rally</option>
+    <option value="F5D6686A-B920-4F21-600850951EB2739C">Tech Session</option>
+    <option value="2772E2F8-90C7-9596-3EE4D00CACAA2844">Time Trial</option>
+    <option value="07DB72B9-1D72-822B-799D8FACA7B9BB16">Vintage Racing</option>
+</select>
