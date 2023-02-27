@@ -56,8 +56,6 @@ export default function SignUpLink(props: {
         msrDate.getMonth() == eventDate.getMonth() &&
         msrDate.getDate() == eventDate.getDate()
       ) {
-        // console.log(msrDate.toISOString().split("T")[0]);
-        // has = true;
         foundMsrEvent.start = msrEvent.start;
         foundMsrEvent.detailuri = msrEvent.detailuri;
         return;
@@ -123,6 +121,8 @@ export default function SignUpLink(props: {
       </>
     );
   }
+
+  return <></>;
 }
 
 {

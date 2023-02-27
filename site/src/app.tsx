@@ -13,7 +13,6 @@ import Home from "./scenes/home/home";
 import Results from "./scenes/results/Results";
 
 function App() {
-  // var eventsPath: string = "";
   const [events, setEvents] = useState<{}>({});
 
   function end(): string {
@@ -47,16 +46,14 @@ function App() {
   useEffect(() => {
     fetch(eventsPath(), opts)
       .then((response) => response.json())
-      // .then((data) => {console.log(data); return data})
       .then((data) => setEvents(data.response))
-      // .then((data) => console.log(events));
   }, []);
 
   return (
     <>
       {useLocation().pathname !== "/results" ? <Header /> : null}
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<Home msrEvents={events}/>} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/results" element={<Results />} />
         <Route path="/faq" element={<Faq />} />

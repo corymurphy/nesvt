@@ -5,7 +5,7 @@ import SignUpLink from "../../components/msr/signupLink";
 import EventCard from "../global/eventCard";
 import MembershipCard from "../global/membershipCard";
 
-function Events() {
+function Events(props: {msrEvents: any}) {
   var events: ClubEvent[] = getEvents();
   var event: ClubEvent = nextEvent();
   var eventDate: Date = new Date(event.startDate);
@@ -14,8 +14,8 @@ function Events() {
     <>
       <div className="col-md-6">
         <ul className="event-list">
-          <MembershipCard />
-          <EventCard event={event}/>
+          <MembershipCard msrEvents={props.msrEvents}/>
+          <EventCard event={event} msrEvents={props.msrEvents}/>
         </ul>
 
         <p>
