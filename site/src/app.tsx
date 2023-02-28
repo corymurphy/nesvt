@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 
 import { ClubEvent } from "./models/data/event";
+import { MsrEvents } from "./models/data/msr";
 import Contact from "./scenes/contact/contact";
 import Events from "./scenes/events/events";
 import Faq from "./scenes/faq/faq";
@@ -13,7 +14,7 @@ import Home from "./scenes/home/home";
 import Results from "./scenes/results/Results";
 
 function App() {
-  const [events, setEvents] = useState<{}>({});
+  const [events, setEvents] = useState<MsrEvents >({} as MsrEvents);
 
   function end(): string {
     var d = new Date();

@@ -1,8 +1,9 @@
 import { getEvents } from "../../data/events";
 import { ClubEvent } from "../../models/data/event";
+import { MsrEvents } from "../../models/data/msr";
 import EventCard from "../global/eventCard";
 
-function Events(props: {msrEvents: any}) {
+function Events(props: {msrEvents: MsrEvents}) {
   var events: ClubEvent[] = getEvents();
 
   // if (props.msrEvents != null) {

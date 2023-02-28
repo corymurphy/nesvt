@@ -1,8 +1,9 @@
+import { MsrEvents } from "../../models/data/msr";
 import About from "./about";
 import Events from "./events";
 import Jumbotron from "./jumbotron";
 
-function Home(props: {msrEvents: any}) {
+function Home(props: {msrEvents: MsrEvents}) {
   return (
     <>
       <Jumbotron />

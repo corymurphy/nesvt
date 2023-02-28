@@ -1,4 +1,5 @@
 import { ClubEvent } from "../models/data/event";
+import { MsrEvent } from "../models/data/msr";
 
 function sortByDate(a: ClubEvent, b: ClubEvent): number {
   return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
@@ -58,10 +59,11 @@ export function getEvents(): ClubEvent[] {
   ];
 }
 
-export function defaultMembership(): {} {
+export function defaultMembership(): MsrEvent {
   return {
     detailuri:  "https://www.MotorsportReg.com/events/ne-svt-2023-membership-devens-airfield-785736?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
     name: "NE-SVT 2023 Membership",
-    start: "2023-01-01"
+    start: "2023-01-01",
+    type: "Membership"
   }
 }

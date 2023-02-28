@@ -1,18 +1,19 @@
 import { useEffect, useState } from "react";
 import parseDate from "../../components/parse/datetime";
 import { defaultMembership } from "../../data/events";
+import { MsrEvent, MsrEvents } from "../../models/data/msr";
 
-export default function MembershipCard(props: {msrEvents: any}) {
+export default function MembershipCard(props: { msrEvents: MsrEvents }) {
   var msrLink: string =
     "https://www.motorsportreg.com/events/ne-svt-2023-membership-devens-airfield-785736";
 
   let membershipEvent;
 
   if (props.msrEvents == null) {
-    membershipEvent = defaultMembership()
+    membershipEvent = defaultMembership();
   }
 
-  function getMembershipEvent(msrEvents: any): {} {
+  function getMembershipEvent(msrEvents: MsrEvents): {} {
     let now = new Date();
     let foundEvent;
 
@@ -32,22 +33,19 @@ export default function MembershipCard(props: {msrEvents: any}) {
       return defaultMembership();
     }
 
-    msrEvents.events.forEach((msrEvent: any) => {
+    msrEvents.events.forEach((msrEvent: MsrEvent) => {
       if (msrEvent.type != "Membership") {
-        return
+        return;
       }
       // now.getFullYear()
       // var msrDate = new Date(msrEvent.start);
       if (parseDate(msrEvent.start).getFullYear() == now.getFullYear()) {
-        foundEvent = msrEvent
+        foundEvent = msrEvent;
       }
     });
 
-
-    return defaultMembership()
+    return defaultMembership();
   }
-
-
 
   return (
     <>
