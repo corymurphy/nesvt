@@ -6,10 +6,6 @@ import EventCard from "../global/eventCard";
 function Events(props: {msrEvents: MsrEvents}) {
   var events: ClubEvent[] = getEvents();
 
-  // if (props.msrEvents != null) {
-  //   console.log(props.msrEvents.response)
-  // }
-
   return (
     <div className="container" style={{ paddingTop: "20px" }}>
       <div className="row">

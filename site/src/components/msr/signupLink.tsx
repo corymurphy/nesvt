@@ -26,9 +26,9 @@ export default function SignUpLink(props: {
       return false;
     }
 
-    var eventDate = new Date(event.startDate);
+    var eventDate = parseDate(event.startDate);
     msrEvents.events.forEach((msrEvent: any) => {
-      var msrDate = new Date(msrEvent.start);
+      var msrDate = parseDate(msrEvent.start);
 
       if (
         msrDate.getFullYear() == eventDate.getFullYear() &&

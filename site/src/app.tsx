@@ -33,9 +33,9 @@ function App() {
   }
 
   function eventsPath(): string {
-    return `./data/events_2022_2024.json`
+    // return `./data/events_2022_2024.json`
     // return `http://localhost:5173/data/events_2022_2024.json`
-    // return `https://api.motorsportreg.com/rest/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87.json?archive=true&start=${start()}&end=${end()}`;
+    return `https://api.motorsportreg.com/rest/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87.json?archive=true&start=${start()}&end=${end()}`;
   }
 
   var opts = {
