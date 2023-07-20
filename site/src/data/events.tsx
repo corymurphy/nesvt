@@ -2,20 +2,21 @@ import { ClubEvent } from "../models/data/event";
 import { MsrEvent } from "../models/data/msr";
 
 function sortByDate(a: ClubEvent, b: ClubEvent): number {
-  return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();
+  return new Date(b.startDate).getTime() - new Date(a.startDate).getTime();  
 }
 
 export function nextEvent(): ClubEvent {
   var events: ClubEvent[] = getEvents().sort(sortByDate);
   var now: Date = new Date();
 
-  events.forEach((event, i, arr) => {
-    var eventDate = new Date(event.startDate);
-    if (eventDate > now) {
-      return event;
-    }
-  });
+  for (let i = events.length - 1; i >= 0; i--) {
+    let event = events[i]
 
+    if (new Date(event.startDate) > now) {
+      console.log(event)
+      return event
+    }
+  }
   return events[events.length - 1];
 }
 

@@ -10,13 +10,13 @@ function Results() {
   const [results, setResults] = useState({});
 
   useEffect(() => {
-    fetch("data_sample.html")
+    fetch("live/data.html")
       .then((response) => response.text())
       .then((data) => setResults(parseResultsFromHtml(data)));
 
     const id = setInterval(
       () =>
-        fetch("data_sample.html")
+        fetch("live/data.html")
           .then((response) => response.text())
           .then((data) => setResults(parseResultsFromHtml(data))),
       15000
