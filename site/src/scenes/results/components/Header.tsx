@@ -70,7 +70,7 @@ export default function Header(props: any) {
           <SortByDropDown onSelectedSortBy={changeSortByHandler} />
 
           <Nav>
-            <Nav.Link href="data_sample.html">Raw Results</Nav.Link>
+            <Nav.Link href="live/data.html">Raw Results</Nav.Link>
           </Nav>
 
           <Nav>
