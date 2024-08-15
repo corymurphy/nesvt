@@ -41,8 +41,8 @@ function mapRow(headings: any) {
  * @return {Array<Object>}       array of objects representing each row in the table
  */
 export const parseTable = (table: any) => {
-  var headings = [...table.tBodies[0].rows[0].cells].map(
-    (heading) => heading.innerText
+  var headings = [...table.tBodies[0].rows[0].cells].map((heading) =>
+    heading.innerText.replace(/\s/g, "")
   );
 
   return [...table.tBodies[0].rows].map(mapRow(headings));
@@ -68,7 +68,24 @@ function getTime(entry: any) {
   }
 }
 
-function parseRuns(records: any, extended: any) {
+function buildRun(number: number, timeValue: string) {
+  const run = {
+    number: number,
+    time: getTime(timeValue)
+      .replace(/(\r\n|\n|\r)/gm, "")
+      .trim(),
+    dnf: timeValue.includes("dnf"),
+    cones: getConeHits(timeValue),
+    raw: timeValue,
+    display: "",
+  };
+
+  run.display = displayRun(run);
+
+  return run;
+}
+
+function buildRuns(records: any) {
   var runs = [];
 
   for (let i = 0; i < Object.keys(records).length; i++) {
@@ -76,34 +93,20 @@ function parseRuns(records: any, extended: any) {
 
     if (key.includes("Run")) {
       var number = parseInt(key.replace("Run", "").replace("..", ""));
-      runs.push({
-        number: number,
-        time: getTime(records[key])
-          .replace(/(\r\n|\n|\r)/gm, "")
-          .trim(),
-        dnf: records[key].includes("dnf"),
-        cones: getConeHits(records[key]),
-        raw: records[key],
-      });
-    }
-  }
+      var runValue = records[key];
 
-  for (let i = 0; i < Object.keys(extended).length; i++) {
-    key = Object.keys(extended)[i];
-
-    if (key.includes("Run")) {
-      number = parseInt(key.replace("Run", "").replace("..", ""));
-      runs.push({
-        number: number + 10,
-        time: getTime(extended[key]),
-        dnf: extended[key].includes("dnf"),
-        cones: getConeHits(extended[key]),
-        raw: extended[key],
-      });
+      var run = buildRun(number, runValue);
+      if (run.time != "") {
+        runs.push(run);
+      }
     }
   }
 
   return runs;
+}
+
+function parseRuns(records: any, extended: any) {
+  return [...buildRuns(records), ...buildRuns([extended])];
 }
 
 function parsePosition(pos: any) {
@@ -146,6 +149,8 @@ const getClassFullName = (shortName: any) => {
       return "Corvette Race";
     case "mzst":
       return "Zoom Zoom";
+    case "hardo":
+      return "PAX Nerds";
     default:
       return shortName;
   }
@@ -180,27 +185,52 @@ export const parseResults = (data: any) => {
       continue;
     }
 
+    const indexedClasses = ["hardo"];
+
     var normalizedRuns = parseRuns(row, next_row);
+
+    const indexedClass = indexedClasses.find((idxClass) =>
+      row.Class.startsWith(idxClass)
+    );
+    const subClass =
+      indexedClass !== undefined ? row.Class.replace(indexedClass, "") : "";
+
+    let fastest = null;
+
+    const fastestRunInfo = fastestRun(normalizedRuns);
+    let runDisplay = "";
+
+    if (indexedClass !== undefined) {
+      fastest = row.Total.split("/")[0].trim();
+      fastestRunInfo.time = fastest;
+    } else {
+      fastest = actualTime(fastestRunInfo);
+    }
+
+    runDisplay = displayRun(fastestRunInfo);
 
     var result = {
       name: row.Driver,
       number: row["#"],
-      class: row.Class,
+      class: indexedClass ?? row.Class,
+      subClass: subClass,
       car: row.CarModel,
       runs: normalizedRuns,
       trophy: isTrophy(row["Pos."]),
       position: parsePosition(row["Pos."]),
-      fastest: actualTime(fastestRun(normalizedRuns)),
+      fastestRunInfo: fastestRunInfo,
+      runDisplay: runDisplay,
+      fastest: fastest,
     };
 
     // TODO: refactor
-    if (results.class.hasOwnProperty(row.Class)) {
-      results.class[row.Class].count = results.class[row.Class].count + 1;
+    if (results.class.hasOwnProperty(result.class)) {
+      results.class[result.class].count = results.class[result.class].count + 1;
     } else {
-      results.class[row.Class] = {
+      results.class[result.class] = {
         count: 1,
-        name: getClassFullName(row.Class),
-        alias: row.Class,
+        name: getClassFullName(result.class),
+        alias: result.class,
       };
     }
 
@@ -277,7 +307,8 @@ export const initDoc = (body: any) => {
 
 export const parseResultsFromHtml = (data: any) => {
   var doc = initDoc(data);
-  const table = doc.querySelectorAll("table")[3];
+  const table = doc.querySelectorAll("table")[2];
+
   return parseResults(parseTable(table));
 };
 
