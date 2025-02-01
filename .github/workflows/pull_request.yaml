@@ -10,24 +10,21 @@ jobs:
     # runs-on: ubuntu-20.04
     steps:
 
-      - name: Check out repository code
-        uses: actions/checkout@v2
-        with:
-          fetch-depth: 2
+      - uses: actions/checkout@v4
 
-      - name: create deployable directory
-        run: mkdir webcontent
+      # - name: create deployable directory
+      #   run: mkdir webcontent
 
-      - name: inject secrets
-        run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/public/contact.php > ./webcontent/contact.php
-        env:
-          CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
-          CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
+      # - name: inject secrets
+      #   run: envsubst '${CONTACT_EMAIL} ${CAPTCHA_PRIVATE_KEY}' < ./site/public/contact.php > ./webcontent/contact.php
+      #   env:
+      #     CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
+      #     CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
 
-      - name: use nodejs 16
+      - name: use nodejs 22
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '22'
           check-latest: true
 
       - name: npm install
@@ -38,48 +35,21 @@ jobs:
         run: npm run build
         working-directory: site
 
-      - name: copy build artifacts to webcontent
-        run: mv site/dist/* webcontent/
+      # - name: copy build artifacts to webserver
+      #   run: mv site/dist/* webcontent/
 
-      - name: move webcontent to root because git ftp is silly
+      - name: copy files to server
         run: |
-          rm -rf site/
-          rm -rf .github/
-          rm -rf legacy/
-          mv webcontent/* ./
-
-      - name: setup git config
-        run: |
-          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
-          git config user.name "GitHub Actions Bot"
-          git config user.email "github@nesvt.org"
-
-      - name: commit
-        run: |
-          # Stage the file, commit and push
-          rm -f .gitignore
-          git add -A
-          git commit -m "ephemeral commit for git ftp push"
-
-
-      # 4.0+ is broken with 1and1    
-      # - name: 📂 Sync files
-      #   uses: SamKirkland/FTP-Deploy-Action@4.3.0
-      #   with:
-      #     server: ${{ secrets.FTP_SERVER }}
-      #     username: ${{ secrets.ftp_username }}
-      #     password: ${{ secrets.ftp_password }}
-      #     server-dir: /dev/
-      #     local-dir: ./webcontent/
-      #     protocol: ftp
-
-      - name: 📂 Sync files
-        # uses: SamKirkland/FTP-Deploy-Action@3.1.2
-        uses: corymurphy/ftp-deploy-action@3.1.8
-        with:
-          ftp-server: sftp://${{ secrets.FTP_SERVER }}/dev
-          ftp-username: ${{ secrets.FTP_USERNAME }}
-          ftp-password: ${{ secrets.FTP_PASSWORD }}
-          git-ftp-args: --insecure
-          # local-dir: ./webcontent/
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html
+  
+      # ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "mkdir -p /app"
+      # - name: move webcontent to root because git ftp is silly
+      #   run: |
+      #     rm -rf site/
+      #     rm -rf .github/
+      #     rm -rf legacy/
+      #     mv webcontent/* ./
 

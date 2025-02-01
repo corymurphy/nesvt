@@ -6,7 +6,6 @@ on:
 jobs:
   build_deploy:
     runs-on: ubuntu-latest
-    # runs-on: ubuntu-20.04
     steps:
 
       - name: Check out repository code
@@ -23,10 +22,10 @@ jobs:
           CONTACT_EMAIL: ${{ secrets.CONTACT_EMAIL }}
           CAPTCHA_PRIVATE_KEY: ${{ secrets.CAPTCHA_PRIVATE_KEY }}
 
-      - name: use nodejs 16
+      - name: use nodejs 22
         uses: actions/setup-node@v2
         with:
-          node-version: '16'
+          node-version: '22'
           check-latest: true
 
       - name: npm install
