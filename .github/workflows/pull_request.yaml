@@ -41,6 +41,7 @@ jobs:
       - name: copy files to server
         run: |
           mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html
@@ -53,4 +54,4 @@ jobs:
       #     rm -rf legacy/
       #     mv webcontent/* ./
 
-      
+
