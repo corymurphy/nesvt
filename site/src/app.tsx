@@ -59,7 +59,6 @@ function App() {
         <Route path="/results" element={<Results />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/events" element={<Events msrEvents={events}/>} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
       {useLocation().pathname !== "/results" ? <HelmetAlert /> : null}
     </>

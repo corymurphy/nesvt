@@ -25,46 +25,91 @@ export function getEvents(): ClubEvent[] {
     {
       type: "autocross",
       name: "#1",
-      startDate: "2024-04-20T00:00:00.000",
+      startDate: "2025-04-12T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#2",
-      startDate: "2024-06-02T00:00:00.000",
+      startDate: "2025-04-19T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#3",
-      startDate: "2024-06-22T00:00:00.000",
+      startDate: "2025-04-20T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#4",
-      startDate: "2024-07-28T00:00:00.000",
+      startDate: "2025-05-17T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#5",
-      startDate: "2024-08-31T00:00:00.000",
+      startDate: "2025-06-01T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#6",
-      startDate: "2024-10-12T00:00:00.000",
+      startDate: "2025-06-15T00:00:00.000",
     },
     {
       type: "autocross",
       name: "#7",
-      startDate: "2024-10-27T00:00:00.000",
+      startDate: "2025-06-28T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#8",
+      startDate: "2025-07-06T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#9",
+      startDate: "2025-07-12T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#10",
+      startDate: "2025-07-27T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#11",
+      startDate: "2025-08-09T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#12",
+      startDate: "2025-09-06T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#13",
+      startDate: "2025-09-14T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#14",
+      startDate: "2025-10-05T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#15",
+      startDate: "2025-10-25T00:00:00.000",
+    },
+    {
+      type: "autocross",
+      name: "#16",
+      startDate: "2025-11-01T00:00:00.000",
     },
   ];
 }
 
 export function defaultMembership(): MsrEvent {
   return {
-    detailuri:  "https://www.motorsportreg.com/events/ne-svt-2024-membership-devens-airfield-701754?utm_source=apis&utm_medium=apim&utm_campaign=apic&utm_content=json",
-    name: "NE-SVT 2024 Membership",
-    start: "2024-01-01",
+    detailuri:  "https://www.motorsportreg.com/events/ne-svt-2024-membership-devens-airfield-701754",
+    name: "NE-SVT 2025 Membership",
+    start: "2025-01-01",
     type: "Membership"
   }
 }
