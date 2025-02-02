@@ -36,7 +36,7 @@ function Header() {
               </NavDropdown.Item>
             </NavDropdown>
 
-            <Nav.Link href="https://www.motorsportreg.com/events/ne-svt-2024-membership-devens-airfield-701754">Contact Us</Nav.Link>
+            <Nav.Link href="https://www.motorsportreg.com/events/ne-svt-2025-membership-devens-airfield-012532">Contact Us</Nav.Link>
           </Nav>
 
           <Nav>

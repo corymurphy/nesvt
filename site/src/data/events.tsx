@@ -107,7 +107,7 @@ export function getEvents(): ClubEvent[] {
 
 export function defaultMembership(): MsrEvent {
   return {
-    detailuri:  "https://www.motorsportreg.com/events/ne-svt-2024-membership-devens-airfield-701754",
+    detailuri:  "https://www.motorsportreg.com/events/ne-svt-2025-membership-devens-airfield-012532",
     name: "NE-SVT 2025 Membership",
     start: "2025-01-01",
     type: "Membership"
