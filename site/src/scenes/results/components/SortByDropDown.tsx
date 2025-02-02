@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, NavDropdown } from "react-bootstrap";
 import SortBy from "./SortBy";
 
 export default function SortByDropDown(props: any) {
@@ -19,6 +19,7 @@ export default function SortByDropDown(props: any) {
       <NavDropdown id="navbarSortBySelector" title="SortBy" menuVariant="dark">
         {Object.keys(SortBy).map((sortBy: string) => (
           <NavDropdown.Item
+            key={sortBy}
             className={
               SortBy[sortBy] === selectedSort
                 ? "dropdown-item active"

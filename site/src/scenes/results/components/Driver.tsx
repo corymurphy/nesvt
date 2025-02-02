@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { Collapse, Button } from "react-bootstrap";
+import { Button, Collapse } from "react-bootstrap";
 
+import { countRuns, latestRun } from "../util";
 import Runs from "./Runs";
-import { fastestRun, countRuns, latestRun, displayRun } from "../util";
 
 const Driver = (props: any) => {
   const [open, setOpen] = useState(false);
@@ -23,7 +23,9 @@ const Driver = (props: any) => {
               <h5 className="card-title">{props.driver.name}</h5>
             </div>
             <div className="row">
-              <p className="card-text">#{props.driver.number}</p>
+              <p className="card-text">
+                #{props.driver.number} {props.driver.subClass?.toUpperCase()}
+              </p>
             </div>
             <div className="row">
               <p className="card-text">{props.driver.car}</p>
@@ -35,7 +37,7 @@ const Driver = (props: any) => {
             </div>
             <div className="row">
               <p className="card-text">
-                <b>{displayRun(fastestRun(props.driver.runs))}</b>
+                <b>{props.driver.runDisplay}</b>
               </p>
             </div>
             <div className="row">
