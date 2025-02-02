@@ -1,7 +1,7 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState, useEffect } from "react";
-import { Collapse, Button } from "react-bootstrap";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+import { Button, Collapse } from "react-bootstrap";
 import Driver from "./Driver";
 
 const DriverClass = (props: any) => {
@@ -63,7 +63,7 @@ const DriverClass = (props: any) => {
         <div>
           {getDriversInClass(props.driverClass.alias, props.drivers).map(
             (driver: any) => (
-              <Driver driver={driver} />
+              <Driver key={`${driver.number}-${driver.name}`} driver={driver} />
             )
           )}
         </div>
