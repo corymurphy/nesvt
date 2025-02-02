@@ -5,7 +5,7 @@ import { MsrEvent, MsrEvents } from "../../models/data/msr";
 
 export default function MembershipCard(props: { msrEvents: MsrEvents }) {
   var msrLink: string =
-    "https://www.motorsportreg.com/events/ne-svt-2024-membership-devens-airfield-701754";
+    "https://www.motorsportreg.com/events/ne-svt-2025-membership-devens-airfield-012532";
 
   let membershipEvent;
 

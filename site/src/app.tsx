@@ -33,8 +33,6 @@ function App() {
   }
 
   function eventsPath(): string {
-    // return `./data/events_2022_2024.json`
-    // return `http://localhost:5173/data/events_2022_2024.json`
     return `https://api.motorsportreg.com/rest/calendars/organization/F9EADF5D-F9F5-4B6C-4951013B365A2F87.json?archive=true&start=${start()}&end=${end()}`;
   }
 
@@ -59,7 +57,6 @@ function App() {
         <Route path="/results" element={<Results />} />
         <Route path="/faq" element={<Faq />} />
         <Route path="/events" element={<Events msrEvents={events}/>} />
-        <Route path="/contact" element={<Contact />} />
       </Routes>
       {useLocation().pathname !== "/results" ? <HelmetAlert /> : null}
     </>
