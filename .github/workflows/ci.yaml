@@ -48,14 +48,14 @@ jobs:
       - name: deploy development
         if: github.ref_name != github.event.repository.default_branch
         run: |
-          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html/development"
-          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html/development
+          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html/dev"
+          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html/dev
 
       - name: deploy production
         if: github.ref_name == github.event.repository.default_branch
         run: |
-          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html/production && sudo chown -R root:www-data /var/www/html/production"
-          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html/production
+          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html"
+          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
 
       - name: disconnect from vpn
         run: sudo wg-quick down githubactions
