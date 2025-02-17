@@ -38,6 +38,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - uses: actions/checkout@v4
+
     - env:
         SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
         SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
