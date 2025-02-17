@@ -16,7 +16,7 @@ on:
 #   wireguard_example:
 #     runs-on: ubuntu-latest
 #     steps:
-#       - run: sudo apt install wireguard
+#       - run: sudo apt install wireguardz
 
 #       - run: echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
 
@@ -36,7 +36,7 @@ jobs:
 
     steps:
     - run: |
-        sudo apt install wiregaurd
+        sudo apt update && sudo apt install wiregaurd
         echo "${{ secrets.WIREGAURD_PROFILE }}" > /etc/wireguard/githubactions.conf
         sudo wg-quick up githubactions
         netstat -rn
