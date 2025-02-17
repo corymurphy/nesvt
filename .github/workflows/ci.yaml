@@ -50,7 +50,10 @@ jobs:
         echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
         sudo wg-quick up githubactions
 
-        
+        scp README.md ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
+
+# echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+
   # echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
   # echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
   # chmod 600 ~/.ssh/id_rsa
