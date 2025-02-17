@@ -6,41 +6,73 @@ on:
   pull_request:
     branches: [ main ]
 
+
+    # name: WireGuard example
+
+# on:
+#   workflow_dispatch:
+
+# jobs:
+#   wireguard_example:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - run: sudo apt install wireguard
+
+#       - run: echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
+
+#       - run: sudo ip link add dev wg0 type wireguard
+
+#       - run: sudo ip address add dev wg0 192.168.1.2 peer 192.168.1.1
+
+#       - run: sudo wg set wg0 listen-port 48123 private-key privatekey peer examplepubkey1234... allowed-ips 0.0.0.0/0 endpoint 1.2.3.4:56789
+
+#       - run: sudo ip link set up dev wg0
+
+#       - run: curl -vvv http://192.168.1.1
+
 jobs:
-  deploy:
+  deploy2:
     runs-on: ubuntu-latest
+
     steps:
+    - run: |
+        sudo apt install wiregaurd
+        echo "${{ secrets.WIREGAURD_PROFILE }}" > /etc/wireguard/githubactions.conf
+        sudo wg-quick up githubactions
+        netstat -rn
+  # deploy:
+  #   runs-on: ubuntu-latest
+  #   steps:
 
-      - uses: actions/checkout@v4
+  #     - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '22'
-          check-latest: true
+  #     - uses: actions/setup-node@v4
+  #       with:
+  #         node-version: '22'
+  #         check-latest: true
 
-      - run: npm install
-        working-directory: site
+  #     - run: npm install
+  #       working-directory: site
 
-      - run: npm run build
-        working-directory: site
+  #     - run: npm run build
+  #       working-directory: site
 
-      - name: deploy development
-        if: github.ref_name != github.event.repository.default_branch
-        run: | 
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html/dev && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html/dev"
-          scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html/dev
+  #     - name: deploy development
+  #       if: github.ref_name != github.event.repository.default_branch
+  #       run: | 
+  #         mkdir -p ~/.ssh
+  #         echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+  #         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+  #         chmod 600 ~/.ssh/id_rsa
+  #         ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html/dev && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html/dev"
+  #         scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html/dev
 
-      - name: deploy production
-        if: github.ref_name == github.event.repository.default_branch
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html"
-          scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html
-  
+  #     - name: deploy production
+  #       if: github.ref_name == github.event.repository.default_branch
+  #       run: |
+  #         mkdir -p ~/.ssh
+  #         echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+  #         echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+  #         chmod 600 ~/.ssh/id_rsa
+  #         ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html"
+  #         scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html
