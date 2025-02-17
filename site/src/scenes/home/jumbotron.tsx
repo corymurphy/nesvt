@@ -8,7 +8,7 @@ function Jumbotron() {
           </h3>
           <p></p>
           <p className="lead">
-            <a className="btn btn-primary btn-lg" href="./faq" role="button">
+            <a className="btn btn-primary btn-lg" href="./#/faq" role="button">
               Learn more
             </a>
           </p>

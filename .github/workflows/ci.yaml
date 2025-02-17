@@ -6,9 +6,13 @@ on:
   pull_request:
     branches: [ main ]
 
+env:
+  SSH_AUTH_SOCK: /tmp/ssh.sock
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
 
       - uses: actions/checkout@v4
@@ -24,23 +28,34 @@ jobs:
       - run: npm run build
         working-directory: site
 
-      - name: deploy development
-        if: github.ref_name != github.event.repository.default_branch
+      - name: setup ssh
+        env:
+          SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
         run: | 
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html/dev && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html/dev"
-          scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html/dev
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          echo "echo $SSH_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
+
+      - name: connect to vpn
+        run: |
+          sudo apt update && sudo apt install wireguard
+          echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
+          sudo wg-quick up githubactions
+
+      - name: deploy development
+        if: github.ref_name != github.event.repository.default_branch
+        run: |
+          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html/dev"
+          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html/dev
 
       - name: deploy production
         if: github.ref_name == github.event.repository.default_branch
         run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh -i ~/.ssh/id_rsa ubuntu@${{ secrets.SSH_SERVER }} "sudo mkdir -p /var/www/oci2.corymurphy.io/html && sudo chown -R ubuntu:ubuntu /var/www/oci2.corymurphy.io/html"
-          scp -i ~/.ssh/id_rsa -r ./site/dist/* ubuntu@${{ secrets.SSH_SERVER }}:/var/www/oci2.corymurphy.io/html
-  
+          ssh ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }} "mkdir -p /var/www/html"
+          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
+
+      - name: disconnect from vpn
+        run: sudo wg-quick down githubactions
