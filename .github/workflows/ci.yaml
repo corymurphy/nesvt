@@ -6,30 +6,6 @@ on:
   pull_request:
     branches: [ main ]
 
-
-    # name: WireGuard example
-
-# on:
-#   workflow_dispatch:
-
-# jobs:
-#   wireguard_example:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - run: sudo apt install wireguardz
-
-#       - run: echo "${{ secrets.WIREGUARD_PRIVATE_KEY }}" > privatekey
-
-#       - run: sudo ip link add dev wg0 type wireguard
-
-#       - run: sudo ip address add dev wg0 192.168.1.2 peer 192.168.1.1
-
-#       - run: sudo wg set wg0 listen-port 48123 private-key privatekey peer examplepubkey1234... allowed-ips 0.0.0.0/0 endpoint 1.2.3.4:56789
-
-#       - run: sudo ip link set up dev wg0
-
-#       - run: curl -vvv http://192.168.1.1
-
 env:
   SSH_AUTH_SOCK: /tmp/ssh.sock
 
@@ -39,25 +15,40 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - env:
-        SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
-        SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
-        ssh-agent -a $SSH_AUTH_SOCK > /dev/null
-        echo "echo $SSH_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
-        echo "$SSH_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          check-latest: true
 
-        sudo apt update && sudo apt install wireguard
-        echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
-        sudo wg-quick up githubactions
+      - run: npm install
+        working-directory: site
 
-        scp README.md ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
+      - run: npm run build
+        working-directory: site
 
-        sudo wg-quick down githubactions
+      - name: setup ssh
+        env:
+          SSH_PASSPHRASE: ${{secrets.SSH_PASSPHRASE}}
+          SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+        run: | 
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
+          ssh-agent -a $SSH_AUTH_SOCK > /dev/null
+          echo "echo $SSH_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
+          echo "$SSH_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
+
+      - name: deploy
+        run: |
+
+          sudo apt update && sudo apt install wireguard
+          echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
+          sudo wg-quick up githubactions
+
+          scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
+
+          sudo wg-quick down githubactions
 
 # echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
