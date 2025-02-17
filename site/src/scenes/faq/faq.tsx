@@ -178,7 +178,7 @@ function Faq() {
               </strong>
             </p>
             <p className="lead">
-              Click <a href="./events">here</a> to see our events page
+              Click <a href="./#/events">here</a> to see our events page
             </p>
           </Accordion.Body>
         </Accordion.Item>
