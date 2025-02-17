@@ -37,7 +37,7 @@ jobs:
     steps:
     - run: |
         sudo apt update && sudo apt install wireguard
-        echo "${{ secrets.WIREGAURD_PROFILE }}" > /etc/wireguard/githubactions.conf
+        echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
         sudo wg-quick up githubactions
         netstat -rn
   # deploy:
