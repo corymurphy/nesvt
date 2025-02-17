@@ -55,6 +55,8 @@ jobs:
 
         scp README.md ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
 
+        sudo wg-quick down githubactions
+
 # echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
 
   # echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
