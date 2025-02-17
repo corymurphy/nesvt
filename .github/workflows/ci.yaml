@@ -10,7 +10,7 @@ env:
   SSH_AUTH_SOCK: /tmp/ssh.sock
 
 jobs:
-  deploy2:
+  deploy:
     runs-on: ubuntu-latest
 
     steps:
@@ -39,15 +39,15 @@ jobs:
           echo "echo $SSH_PASSPHRASE" > ~/.ssh_askpass && chmod +x ~/.ssh_askpass
           echo "$SSH_PRIVATE_KEY" | tr -d '\r' | DISPLAY=None SSH_ASKPASS=~/.ssh_askpass ssh-add - >/dev/null
 
-      - name: deploy
+      - name: connect to vpn
         run: |
-
           sudo apt update && sudo apt install wireguard
           echo "${{ secrets.WIREGAURD_PROFILE }}" | sudo tee -a /etc/wireguard/githubactions.conf > /dev/null
           sudo wg-quick up githubactions
 
+      - name: deploy
+        run: |
           scp -r ./site/dist/* ${{ secrets.SSH_USER}}@${{ secrets.SSH_SERVER }}:/var/www/html
-
           sudo wg-quick down githubactions
 
 # echo "${{ secrets.SSH_KNOWN_HOSTS }}" > ~/.ssh/known_hosts
