@@ -106,7 +106,7 @@ function buildRuns(records: any) {
 }
 
 function parseRuns(records: any, extended: any) {
-  return [...buildRuns(records), ...buildRuns([extended])];
+  return [...buildRuns(records), ...buildRuns(extended)];
 }
 
 function parsePosition(pos: any) {
