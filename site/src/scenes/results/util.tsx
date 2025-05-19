@@ -131,10 +131,10 @@ function getNextRow(data: any, i: any) {
 
 const getClassFullName = (shortName: any) => {
   switch (shortName) {
-    case "es":
-      return "Experienced Street";
     case "er":
       return "Experienced Race";
+    case "es":
+      return "Experienced Street";
     case "int":
       return "Intermediate";
     case "n":
