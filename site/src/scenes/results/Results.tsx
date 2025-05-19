@@ -28,6 +28,14 @@ function Results() {
   const [selectedSortBy, setSelectedSortBy] = useState(
     sessionStorage.getItem("sortBy") || "class"
   );
+
+  // refresh results when sort by changes so that times are parsed correctly
+  useEffect(() => {
+    fetch("live/data.html")
+      .then((response) => response.text())
+      .then((data) => setResults(parseResultsFromHtml(data)));
+  }, [selectedSortBy]);
+
   const [currentDriverClass, setCurrentDriverClass] = useState(
     sessionStorage.getItem("class") || "all"
   );

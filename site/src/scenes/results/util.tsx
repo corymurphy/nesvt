@@ -201,7 +201,11 @@ export const parseResults = (data: any) => {
     let runDisplay = "";
 
     if (indexedClass !== undefined) {
-      fastest = row.Total.split("/")[0].trim();
+      // if we are viewing all results sorted by time, we should pax these results so we can compare across classes
+      const isTimeSort = sessionStorage.getItem("sortBy") === "time";
+      fastest = isTimeSort
+        ? row.Total.split("/")[1].trim()
+        : row.Total.split("/")[0].trim();
       fastestRunInfo.time = fastest;
     } else {
       fastest = actualTime(fastestRunInfo);
