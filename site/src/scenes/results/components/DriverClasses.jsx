@@ -1,7 +1,9 @@
 import DriverClass from "./DriverClass";
 
 const DriverClasses = (props) => {
-  // define empty driver array and empty class object to pass along when there's no data
+  const { results, selectedDriverClass, selectedDriver, clearButtonPressed } =
+    props;
+
   const nullDriver = [
     {
       name: "No Data",
@@ -19,63 +21,84 @@ const DriverClasses = (props) => {
     alias: "null",
   };
 
-  // I dont' know if this is dumb approach or not, but the four conditions below are:
-  // 1: there is driver data, no filter is selected in the "Class" dropdown on the navbar, no driver is selected in search
-  // 2: there is driver data, a filter IS selected in the "Class" dropdown on the navbar, no driver is selected in search
-  // 3: there is driver data, a driver IS selected in search
-  // 4: there is no driver data (except util.js throws an error when there's no data so this never shows up)
+  const sortOrder = [
+    "er",
+    "es",
+    "int",
+    "n",
+    "pony",
+    "fwd",
+    "cst",
+    "crt",
+    "mzst",
+    "hardo",
+  ];
+
+  // Early return if no class data
+  if (!results || !results.class) {
+    return (
+      <DriverClass key="null" driverClass={nullClass} drivers={nullDriver} />
+    );
+  }
+
+  // If a driver is selected, show only that driver and their class
+  if (selectedDriver) {
+    const driver = Object.values(results.drivers || {}).find(
+      (d) => d.name === selectedDriver
+    );
+    const driverClass = driver
+      ? Object.values(results.class).find((c) => c.alias === driver.class)
+      : nullClass;
+    const drivers = driver ? [driver] : nullDriver;
+    return (
+      <DriverClass
+        key={driverClass ? driverClass.alias : "null"}
+        driverClass={driverClass || nullClass}
+        drivers={drivers}
+        selectedDriver={selectedDriver}
+        selectedDriverClass={selectedDriverClass}
+        clearButtonPressed={clearButtonPressed}
+      />
+    );
+  }
+
+  // If a class filter is selected (not "all"), show only that class
+  if (selectedDriverClass && selectedDriverClass !== "all") {
+    const driverClass = Object.values(results.class).find(
+      (c) => c.alias === selectedDriverClass
+    );
+    return (
+      <DriverClass
+        key={driverClass ? driverClass.alias : "null"}
+        driverClass={driverClass || nullClass}
+        drivers={results.drivers}
+        selectedDriverClass={selectedDriverClass}
+        clearButtonPressed={clearButtonPressed}
+      />
+    );
+  }
+
+  // Default: render all classes, sorted by sortOrder
+  const sortedClasses = Object.values(results.class).sort((a, b) => {
+    const aIdx = sortOrder.indexOf(a.alias);
+    const bIdx = sortOrder.indexOf(b.alias);
+    if (aIdx === -1 && bIdx === -1) return 0;
+    if (aIdx === -1) return 1;
+    if (bIdx === -1) return -1;
+    return aIdx - bIdx;
+  });
 
   return (
     <>
-      {props.results.hasOwnProperty("class") &&
-      props.selectedDriverClass === "all" &&
-      !props.selectedDriver ? (
-        Object.values(props.results.class).map((item, i) => (
-          <DriverClass
-            key={i}
-            driverClass={item}
-            drivers={props.results.drivers}
-            selectedDriverClass={props.selectedDriverClass}
-            clearButtonPressed={props.clearButtonPressed}
-          />
-        ))
-      ) : props.results.hasOwnProperty("class") && !props.selectedDriver ? (
+      {sortedClasses.map((driverClass) => (
         <DriverClass
-          key={0}
-          // key={i}
-          driverClass={
-            Object.values(props.results.class).filter(
-              (driverClass) => driverClass.alias === props.selectedDriverClass
-            )[0]
-          }
-          drivers={props.results.drivers}
-          selectedDriverClass={props.selectedDriverClass}
-          clearButtonPressed={props.clearButtonPressed}
+          key={driverClass.alias}
+          driverClass={driverClass}
+          drivers={results.drivers}
+          selectedDriverClass={selectedDriverClass}
+          clearButtonPressed={clearButtonPressed}
         />
-      ) : // this is dumb but it works
-      props.results.hasOwnProperty("class") && props.selectedDriver ? (
-        <DriverClass
-          key={0}
-          // key={i}
-          driverClass={
-            Object.values(props.results.class).filter(
-              (driverClass) =>
-                driverClass.alias ===
-                Object.values(props.results.drivers).filter(
-                  (driver) => driver.name === props.selectedDriver
-                )[0].class
-            )[0]
-          }
-          drivers={Object.values(props.results.drivers).filter(
-            (driver) => driver.name === props.selectedDriver
-          )}
-          selectedDriver={props.selectedDriver}
-          selectedDriverClass={props.selectedDriverClass}
-          clearButtonPressed={props.clearButtonPressed}
-        />
-      ) : (
-        <DriverClass key={0} driverClass={nullClass} drivers={nullDriver} />
-      )}
+      ))}
     </>
   );
 };
