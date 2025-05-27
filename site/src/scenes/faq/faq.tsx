@@ -41,6 +41,15 @@ function Faq() {
                 }}
               ></iframe>
             </div>
+            Autocross is a slow speed racing event where you compete for time.
+            Courses are created with cones in the morning of the event and courses 
+            are unique for each event. With autocross you are never racing against another vehicle, 
+            you are only competing for the best time through the course. 
+            Speeds are usually between 35-65 MPH, timing equipment captures the time through
+            the course, and penalties are added for hitting course cones. The benefit is that drivers can
+            explore the limits of their car with a significantly lower risk than on 
+            public roads.  All events are run legally and as safely as possible.
+
             Part of what makes autocross so inexpensive is the shared work load.
             Each person is assigned a work station. You will most likely be
             assigned a station on the course where you will reset hit cones,
@@ -102,13 +111,14 @@ function Faq() {
           <Accordion.Header>Where do you race?</Accordion.Header>
           <Accordion.Body>
             <p className="lead">
-              A typical course layout is 1.8 Miles long at takes around 100 -
-              120 seconds to complete.
+              A typical course layout is about a mile long at takes around 60-90 seconds to complete.
             </p>
             <p className="lead">
               Autocross events are held at the old U.S. Army Moore Airfield at
               Fort Devens, located in Ayer, MA. a little north of Route 2 and
-              West of Route 495. (92 Fitchburg Road, Ayer MA){" "}
+              West of Route 495. 
+              
+              Address: 92 Fitchburg Road, Ayer MA{" "}
             </p>
             <p className="lead">
               From Route 495: Take exit 30, route 2A and 110, West toward Ayer.
@@ -144,6 +154,26 @@ function Faq() {
                 src="images/devens.svg"
                 style={{ width: "100%", maxWidth: "600px" }}
               />
+            </p>
+          </Accordion.Body>
+        </Accordion.Item>
+
+        <Accordion.Item eventKey={hashPrefix + "#tech"}>
+          <Accordion.Header>Can I spectate before signing up?</Accordion.Header>
+          <Accordion.Body>
+            <p className="lead">
+              Absolutely.  Spectators and guests are always welcome.  When you arrive
+              at the airfield you will need to sign a waiver, but then you are free to
+              walk around the grid area and go for rides in the vehicles that are driving
+              (must be 16 or older). Just be aware that the folks in the grid are waiting
+              for their turn to race, so vehicles will be slowly driving around. If you would
+              like to go for a ride in a car that is racing, a helmet is required.  We typically
+              have loaner helmets available and head socks for $1. 
+
+              Our recommendation is to visit an event before signing up.  Check out the events
+              page and feel free to email us if you have questions before an event.
+
+              events@ne-svt.org
             </p>
           </Accordion.Body>
         </Accordion.Item>
