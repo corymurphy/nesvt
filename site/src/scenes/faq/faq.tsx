@@ -41,6 +41,7 @@ function Faq() {
                 }}
               ></iframe>
             </div>
+            <p className="lead">
             Autocross is a slow speed racing event where you compete for time.
             Courses are created with cones in the morning of the event and courses 
             are unique for each event. With autocross you are never racing against another vehicle, 
@@ -49,7 +50,9 @@ function Faq() {
             the course, and penalties are added for hitting course cones. The benefit is that drivers can
             explore the limits of their car with a significantly lower risk than on 
             public roads.  All events are run legally and as safely as possible.
-
+            </p>
+            
+            <p className="lead">
             Part of what makes autocross so inexpensive is the shared work load.
             Each person is assigned a work station. You will most likely be
             assigned a station on the course where you will reset hit cones,
@@ -61,13 +64,19 @@ function Faq() {
             the golden rule of autocross, you must work your assignment, leaving
             early without cause will ensure that you are not welcomed back at
             our or anyone else's events.
+            </p>
           </Accordion.Body>
         </Accordion.Item>
+
         <Accordion.Item eventKey={hashPrefix + "#tech"}>
           <Accordion.Header>Will my car pass tech?</Accordion.Header>
           <Accordion.Body>
             <ul>
               <li>Your car must be registered and insured.</li>
+              <li>
+                Your car must pass sound requirements.  Check our sound 
+                link for further information.  Not louder than 87db at 75 
+                feet, measured during the event.</li>
               <li>
                 Check tires - Good condition, no exposed cords, cracks in
                 sidewalls.
@@ -84,9 +93,10 @@ function Faq() {
               <li>Check overall for fluid leaks.</li>
               <li>
                 Check that brake pedal is firm. Brake and clutch fluid levels
-                are sufficient, no leaks.
+                are sufficient, no leaks.  ALso recommend changing the fluid if it 
+                hasn't been done in the last two years.
               </li>
-              <li>Check throttle return spring.</li>
+              <li>Check throttle return spring.  No sticky gas pedal issues.</li>
               <li>
                 Remove all loose items from interior, NO FLOOR MAT ON DRIVER
                 SIDE.
@@ -97,7 +107,7 @@ function Faq() {
               </li>
               <li>
                 Helmet must be of SNELL 2015 (M OR SA) standard or newer or FIA
-                homologation.
+                homologation.  We have loaners available.
               </li>
               <li>
                 Car numbers (className is optional) must be on both sides of the
@@ -118,7 +128,7 @@ function Faq() {
               Fort Devens, located in Ayer, MA. a little north of Route 2 and
               West of Route 495. 
               
-              Address: 92 Fitchburg Road, Ayer MA{" "}
+              <li>Address: 92 Fitchburg Road, Ayer MA{" "}</li>
             </p>
             <p className="lead">
               From Route 495: Take exit 30, route 2A and 110, West toward Ayer.
@@ -158,8 +168,8 @@ function Faq() {
           </Accordion.Body>
         </Accordion.Item>
 
-        <Accordion.Item eventKey={hashPrefix + "#tech"}>
-          <Accordion.Header>Can I spectate before signing up?</Accordion.Header>
+        <Accordion.Item eventKey={hashPrefix + "#guests"}>
+          <Accordion.Header>Can I check it out before signing up?</Accordion.Header>
           <Accordion.Body>
             <p className="lead">
               Absolutely.  Spectators and guests are always welcome.  When you arrive
@@ -170,10 +180,43 @@ function Faq() {
               like to go for a ride in a car that is racing, a helmet is required.  We typically
               have loaner helmets available and head socks for $1. 
 
+              <li>
               Our recommendation is to visit an event before signing up.  Check out the events
               page and feel free to email us if you have questions before an event.
+              </li>  
+              
+              <li>events@ne-svt.org</li>
+            </p>
+          </Accordion.Body>
+        </Accordion.Item>
 
-              events@ne-svt.org
+        <Accordion.Item eventKey={hashPrefix + "#sound"}>
+          <Accordion.Header>Sound requirements</Accordion.Header>
+          <Accordion.Body>
+            <p className="lead">
+              We have strict sound limits for the venue.  This has been a long standing
+              issue and we have worked closely with the town to ensure that we do not
+              exceed the limits designated by the local community.  We greatly appreciate
+              their continued support of the sport and use of the velue, so please do not 
+              get upset if we need to shut your car down for the day due to it exceeding 
+              the sound limits(87db @75')
+
+              <li>
+              If you are running an aftermarket exhaust the likelihood that you will exceed
+              sound is much higher.  If you are on a stock exhaust you will most likely be okay
+              unless you are bringing a C8 Z06, GT4, GT3, or Shelby.  Most other stock cars are fine
+              but we will monitor sound throughout the day.
+              </li>  
+              
+              <li>
+              In the event that we need to stop you for exceeding sound you will be given the
+              chance to quiet your car.  Support will be available at the event, but understand
+              that if a quieter solution isn't available you won't be able to race that vehicle 
+              for the remainder of the day.  You are welcome to use another vehicle(beat your friend
+              in their own car, it's awesome), but you will need to stay at the event until your work
+              assignment is finished.  This goes back to that golden rule of autocross..the reason this
+              is so inexpensive is because we work together to have a successful day.
+              </li>
             </p>
           </Accordion.Body>
         </Accordion.Item>
