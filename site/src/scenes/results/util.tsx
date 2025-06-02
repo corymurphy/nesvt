@@ -76,7 +76,7 @@ function buildRun(number: number, timeValue: string) {
       .trim(),
     dnf: timeValue.includes("dnf"),
     cones: getConeHits(timeValue),
-    raw: timeValue,
+    raw: timeValue.trim(),
     display: "",
   };
 
@@ -296,10 +296,11 @@ export const latestRun = (runs: any) => {
 };
 
 export const fastestRun = (runs: any) => {
-  var fastest = { time: 999.999, dnf: false, cones: 0 };
+  var fastest = { time: 999.999, dnf: false, cones: 0, number: 0 };
   runs.forEach((run: any, index: any, runs: any) => {
     if (actualTime(run) < actualTime(fastest) && !run.dnf) {
       fastest = run;
+      fastest.number = index + 1;
     }
   });
   return fastest;
