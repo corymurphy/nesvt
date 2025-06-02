@@ -7,6 +7,8 @@ import Runs from "./Runs";
 const Driver = (props: any) => {
   const [open, setOpen] = useState(false);
 
+  const isHardo = props.driver.class === "hardo";
+
   return (
     <div key={props.position + 1} className="container-fluid">
       <div className="card w-100 border-darkmode mt-2">
@@ -33,13 +35,27 @@ const Driver = (props: any) => {
           </div>
           <div className="col-4">
             <div className="row">
-              <p className="card-text">Fastest Run:</p>
+              <p className="card-text">
+                {isHardo ? "Fastest PAX:" : "Fastest Run:"}
+              </p>
             </div>
             <div className="row">
               <p className="card-text">
                 <b>{props.driver.runDisplay}</b>
               </p>
             </div>
+            {isHardo && (
+              <>
+                <div className="row">
+                  <p className="card-text">Fastest Raw:</p>
+                </div>
+                <div className="row">
+                  <p className="card-text">
+                    <b>{props.driver.fastestRunInfo.raw}</b>
+                  </p>
+                </div>
+              </>
+            )}
             <div className="row">
               <p className="card-text">Last Run:</p>
             </div>
@@ -71,7 +87,10 @@ const Driver = (props: any) => {
         {/* <Collapse in={open}  variant="px-2"> */}
         <Collapse in={open}>
           <div className="px-2">
-            <Runs runs={props.driver.runs} />
+            <Runs
+              runs={props.driver.runs}
+              fastestRunInfo={props.driver.fastestRunInfo}
+            />
           </div>
         </Collapse>
       </div>
