@@ -26,7 +26,7 @@ const ResultsSorter = (props) => {
   }
 
   return (
-    <>
+    <div style={{ paddingBottom: "200px" }}>
       {/* {console.log(props.results)} */}
       {props.selectedSortBy === "class" && (
         <DriverClasses
@@ -45,6 +45,7 @@ const ResultsSorter = (props) => {
               key={position + 1}
               driver={driver}
               position={position + 1}
+              sortedByTime
             />
           ))}
         </div>
@@ -63,7 +64,7 @@ const ResultsSorter = (props) => {
             ))}
         </div>
       )}
-    </>
+    </div>
   );
 };
 

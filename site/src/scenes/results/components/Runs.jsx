@@ -7,13 +7,13 @@ const Runs = ({ runs, fastestRunInfo }) => {
           <div key={key + 1} className="col">
             <p className="card-text">
               <b>{key + 1}</b>:{" "}
-              <span
-                className={
-                  key + 1 === fastestRunInfo.number ? "text-success" : ""
-                }
-              >
-                {run.display}
-              </span>
+              {key + 1 === fastestRunInfo.number ? (
+                <span className={"text-success"}>
+                  <b>{run.display}</b>
+                </span>
+              ) : (
+                <span>{run.display}</span>
+              )}
             </p>
           </div>
         ))}
