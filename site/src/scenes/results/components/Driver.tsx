@@ -7,18 +7,21 @@ import Runs from "./Runs";
 const Driver = (props: any) => {
   const [open, setOpen] = useState(false);
 
-  const isHardo = props.driver.class === "hardo";
+  const isHardo = props.driver.class === "hardo" && !props.sortedByTime;
 
   return (
     <div key={props.position + 1} className="container-fluid">
       <div className="card w-100 border-darkmode mt-2">
         <div className="row g-3 align-items-center">
-          <div className="col-1 d-flex justify-content-center">
+          <div className="col-1 d-flex flex-column justify-content-center align-items-center">
             <h4 className="driverPosition">
               {props.position !== null && props.position
                 ? props.position
                 : props.driver.position}
             </h4>
+            {props.sortedByTime && (
+              <div className="card-text">{props.driver.class}</div>
+            )}
           </div>
           <div className="col-4">
             <div key={props.position + 1} className="row">
